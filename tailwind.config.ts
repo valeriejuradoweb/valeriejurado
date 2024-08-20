@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        body: ["var(--font-jost)"],
-        display: ["var(--font-jost)"],
+        body: ["var(--font-red-hat-text)"],
+        display: ["var(--font-red-hat-display)"],
       }
     },
   },
