@@ -21,7 +21,7 @@ const components: JSXMapSerializer = {
   ),
 
   paragraph: ({ children }) => (
-    <p className="text-xl text-center font-normal leading-10 font-body mb-4 md:mb-8 max-w-md">
+    <p className="link text-xl text-center font-normal leading-10 font-body mb-4 md:mb-8 max-w-md">
       {children}
     </p>
   ),
@@ -42,7 +42,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="grid grid-cols-1 place-items-center text-center">
+      <div className="grid grid-cols-1 place-items-center text-center py-14">
         <PrismicRichText
           field={slice.primary.heading}
           components={components}

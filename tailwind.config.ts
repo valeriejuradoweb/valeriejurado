@@ -11,7 +11,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         body: ["var(--font-red-hat-text)"],
-        display: ["var(--font-red-hat-display)"],
+        display: ["var(--font-red-hat-display)"]
       }
     },
   },

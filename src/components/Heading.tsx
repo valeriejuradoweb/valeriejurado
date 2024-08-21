@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 type HeadingProps = {
-  as?: "h2" | "h1" | "h3" | "h4" | "h5" | "h6";
+  as?: "h2" | "h1" | "h3" | "h4" | "h5" | "h6" | "link";
   size?: "xl" | "lg" | "md" | "sm";
   children: React.ReactNode;
   className?: string;
@@ -16,7 +16,7 @@ export default function Heading({
   return (
     <Comp
       className={clsx(
-        "leading-tight tracking-tight font-display",
+        "leading-tight tracking-wide font-display text-slate-900",
         size === "xl" && "text-5xl md:text-7xl",
         size === "lg" && "text-4xl md:text-5xl",
         size === "md" && "text-3xl md:text-4xl",
