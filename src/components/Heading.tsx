@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 type HeadingProps = {
-  as?: "h2" | "h1" | "h3" | "h4" | "h5" | "h6" | "link";
+  as?: "h2" | "h1" | "h3" | "h4" | "h5" | "h6";
   size?: "xl" | "lg" | "md" | "sm";
   children: React.ReactNode;
   className?: string;
