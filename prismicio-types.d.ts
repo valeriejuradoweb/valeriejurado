@@ -173,11 +173,11 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = HomepageDocument | SettingsDocument;
 
 /**
- * Primary content in *Hero → Default → Primary*
+ * Primary content in *Hero → Dark → Primary*
  */
 export interface HeroSliceDefaultPrimary {
   /**
-   * Heading field in *Hero → Default → Primary*
+   * Heading field in *Hero → Dark → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -187,7 +187,7 @@ export interface HeroSliceDefaultPrimary {
   heading: prismic.RichTextField;
 
   /**
-   * Body field in *Hero → Default → Primary*
+   * Body field in *Hero → Dark → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -197,7 +197,7 @@ export interface HeroSliceDefaultPrimary {
   body: prismic.RichTextField;
 
   /**
-   * Button Text field in *Hero → Default → Primary*
+   * Button Text field in *Hero → Dark → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -207,7 +207,7 @@ export interface HeroSliceDefaultPrimary {
   button_text: prismic.KeyTextField;
 
   /**
-   * Button Link field in *Hero → Default → Primary*
+   * Button Link field in *Hero → Dark → Primary*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -217,7 +217,7 @@ export interface HeroSliceDefaultPrimary {
   button_link: prismic.LinkField;
 
   /**
-   * Image field in *Hero → Default → Primary*
+   * Image field in *Hero → Dark → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -225,10 +225,20 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Background Image field in *Hero → Dark → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
 }
 
 /**
- * Default variation for Hero Slice
+ * Dark variation for Hero Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -241,9 +251,87 @@ export type HeroSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Hero → Light → Primary*
+ */
+export interface HeroSliceLightPrimary {
+  /**
+   * Heading field in *Hero → Light → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.light.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Body field in *Hero → Light → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.light.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Button Text field in *Hero → Light → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.light.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *Hero → Light → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.light.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Image field in *Hero → Light → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.light.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Background Image field in *Hero → Light → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.light.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+}
+
+/**
+ * Light variation for Hero Slice
+ *
+ * - **API ID**: `light`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceLight = prismic.SharedSliceVariation<
+  "light",
+  Simplify<HeroSliceLightPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Hero*
  */
-type HeroSliceVariation = HeroSliceDefault;
+type HeroSliceVariation = HeroSliceDefault | HeroSliceLight;
 
 /**
  * Hero Shared Slice
@@ -273,8 +361,10 @@ declare module "@prismicio/client" {
       AllDocumentTypes,
       HeroSlice,
       HeroSliceDefaultPrimary,
+      HeroSliceLightPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      HeroSliceLight,
     };
   }
 }

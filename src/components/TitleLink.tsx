@@ -7,7 +7,7 @@ export default function TitleLink({
 }: PrismicNextLinkProps) {
   return (
     <PrismicNextLink
-      className="text-slate-900 text-base tracking-wide underline underline-offset-4 font-display font-medium md:text-3xl"
+      className="text-base tracking-wide underline underline-offset-4 font-display font-medium md:text-3xl"
       {...restProps}
     />
   );
