@@ -217,16 +217,6 @@ export interface HeroSliceDefaultPrimary {
   button_link: prismic.LinkField;
 
   /**
-   * Image field in *Hero → Dark → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
    * Background Image field in *Hero → Dark → Primary*
    *
    * - **Field Type**: Image
@@ -293,16 +283,6 @@ export interface HeroSliceLightPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   button_link: prismic.LinkField;
-
-  /**
-   * Image field in *Hero → Light → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.light.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
 
   /**
    * Background Image field in *Hero → Light → Primary*

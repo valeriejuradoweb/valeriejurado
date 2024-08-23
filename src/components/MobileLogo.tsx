@@ -1,6 +1,11 @@
 function Icon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="46" height="36" fill="none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="46"
+      height="36"
+      fill="#B18F50" /*this was none before*/
+    >
       <text>VJ</text>
       <path
         fill="#B18F50"

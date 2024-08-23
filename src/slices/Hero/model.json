@@ -45,14 +45,6 @@
             "select": null
           }
         },
-        "image": {
-          "type": "Image",
-          "config": {
-            "label": "Image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
         "background_image": {
           "type": "Image",
           "config": {
@@ -103,14 +95,6 @@
             "label": "Button Link",
             "placeholder": "",
             "select": null
-          }
-        },
-        "image": {
-          "type": "Image",
-          "config": {
-            "label": "Image",
-            "constraint": {},
-            "thumbnails": []
           }
         },
         "background_image": {
