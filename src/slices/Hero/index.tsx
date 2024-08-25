@@ -54,7 +54,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           )}
 
           <Bounded
-            className="px-4 py-10 md:py-14 md:px-6 lg:py-16"
+            className="px-4 py-10 h-svh md:py-14 md:px-6 lg:py-16"
             data-slice-type={slice.slice_type}
             data-slice-variation={slice.variation}
           >
