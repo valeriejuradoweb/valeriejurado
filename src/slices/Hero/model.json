@@ -52,6 +52,14 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "mobile_background_image": {
+          "type": "Image",
+          "config": {
+            "label": "Mobile Background Image",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}
@@ -103,6 +111,14 @@
             "label": "Background Image",
             "constraint": {},
             "thumbnails": []
+          }
+        },
+        "video": {
+          "type": "Link",
+          "config": {
+            "label": "Video",
+            "placeholder": "",
+            "select": "media"
           }
         }
       },

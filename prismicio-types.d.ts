@@ -225,6 +225,16 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   background_image: prismic.ImageField<never>;
+
+  /**
+   * Mobile Background Image field in *Hero → Dark → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.mobile_background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  mobile_background_image: prismic.ImageField<never>;
 }
 
 /**
@@ -293,6 +303,16 @@ export interface HeroSliceLightPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   background_image: prismic.ImageField<never>;
+
+  /**
+   * Video field in *Hero → Light → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.light.primary.video
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video: prismic.LinkToMediaField;
 }
 
 /**

@@ -23,7 +23,7 @@ const components: JSXMapSerializer = {
   ),
 
   paragraph: ({ children }) => (
-    <p className="text-xl text-center font-normal leading-10 font-body mb-4 md:mb-8 max-w-md">
+    <p className="text-base leading-7 font-light font-body mb-4 md:mb-8 md:max-w-md md:text-xl md:leading-10">
       {children}
     </p>
   ),
@@ -43,36 +43,48 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
   return (
     <>
       {slice.variation === "default" && (
-        <section className="relative">
+        <section className="relative  md:bg-black/[.1]">
           {prismic.isFilled.image(background_image) && (
             <PrismicNextImage
               field={slice.primary.background_image}
               alt=""
               fill={true}
-              className="pointer-events-none select-none object-cover -z-50"
+              className="hidden md:block pointer-events-none select-none object-cover -z-50"
+            />
+          )}
+          {prismic.isFilled.image(background_image) && (
+            <PrismicNextImage
+              field={slice.primary.mobile_background_image}
+              alt=""
+              fill={true}
+              className="block pointer-events-none select-none object-cover -z-50 md:hidden"
             />
           )}
 
           <Bounded
-            className="px-4 py-10 h-svh md:py-14 md:px-6 lg:py-16"
+            className="px-4 py-10 h-[48rem] md:h-svh md:py-20 md:px-6 lg:py-20"
             data-slice-type={slice.slice_type}
             data-slice-variation={slice.variation}
           >
-            <div className="text-white grid grid-cols-1 place-items-center text-center py-14">
-              <PrismicRichText
-                field={slice.primary.heading}
-                components={components}
-              />
-              <PrismicRichText
-                field={slice.primary.body}
-                components={components}
-              />
-              <Button
-                field={slice.primary.button_link}
-                className="mb-8 md:md-10"
-              >
-                {slice.primary.button_text}
-              </Button>
+            <div className="text-white grid text-left grid-cols-2 md:grid-cols-3 md:py-14">
+              <div></div>
+              <div></div>
+              <div className="mt-[12rem] bg-black/[.4] md:mt-[0rem]">
+                <PrismicRichText
+                  field={slice.primary.heading}
+                  components={components}
+                />
+                <PrismicRichText
+                  field={slice.primary.body}
+                  components={components}
+                />
+                <Button
+                  field={slice.primary.button_link}
+                  className="mb-8 md:md-10"
+                >
+                  {slice.primary.button_text}
+                </Button>
+              </div>
             </div>
           </Bounded>
         </section>
@@ -84,30 +96,40 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               field={slice.primary.background_image}
               alt=""
               fill={true}
-              className="pointer-events-none select-none object-cover -z-10"
+              className="pointer-events-none select-none object-cover -z-50"
             />
           )}
 
           <Bounded
-            className="px-4 py-10 md:py-14 md:px-6 lg:py-16"
+            className="px-4 py-10 h-[48rem] md:h-svh md:py-20 md:px-6 lg:py-20"
             data-slice-type={slice.slice_type}
             data-slice-variation={slice.variation}
           >
-            <div className="grid grid-cols-1 place-items-center text-center py-14">
-              <PrismicRichText
-                field={slice.primary.heading}
-                components={components}
-              />
-              <PrismicRichText
-                field={slice.primary.body}
-                components={components}
-              />
-              <Button
-                field={slice.primary.button_link}
-                className="mb-8 md:md-10"
-              >
-                {slice.primary.button_text}
-              </Button>
+            <div className="text-black grid text-left grid-cols-2 md:grid-cols-3 md:py-14">
+              <div>
+                <PrismicRichText
+                  field={slice.primary.heading}
+                  components={components}
+                />
+                <PrismicRichText
+                  field={slice.primary.body}
+                  components={components}
+                />
+                <Button
+                  field={slice.primary.button_link}
+                  className="mb-8 md:md-10"
+                >
+                  {slice.primary.button_text}
+                </Button>
+              </div>
+              <div>
+                {prismic.isFilled.linkToMedia(slice.primary.video) && (
+                  <video playsInline autoPlay muted loop>
+                    <source src={slice.primary.video.url} type="video/mp4" />
+                  </video>
+                )}
+              </div>
+              <div className="mt-[12rem] md:mt-[0rem]"></div>
             </div>
           </Bounded>
         </section>
