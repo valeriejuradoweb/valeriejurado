@@ -15,7 +15,7 @@ const components: JSXMapSerializer = {
   heading1: ({ children }) => (
     <Heading
       as="h1"
-      size="xl"
+      size="sm"
       className="md:mb-8 mb-4 mt-12 first:mt-0 last:mb-0"
     >
       {children}
@@ -90,7 +90,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         </section>
       )}{" "}
       {slice.variation === "light" && (
-        <section className="relative">
+        <section className="relative bg-white">
           {prismic.isFilled.image(background_image) && (
             <PrismicNextImage
               field={slice.primary.background_image}
@@ -101,12 +101,12 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           )}
 
           <Bounded
-            className="px-4 py-10 h-[48rem] md:h-svh md:py-20 md:px-6 lg:py-20"
+            className="px-4 py-10 md:py-20 md:px-6 lg:py-20"
             data-slice-type={slice.slice_type}
             data-slice-variation={slice.variation}
           >
-            <div className="text-black grid text-left grid-cols-2 md:grid-cols-3 md:py-14">
-              <div>
+            <div className="text-black grid text-left py-[5rem] md:grid-cols-2 md:px-20 md:gap-10 md:py-14 place-items-center">
+              <div className="content-end md:w-[20rem]">
                 <PrismicRichText
                   field={slice.primary.heading}
                   components={components}
@@ -124,12 +124,11 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               </div>
               <div>
                 {prismic.isFilled.linkToMedia(slice.primary.video) && (
-                  <video playsInline autoPlay muted loop>
+                  <video playsInline autoPlay muted loop className="h-[30rem]">
                     <source src={slice.primary.video.url} type="video/mp4" />
                   </video>
                 )}
               </div>
-              <div className="mt-[12rem] md:mt-[0rem]"></div>
             </div>
           </Bounded>
         </section>
