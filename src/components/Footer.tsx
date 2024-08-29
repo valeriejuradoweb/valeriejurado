@@ -1,5 +1,6 @@
 import { createClient } from "@/prismicio";
-import { PrismicNextLink } from "@prismicio/next";
+import * as prismic from "@prismicio/client";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
 
 export default async function Footer() {
@@ -9,19 +10,32 @@ export default async function Footer() {
 
   return (
     <footer>
-      <Link href="/">{settings.data.site_title}</Link>
+      <section className="relative text-white md:h-[20rem]">
+        {prismic.isFilled.image(settings.data.footer_background_image) && (
+          <PrismicNextImage
+            field={settings.data.footer_background_image}
+            alt=""
+            fill={true}
+            className="hidden pointer-events-none select-none object-cover -z-50 md:block"
+          />
+        )}
 
-      <p>
-        © {new Date().getFullYear()} {settings.data.site_title}
-      </p>
+        <div className="text-center">
+          <Link href="/">{settings.data.site_title}</Link>
 
-      <ul>
-        {settings.data.navigation.map(({ link, label }) => (
-          <li key={label}>
-            <PrismicNextLink field={link}>{label}</PrismicNextLink>
-          </li>
-        ))}
-      </ul>
+          <p>
+            © {new Date().getFullYear()} {settings.data.site_title}
+          </p>
+
+          <ul>
+            {settings.data.navigation.map(({ link, label }) => (
+              <li key={label}>
+                <PrismicNextLink field={link}>{label}</PrismicNextLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     </footer>
   );
 }

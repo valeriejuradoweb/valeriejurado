@@ -90,7 +90,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         </section>
       )}{" "}
       {slice.variation === "light" && (
-        <section className="relative bg-white">
+        <section className="relative bg-white overflow-hidden">
           {prismic.isFilled.image(background_image) && (
             <PrismicNextImage
               field={slice.primary.background_image}
@@ -101,34 +101,45 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           )}
 
           <Bounded
-            className="px-4 py-10 md:py-20 md:px-6 lg:py-20"
+            className="px-4 pt-[7rem] md:pt-[8rem] md:px-6 lg:pt-[6rem]" /*md:h-svh*/
             data-slice-type={slice.slice_type}
             data-slice-variation={slice.variation}
           >
-            <div className="text-black grid text-left py-[5rem] md:grid-cols-2 md:px-20 md:gap-10 md:py-14 place-items-center">
-              <div className="content-end md:w-[20rem]">
-                <PrismicRichText
-                  field={slice.primary.heading}
-                  components={components}
-                />
-                <PrismicRichText
-                  field={slice.primary.body}
-                  components={components}
-                />
-                <Button
-                  field={slice.primary.button_link}
-                  className="mb-8 md:md-10"
-                >
-                  {slice.primary.button_text}
-                </Button>
-              </div>
-              <div>
+            <div className="grid md:grid-cols-2 ">
+              <div className="">
                 {prismic.isFilled.linkToMedia(slice.primary.video) && (
-                  <video playsInline autoPlay muted loop className="h-[30rem]">
+                  <video
+                    playsInline
+                    autoPlay
+                    muted
+                    loop
+                    className="w-[100%] scale-x-[-1] hidden md:block"
+                  >
                     <source src={slice.primary.video.url} type="video/mp4" />
                   </video>
                 )}
               </div>
+              <div>
+                {prismic.isFilled.linkToMedia(slice.primary.video) && (
+                  <video playsInline autoPlay muted loop className="w-[100%]">
+                    <source src={slice.primary.video.url} type="video/mp4" />
+                  </video>
+                )}
+              </div>
+            </div>
+
+            <div className="w-[100%] py-8">
+              <PrismicRichText
+                field={slice.primary.heading}
+                components={components}
+              />
+              <PrismicRichText
+                field={slice.primary.body}
+                components={components}
+              />
+              <Button field={slice.primary.button_link} className="">
+                {slice.primary.button_text}
+              </Button>
             </div>
           </Bounded>
         </section>

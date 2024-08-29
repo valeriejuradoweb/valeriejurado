@@ -36,6 +36,10 @@ export default async function Header() {
                 ))}
               </ul>
             </nav>
+            <Link
+              href="/"
+              className="fixed m-auto top-7 w-14 h-10 left-0 right-0 mix-blend-normal z-10"
+            ></Link>
           </div>
         </div>
       </Bounded>

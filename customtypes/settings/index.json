@@ -51,6 +51,14 @@
             }
           }
         }
+      },
+      "footer_background_image": {
+        "type": "Image",
+        "config": {
+          "label": "Footer Background Image",
+          "constraint": {},
+          "thumbnails": []
+        }
       }
     }
   }
