@@ -1,0 +1,91 @@
+{
+  "id": "three_photo_collage",
+  "type": "SharedSlice",
+  "name": "SoCal",
+  "description": "ThreePhotoCollage",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "video": {
+          "type": "Link",
+          "config": {
+            "label": "Video",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "title_link": {
+          "type": "Group",
+          "config": {
+            "label": "Title Link",
+            "repeat": true,
+            "fields": {
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "",
+                  "select": null
+                }
+              },
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Label",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "project_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Project Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,hyperlink,strong,em"
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": ""
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "photo_1": {
+          "type": "Image",
+          "config": {
+            "label": "Photo 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "photo_2": {
+          "type": "Image",
+          "config": {
+            "label": "Photo 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

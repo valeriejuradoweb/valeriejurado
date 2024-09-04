@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = HeroSlice;
+type HomepageDocumentDataSlicesSlice = ThreePhotoCollageSlice | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -417,6 +417,138 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceLight;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
+/**
+ * Item in *SoCal → Default → Primary → Title Link*
+ */
+export interface ThreePhotoCollageSliceDefaultPrimaryTitleLinkItem {
+  /**
+   * Link field in *SoCal → Default → Primary → Title Link*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_photo_collage.default.primary.title_link[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Label field in *SoCal → Default → Primary → Title Link*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_photo_collage.default.primary.title_link[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *SoCal → Default → Primary*
+ */
+export interface ThreePhotoCollageSliceDefaultPrimary {
+  /**
+   * Video field in *SoCal → Default → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_photo_collage.default.primary.video
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video: prismic.LinkToMediaField;
+
+  /**
+   * Title Link field in *SoCal → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_photo_collage.default.primary.title_link[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  title_link: prismic.GroupField<
+    Simplify<ThreePhotoCollageSliceDefaultPrimaryTitleLinkItem>
+  >;
+
+  /**
+   * Project Description field in *SoCal → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_photo_collage.default.primary.project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.RichTextField;
+
+  /**
+   * Button Text field in *SoCal → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_photo_collage.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *SoCal → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_photo_collage.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Photo 1 field in *SoCal → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_photo_collage.default.primary.photo_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  photo_1: prismic.ImageField<never>;
+
+  /**
+   * Photo 2 field in *SoCal → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_photo_collage.default.primary.photo_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  photo_2: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for SoCal Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThreePhotoCollageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ThreePhotoCollageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SoCal*
+ */
+type ThreePhotoCollageSliceVariation = ThreePhotoCollageSliceDefault;
+
+/**
+ * SoCal Shared Slice
+ *
+ * - **API ID**: `three_photo_collage`
+ * - **Description**: ThreePhotoCollage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThreePhotoCollageSlice = prismic.SharedSlice<
+  "three_photo_collage",
+  ThreePhotoCollageSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -443,6 +575,11 @@ declare module "@prismicio/client" {
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceLight,
+      ThreePhotoCollageSlice,
+      ThreePhotoCollageSliceDefaultPrimaryTitleLinkItem,
+      ThreePhotoCollageSliceDefaultPrimary,
+      ThreePhotoCollageSliceVariation,
+      ThreePhotoCollageSliceDefault,
     };
   }
 }

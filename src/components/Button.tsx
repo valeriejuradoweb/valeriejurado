@@ -8,7 +8,7 @@ export default function Button({
   return (
     <PrismicNextLink
       className={clsx(
-        "block w-fit hover:opacity-75 transition-opacity duration-200 ease-in-outtracking-wider text-base tracking-wide underline underline-offset-4 font-display font-medium md:text-2xl",
+        "block w-fit hover:opacity-75 transition-opacity duration-200 ease-in-outtracking-wider text-base tracking-wide underline underline-offset-4 font-display font-medium md:text-xl",
         className
       )}
       {...restProps}
