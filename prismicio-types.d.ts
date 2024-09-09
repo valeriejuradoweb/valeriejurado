@@ -80,7 +80,7 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = HeroSlice;
+type PageDocumentDataSlicesSlice = DetailSlice | HeroSlice;
 
 /**
  * Content for Page documents
@@ -246,6 +246,158 @@ export type AllDocumentTypes =
   | HomepageDocument
   | PageDocument
   | SettingsDocument;
+
+/**
+ * Primary content in *Detail → Default → Primary*
+ */
+export interface DetailSliceDefaultPrimary {
+  /**
+   * Heading field in *Detail → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: detail.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Paragraph 1 field in *Detail → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: detail.default.primary.paragraph_1
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph_1: prismic.RichTextField;
+
+  /**
+   * Paragraph 2 field in *Detail → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: detail.default.primary.paragraph_2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph_2: prismic.RichTextField;
+
+  /**
+   * Next Project Title field in *Detail → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: detail.default.primary.next_project_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  next_project_title: prismic.KeyTextField;
+
+  /**
+   * Previous Project Title field in *Detail → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: detail.default.primary.previous_project_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  previous_project_title: prismic.KeyTextField;
+
+  /**
+   * Video field in *Detail → Default → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: detail.default.primary.video
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video: prismic.LinkToMediaField;
+
+  /**
+   * Image 1 field in *Detail → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: detail.default.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Image 2 field in *Detail → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: detail.default.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Image 3 field in *Detail → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: detail.default.primary.image_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_3: prismic.ImageField<never>;
+
+  /**
+   * Image 4 field in *Detail → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: detail.default.primary.image_4
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_4: prismic.ImageField<never>;
+
+  /**
+   * Image 5 field in *Detail → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: detail.default.primary.image_5
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_5: prismic.ImageField<never>;
+
+  /**
+   * Image 6 field in *Detail → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: detail.default.primary.image_6
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_6: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Detail Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DetailSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DetailSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Detail*
+ */
+type DetailSliceVariation = DetailSliceDefault;
+
+/**
+ * Detail Shared Slice
+ *
+ * - **API ID**: `detail`
+ * - **Description**: Detail
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DetailSlice = prismic.SharedSlice<"detail", DetailSliceVariation>;
 
 /**
  * Primary content in *Hero → Dark → Primary*
@@ -569,6 +721,10 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
       AllDocumentTypes,
+      DetailSlice,
+      DetailSliceDefaultPrimary,
+      DetailSliceVariation,
+      DetailSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceLightPrimary,
