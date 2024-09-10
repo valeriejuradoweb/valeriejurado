@@ -1,6 +1,7 @@
 import { createClient } from "@/prismicio";
 import * as prismic from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { PrismicRichText } from "@prismicio/react";
 import Link from "next/link";
 
 export default async function Footer() {
@@ -20,7 +21,7 @@ export default async function Footer() {
           />
         )}
 
-        <div className="text-center">
+        <div className="text-center font-body">
           <Link href="/">{settings.data.site_title}</Link>
 
           <p>
