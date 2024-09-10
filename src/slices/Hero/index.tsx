@@ -101,7 +101,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           )}
 
           <Bounded
-            className="mx-auto w-full max-w-4xl px-4 pt-[7rem] md:pt-[8rem] md:px-6 lg:pt-[6rem]" /*md:h-svh*/
+            className="px-4 pt-[7rem] md:pt-[8rem] md:px-6 lg:pt-[6rem]" /*md:h-svh*/
             data-slice-type={slice.slice_type}
             data-slice-variation={slice.variation}
           >
@@ -133,7 +133,6 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                 field={slice.primary.heading}
                 components={components}
               />
-
               <PrismicRichText
                 field={slice.primary.body}
                 components={components}

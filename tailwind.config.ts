@@ -1,7 +1,5 @@
 import type { Config } from "tailwindcss";
 
-
-
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -14,12 +12,9 @@ const config: Config = {
       fontFamily: {
         body: ["var(--font-red-hat-text)"],
         display: ["var(--font-red-hat-display)"]
-      },
-
-      
+      }
     },
   },
   plugins: [],
-  
 };
 export default config;
