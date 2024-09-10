@@ -45,18 +45,18 @@ const Detail = ({ slice }: DetailProps): JSX.Element => {
               components={components}
             />
             <div className="flex font-body">
-              <div className="py-0 hidden flex-wrap md:block md:pt-1">
+              <div className="self-center py-0 hidden flex-wrap md:block md:pt-1">
                 <>{slice.primary.next_project_title}</>
               </div>
-              <Button href="" className="pl-3 pr-2">
+              <Button href="" className="self-center pl-3 pr-2">
                 <p>next</p>
               </Button>
-              <div className="py-0 md:pt-1">
+              <div className="self-center py-0 md:pt-1">
                 <Arrow />
               </div>
             </div>
           </div>
-          <div className="font-body my-4 grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-8 md:my-8">
+          <div className="font-body my-4 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 md:my-8">
             <div className="space-y-6 md:space-y-8">
               <PrismicNextImage field={slice.primary.image_1} />
               <PrismicRichText field={slice.primary.paragraph_2} />
@@ -64,7 +64,7 @@ const Detail = ({ slice }: DetailProps): JSX.Element => {
               <PrismicNextImage field={slice.primary.image_4} />
               <PrismicNextImage field={slice.primary.image_6} />
             </div>
-            <div className="space-y-6 md:space-y-8">
+            <div className="order-first md:order-none space-y-6 md:space-y-8">
               <PrismicRichText field={slice.primary.paragraph_1} />
               {prismic.isFilled.linkToMedia(slice.primary.video) && (
                 <video

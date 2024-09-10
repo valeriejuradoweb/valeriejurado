@@ -224,6 +224,17 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   footer_background_image: prismic.ImageField<never>;
+
+  /**
+   * Footer Signup Field field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_signup_field
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  footer_signup_field: prismic.RichTextField;
 }
 
 /**

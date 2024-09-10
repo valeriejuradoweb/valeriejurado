@@ -59,6 +59,15 @@
           "constraint": {},
           "thumbnails": []
         }
+      },
+      "footer_signup_field": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Footer Signup Field",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "preformatted"
+        }
       }
     }
   }

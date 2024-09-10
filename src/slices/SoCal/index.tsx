@@ -46,7 +46,7 @@ const ThreePhotoCollage = ({ slice }: ThreePhotoCollageProps): JSX.Element => {
       >
         <div className="grid grid-cols-1 md:grid-cols-3 relative z-20">
           <div></div>
-          <div className="">
+          <div className="order-2 md:order-none">
             {prismic.isFilled.linkToMedia(slice.primary.video) && (
               <video
                 playsInline
@@ -59,7 +59,7 @@ const ThreePhotoCollage = ({ slice }: ThreePhotoCollageProps): JSX.Element => {
               </video>
             )}
           </div>
-          <div className="content-center pt-5 md:pt-0">
+          <div className="content-center pt-5 order-3 md:order-none md:pt-0">
             {slice.primary.title_link.map(({ link, label }) => (
               <TitleLink field={link} className="">
                 {label}
@@ -74,7 +74,7 @@ const ThreePhotoCollage = ({ slice }: ThreePhotoCollageProps): JSX.Element => {
               <p className="text-xl pr-1 md:text-2xl md:pr-2">✜</p>
               <Button
                 field={slice.primary.button_link}
-                className="mb-8 md:md-10"
+                className="mb-0 md:mb-8 md:md-10"
               >
                 {slice.primary.button_text}
               </Button>
@@ -83,10 +83,10 @@ const ThreePhotoCollage = ({ slice }: ThreePhotoCollageProps): JSX.Element => {
         </div>
       </Bounded>
       <div className="relative md:w-[100%] md:-top-20 z-10">
-        <div className="relative md:-top-20 md:w-[25%] md:h-auto md:float-right">
+        <div className="relative order-1 md:order-none md:-top-20 md:w-[25%] md:h-auto md:float-right">
           <PrismicNextImage field={slice.primary.photo_1} />
         </div>
-        <div className="hidden md:block md:w-[50%] ml-40">
+        <div className="w-[100%] p-7 ml-0 md:p-0 md:block md:w-[50%] md:ml-40">
           <PrismicNextImage field={slice.primary.photo_2} />
         </div>
       </div>
