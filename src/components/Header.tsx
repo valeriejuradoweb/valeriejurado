@@ -4,6 +4,7 @@ import Link from "next/link";
 import Bounded from "@/components/Bounded";
 import MobileLogo from "@/components/MobileLogo";
 import NavLink from "./NavLink";
+import GoldLgLogo from "@/components/GoldLgLogo";
 
 export default async function Header() {
   const client = createClient();
@@ -14,9 +15,14 @@ export default async function Header() {
     <>
       <Link
         href="/"
-        className="fixed m-auto top-7 w-14 h-10 left-0 right-0 mix-blend-normal z-50"
+        className="fixed m-auto top-7 w-14 h-10 left-0 right-0 mix-blend-exclusion z-50 md:w-96"
       >
-        <MobileLogo />
+        <div className="block md:hidden">
+          <MobileLogo />
+        </div>
+        <div className="hidden md:block">
+          <GoldLgLogo />
+        </div>
       </Link>
 
       <Bounded
@@ -38,7 +44,7 @@ export default async function Header() {
             </nav>
             <Link
               href="/"
-              className="fixed m-auto top-7 w-14 h-10 left-0 right-0 mix-blend-normal z-50"
+              className="fixed m-auto top-7 w-14 h-10 left-0 right-0 mix-blend-normal z-50 md:w-96"
             ></Link>
           </div>
         </div>
