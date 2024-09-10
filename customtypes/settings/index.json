@@ -59,6 +59,15 @@
           "constraint": {},
           "thumbnails": []
         }
+      },
+      "footer_form": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Footer Form",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "multi": "preformatted"
+        }
       }
     }
   }
