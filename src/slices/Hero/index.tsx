@@ -74,10 +74,6 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                   field={slice.primary.heading}
                   components={components}
                 />
-                <PrismicRichText
-                  field={slice.primary.body}
-                  components={components}
-                />
                 <Button
                   field={slice.primary.button_link}
                   className="mb-8 md:md-10"
@@ -91,15 +87,6 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       )}{" "}
       {slice.variation === "light" && (
         <section className="relative bg-white overflow-hidden">
-          {prismic.isFilled.image(background_image) && (
-            <PrismicNextImage
-              field={slice.primary.background_image}
-              alt=""
-              fill={true}
-              className="pointer-events-none select-none object-cover -z-50"
-            />
-          )}
-
           <Bounded
             className="px-4 pt-[7rem] md:pt-[8rem] md:px-6 lg:pt-[6rem]" /*md:h-svh*/
             data-slice-type={slice.slice_type}
@@ -133,13 +120,6 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                 field={slice.primary.heading}
                 components={components}
               />
-              <PrismicRichText
-                field={slice.primary.body}
-                components={components}
-              />
-              <Button field={slice.primary.button_link} className="">
-                {slice.primary.button_text}
-              </Button>
             </div>
           </Bounded>
         </section>

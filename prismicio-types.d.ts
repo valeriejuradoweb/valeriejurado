@@ -224,17 +224,6 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   footer_background_image: prismic.ImageField<never>;
-
-  /**
-   * Footer Form field in *Settings*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.footer_form
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  footer_form: prismic.RichTextField;
 }
 
 /**
@@ -425,16 +414,6 @@ export interface HeroSliceDefaultPrimary {
   heading: prismic.RichTextField;
 
   /**
-   * Body field in *Hero → Dark → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.body
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  body: prismic.RichTextField;
-
-  /**
    * Button Text field in *Hero → Dark → Primary*
    *
    * - **Field Type**: Text
@@ -503,34 +482,14 @@ export interface HeroSliceLightPrimary {
   heading: prismic.RichTextField;
 
   /**
-   * Body field in *Hero → Light → Primary*
+   * Video field in *Hero → Light → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Link to Media
    * - **Placeholder**: *None*
-   * - **API ID Path**: hero.light.primary.body
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  body: prismic.RichTextField;
-
-  /**
-   * Button Text field in *Hero → Light → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.light.primary.button_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_text: prismic.KeyTextField;
-
-  /**
-   * Button Link field in *Hero → Light → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.light.primary.button_link
+   * - **API ID Path**: hero.light.primary.video
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  button_link: prismic.LinkField;
+  video: prismic.LinkToMediaField;
 
   /**
    * Background Image field in *Hero → Light → Primary*
@@ -541,16 +500,6 @@ export interface HeroSliceLightPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   background_image: prismic.ImageField<never>;
-
-  /**
-   * Video field in *Hero → Light → Primary*
-   *
-   * - **Field Type**: Link to Media
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.light.primary.video
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  video: prismic.LinkToMediaField;
 }
 
 /**
