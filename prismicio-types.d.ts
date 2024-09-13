@@ -80,7 +80,11 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = AboutHeroSlice | DetailSlice | HeroSlice;
+type PageDocumentDataSlicesSlice =
+  | ContactSlice
+  | AboutHeroSlice
+  | DetailSlice
+  | HeroSlice;
 
 /**
  * Content for Page documents
@@ -418,6 +422,61 @@ type AboutHeroSliceVariation = AboutHeroSliceDefault;
 export type AboutHeroSlice = prismic.SharedSlice<
   "about_hero",
   AboutHeroSliceVariation
+>;
+
+/**
+ * Primary content in *Contact → Default → Primary*
+ */
+export interface ContactSliceDefaultPrimary {
+  /**
+   * Contact Form field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.contact_form
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  contact_form: prismic.EmbedField;
+
+  /**
+   * Contact Form 2 field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.contact_form_2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  contact_form_2: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Contact Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Contact*
+ */
+type ContactSliceVariation = ContactSliceDefault;
+
+/**
+ * Contact Shared Slice
+ *
+ * - **API ID**: `contact`
+ * - **Description**: Contact
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSlice = prismic.SharedSlice<
+  "contact",
+  ContactSliceVariation
 >;
 
 /**
@@ -859,6 +918,10 @@ declare module "@prismicio/client" {
       AboutHeroSliceDefaultPrimary,
       AboutHeroSliceVariation,
       AboutHeroSliceDefault,
+      ContactSlice,
+      ContactSliceDefaultPrimary,
+      ContactSliceVariation,
+      ContactSliceDefault,
       DetailSlice,
       DetailSliceDefaultPrimary,
       DetailSliceVariation,

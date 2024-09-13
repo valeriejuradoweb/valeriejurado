@@ -1,0 +1,35 @@
+{
+  "id": "contact",
+  "type": "SharedSlice",
+  "name": "Contact",
+  "description": "Contact",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "contact_form": {
+          "type": "Embed",
+          "config": {
+            "label": "Contact Form",
+            "placeholder": ""
+          }
+        },
+        "contact_form_2": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Contact Form 2",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "preformatted"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
