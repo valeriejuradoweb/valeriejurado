@@ -80,7 +80,7 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = DetailSlice | HeroSlice;
+type PageDocumentDataSlicesSlice = AboutHeroSlice | DetailSlice | HeroSlice;
 
 /**
  * Content for Page documents
@@ -257,6 +257,101 @@ export type AllDocumentTypes =
   | HomepageDocument
   | PageDocument
   | SettingsDocument;
+
+/**
+ * Primary content in *AboutHero → Default → Primary*
+ */
+export interface AboutHeroSliceDefaultPrimary {
+  /**
+   * Bio field in *AboutHero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.bio
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  bio: prismic.RichTextField;
+
+  /**
+   * Button Text field in *AboutHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *AboutHero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Client List Heading field in *AboutHero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.client_list_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  client_list_heading: prismic.RichTextField;
+
+  /**
+   * Client List field in *AboutHero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.client_list
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  client_list: prismic.RichTextField;
+
+  /**
+   * Background Image field in *AboutHero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for AboutHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AboutHeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AboutHero*
+ */
+type AboutHeroSliceVariation = AboutHeroSliceDefault;
+
+/**
+ * AboutHero Shared Slice
+ *
+ * - **API ID**: `about_hero`
+ * - **Description**: AboutHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutHeroSlice = prismic.SharedSlice<
+  "about_hero",
+  AboutHeroSliceVariation
+>;
 
 /**
  * Primary content in *Detail → Default → Primary*
@@ -692,6 +787,10 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
       AllDocumentTypes,
+      AboutHeroSlice,
+      AboutHeroSliceDefaultPrimary,
+      AboutHeroSliceVariation,
+      AboutHeroSliceDefault,
       DetailSlice,
       DetailSliceDefaultPrimary,
       DetailSliceVariation,

@@ -99,8 +99,8 @@ export default async function Footer() {
           </div>
 
           <div className="pt-8 space-y-6">
-            <div className="py-6">
-              <Link href="/">
+            <div className="relative py-6">
+              <Link className="flex" href="/">
                 <LogoFullWhiteLg />
               </Link>
             </div>
