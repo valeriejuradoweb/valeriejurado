@@ -3,7 +3,7 @@ import * as prismic from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import Link from "next/link";
-import GoldLgLogo from "./GoldLgLogo";
+import LogoFullWhiteLg from "./LogoFullWhiteLg";
 
 export default async function Footer() {
   const client = createClient();
@@ -87,7 +87,7 @@ export default async function Footer() {
             </div>
 
             <Link href="/">
-              <GoldLgLogo />
+              <LogoFullWhiteLg />
             </Link>
 
             <p>
