@@ -259,6 +259,41 @@ export type AllDocumentTypes =
   | SettingsDocument;
 
 /**
+ * Item in *AboutHero → Default → Primary → Employee*
+ */
+export interface AboutHeroSliceDefaultPrimaryEmployeeItem {
+  /**
+   * Employee Photo field in *AboutHero → Default → Primary → Employee*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.employee[].employee_photo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  employee_photo: prismic.ImageField<never>;
+
+  /**
+   * Employee Name field in *AboutHero → Default → Primary → Employee*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.employee[].employee_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  employee_name: prismic.RichTextField;
+
+  /**
+   * Employee Bio field in *AboutHero → Default → Primary → Employee*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.employee[].employee_bio
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  employee_bio: prismic.RichTextField;
+}
+
+/**
  * Primary content in *AboutHero → Default → Primary*
  */
 export interface AboutHeroSliceDefaultPrimary {
@@ -303,14 +338,24 @@ export interface AboutHeroSliceDefaultPrimary {
   client_list_heading: prismic.RichTextField;
 
   /**
-   * Client List field in *AboutHero → Default → Primary*
+   * Client List 1 field in *AboutHero → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: about_hero.default.primary.client_list
+   * - **API ID Path**: about_hero.default.primary.client_list_1
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  client_list: prismic.RichTextField;
+  client_list_1: prismic.RichTextField;
+
+  /**
+   * Client List 2 field in *AboutHero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.client_list_2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  client_list_2: prismic.RichTextField;
 
   /**
    * Background Image field in *AboutHero → Default → Primary*
@@ -321,6 +366,28 @@ export interface AboutHeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   background_image: prismic.ImageField<never>;
+
+  /**
+   * Mobile Background Image field in *AboutHero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.mobile_background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  mobile_background_image: prismic.ImageField<never>;
+
+  /**
+   * Employee field in *AboutHero → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.employee[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  employee: prismic.GroupField<
+    Simplify<AboutHeroSliceDefaultPrimaryEmployeeItem>
+  >;
 }
 
 /**
@@ -788,6 +855,7 @@ declare module "@prismicio/client" {
       SettingsDocumentDataNavigationItem,
       AllDocumentTypes,
       AboutHeroSlice,
+      AboutHeroSliceDefaultPrimaryEmployeeItem,
       AboutHeroSliceDefaultPrimary,
       AboutHeroSliceVariation,
       AboutHeroSliceDefault,

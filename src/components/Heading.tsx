@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 type HeadingProps = {
   as?: "h2" | "h1" | "h3" | "h4" | "h5" | "h6";
-  size?: "xl" | "lg" | "md" | "sm";
+  size?: "xl" | "lg" | "md" | "sm" | "xs";
   children: React.ReactNode;
   className?: string;
 };
@@ -21,6 +21,8 @@ export default function Heading({
         size === "lg" && "text-4xl md:text-5xl",
         size === "md" && "text-3xl md:text-4xl",
         size === "sm" && "text-2xl md:text-3xl",
+        size === "xs" && "text-base md:text-xl",
+
         className
       )}
     >

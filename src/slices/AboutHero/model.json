@@ -45,13 +45,22 @@
             "multi": "heading1,heading2,heading3,heading4,heading5,heading6,strong"
           }
         },
-        "client_list": {
+        "client_list_1": {
           "type": "StructuredText",
           "config": {
-            "label": "Client List",
+            "label": "Client List 1",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "list-item"
+            "multi": "list-item,paragraph"
+          }
+        },
+        "client_list_2": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Client List 2",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,list-item"
           }
         },
         "background_image": {
@@ -60,6 +69,49 @@
             "label": "Background Image",
             "constraint": {},
             "thumbnails": []
+          }
+        },
+        "mobile_background_image": {
+          "type": "Image",
+          "config": {
+            "label": "Mobile Background Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "employee": {
+          "type": "Group",
+          "config": {
+            "label": "Employee",
+            "repeat": true,
+            "fields": {
+              "employee_photo": {
+                "type": "Image",
+                "config": {
+                  "label": "Employee Photo",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "employee_name": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Employee Name",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading1,heading2,heading3,heading4,heading5,heading6,strong"
+                }
+              },
+              "employee_bio": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Employee Bio",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              }
+            }
           }
         }
       },
