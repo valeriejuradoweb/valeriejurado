@@ -23,7 +23,7 @@ const components: JSXMapSerializer = {
   ),
 
   paragraph: ({ children }) => (
-    <p className="text-base leading-7 font-light font-body mb-4 md:mb-8 md:max-w-md md:text-xl md:leading-10">
+    <p className="text-base leading-7 font-thin font-body mb-4 md:mb-8 md:max-w-[22rem] md:text-xl md:leading-9">
       {children}
     </p>
   ),
@@ -66,20 +66,23 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             data-slice-type={slice.slice_type}
             data-slice-variation={slice.variation}
           >
-            <div className="text-white grid text-left grid-cols-2 md:grid-cols-3 md:py-14">
+            <div className="text-white grid text-left grid-cols-2 md:grid-cols-3 md:pl-10 md:py-14">
               <div></div>
               <div></div>
-              <div className="mt-[12rem] bg-black/[.4] md:mt-[0rem]">
+              <div className="mt-[12rem] bg-black/[.4] md:mt-[30%]">
                 <PrismicRichText
                   field={slice.primary.heading}
                   components={components}
                 />
-                <Button
-                  field={slice.primary.button_link}
-                  className="mb-8 md:md-10"
-                >
-                  {slice.primary.button_text}
-                </Button>
+                <div className="flex">
+                  <p className="text-lg pr-1 md:text-2xl">＋</p>
+                  <Button
+                    field={slice.primary.button_link}
+                    className="mb-8 md:md-10"
+                  >
+                    {slice.primary.button_text}
+                  </Button>
+                </div>
               </div>
             </div>
           </Bounded>

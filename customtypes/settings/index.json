@@ -59,6 +59,13 @@
           "constraint": {},
           "thumbnails": []
         }
+      },
+      "footer_form_label": {
+        "type": "Text",
+        "config": {
+          "label": "Footer Form Label",
+          "placeholder": ""
+        }
       }
     }
   }

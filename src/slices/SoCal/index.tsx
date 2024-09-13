@@ -32,7 +32,7 @@ const components: JSXMapSerializer = {
   ),
 
   paragraph: ({ children }) => (
-    <p className="text-base leading-7 font-light font-body md:max-w-[300px] md:text-xl md:leading-10">
+    <p className="text-base leading-7 font-light font-body md:max-w-[300px] md:text-xl md:leading-8">
       {children}
     </p>
   ),
@@ -59,7 +59,7 @@ const ThreePhotoCollage = ({ slice }: ThreePhotoCollageProps): JSX.Element => {
               </video>
             )}
           </div>
-          <div className="content-center pt-5 md:pt-0">
+          <div className="content-center pt-5 md:pt-0 space-y-2">
             {slice.primary.title_link.map(({ link, label }) => (
               <TitleLink field={link} className="">
                 {label}
@@ -71,10 +71,14 @@ const ThreePhotoCollage = ({ slice }: ThreePhotoCollageProps): JSX.Element => {
               components={components}
             />
             <div className="flex">
-              <p className="text-xl pr-1 md:text-2xl md:pr-2">✜</p>
+              {/*
+
+              -----THIS IS THE THICKER PLUS IF NEEDED-------
+              <p className="text-xl pr-1 md:text-2xl md:pr-2">✜</p>*/}
+              <p className="text-lg pr-1 md:text-2xl">＋</p>
               <Button
                 field={slice.primary.button_link}
-                className="mb-8 md:md-10"
+                className="mb-4 md:md-10"
               >
                 {slice.primary.button_text}
               </Button>

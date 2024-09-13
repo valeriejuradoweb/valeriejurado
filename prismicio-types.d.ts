@@ -224,6 +224,17 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   footer_background_image: prismic.ImageField<never>;
+
+  /**
+   * Footer Form Label field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_form_label
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  footer_form_label: prismic.KeyTextField;
 }
 
 /**
