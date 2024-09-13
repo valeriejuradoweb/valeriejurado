@@ -11,12 +11,14 @@ const redhatdisplay = Red_Hat_Display({
   subsets: ["latin"],
   variable: "--font-red-hat-display",
   display: "swap",
+  adjustFontFallback: false,
 });
 
 const redhattext = Red_Hat_Text({
   subsets: ["latin"],
   variable: "--font-red-hat-text",
   display: "swap",
+  adjustFontFallback: false,
 });
 
 export async function generateMetadata(): Promise<Metadata> {
