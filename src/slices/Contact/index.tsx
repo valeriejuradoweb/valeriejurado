@@ -1,5 +1,6 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import MailchimpContactForm from "@/components/MailchimpContactForm";
 
 /**
  * Props for `Contact`.
@@ -15,6 +16,10 @@ const Contact = ({ slice }: ContactProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
+      <div className="mt-44">
+        <MailchimpContactForm />
+      </div>
+
       <div
         dangerouslySetInnerHTML={{
           __html: (
