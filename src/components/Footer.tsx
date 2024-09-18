@@ -30,7 +30,8 @@ export default async function Footer() {
           <div id="mc_embed_shell" className="">
             <div id="mc_embed_signup">
               <form
-                action="https://valeriejurado.us2.list-manage.com/subscribe/post?u=4a1e985219bc367027066386a&id=a1fd1262ff&f_id=00b36de0f0"
+                /*action="https://valeriejurado.us2.list-manage.com/subscribe/post?u=4a1e985219bc367027066386a&id=a1fd1262ff&f_id=00b36de0f0"*/
+                action={process.env.REACT_APP_MAILCHIMP_KEY}
                 method="post"
                 id="mc-embedded-subscribe-form"
                 name="mc-embedded-subscribe-form"
