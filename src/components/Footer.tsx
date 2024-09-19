@@ -90,7 +90,7 @@ export default async function Footer() {
                       type="submit"
                       name="subscribe"
                       id="mc-embedded-subscribe"
-                      className="button underline underline-offset-4"
+                      className="button cursor-pointer underline underline-offset-4"
                       defaultValue="sign up"
                     />
                   </div>

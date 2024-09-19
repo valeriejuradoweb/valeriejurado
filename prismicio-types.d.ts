@@ -429,24 +429,14 @@ export type AboutHeroSlice = prismic.SharedSlice<
  */
 export interface ContactSliceDefaultPrimary {
   /**
-   * Contact Form field in *Contact → Default → Primary*
-   *
-   * - **Field Type**: Embed
-   * - **Placeholder**: *None*
-   * - **API ID Path**: contact.default.primary.contact_form
-   * - **Documentation**: https://prismic.io/docs/field#embed
-   */
-  contact_form: prismic.EmbedField;
-
-  /**
-   * Contact Form 2 field in *Contact → Default → Primary*
+   * Contact Page Text field in *Contact → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: contact.default.primary.contact_form_2
+   * - **API ID Path**: contact.default.primary.contact_page_text
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  contact_form_2: prismic.RichTextField;
+  contact_page_text: prismic.RichTextField;
 }
 
 /**

@@ -12,20 +12,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "contact_form": {
-          "type": "Embed",
-          "config": {
-            "label": "Contact Form",
-            "placeholder": ""
-          }
-        },
-        "contact_form_2": {
+        "contact_page_text": {
           "type": "StructuredText",
           "config": {
-            "label": "Contact Form 2",
+            "label": "Contact Page Text",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "preformatted"
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         }
       },
