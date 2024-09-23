@@ -4,7 +4,10 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = ThreePhotoCollageSlice | HeroSlice;
+type HomepageDocumentDataSlicesSlice =
+  | OfrendaSlice
+  | ThreePhotoCollageSlice
+  | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -752,6 +755,131 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceLight;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *Ofrenda → Default → Primary*
+ */
+export interface OfrendaSliceDefaultPrimary {
+  /**
+   * Image 1 field in *Ofrenda → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ofrenda.default.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Title Label field in *Ofrenda → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ofrenda.default.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_label: prismic.KeyTextField;
+
+  /**
+   * Title Link field in *Ofrenda → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ofrenda.default.primary.title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  title_link: prismic.LinkField;
+
+  /**
+   * Project Description field in *Ofrenda → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ofrenda.default.primary.project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.RichTextField;
+
+  /**
+   * Button Text field in *Ofrenda → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ofrenda.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *Ofrenda → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ofrenda.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Image 2 field in *Ofrenda → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ofrenda.default.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Image 3 field in *Ofrenda → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ofrenda.default.primary.image_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_3: prismic.ImageField<never>;
+
+  /**
+   * Image 4 field in *Ofrenda → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ofrenda.default.primary.image_4
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_4: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Ofrenda Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OfrendaSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<OfrendaSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Ofrenda*
+ */
+type OfrendaSliceVariation = OfrendaSliceDefault;
+
+/**
+ * Ofrenda Shared Slice
+ *
+ * - **API ID**: `ofrenda`
+ * - **Description**: Ofrenda
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OfrendaSlice = prismic.SharedSlice<
+  "ofrenda",
+  OfrendaSliceVariation
+>;
+
+/**
  * Item in *SoCal → Default → Primary → Title Link*
  */
 export interface ThreePhotoCollageSliceDefaultPrimaryTitleLinkItem {
@@ -922,6 +1050,10 @@ declare module "@prismicio/client" {
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceLight,
+      OfrendaSlice,
+      OfrendaSliceDefaultPrimary,
+      OfrendaSliceVariation,
+      OfrendaSliceDefault,
       ThreePhotoCollageSlice,
       ThreePhotoCollageSliceDefaultPrimaryTitleLinkItem,
       ThreePhotoCollageSliceDefaultPrimary,

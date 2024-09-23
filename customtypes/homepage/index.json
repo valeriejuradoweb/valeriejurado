@@ -18,6 +18,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "ofrenda": {
+              "type": "SharedSlice"
+            },
             "three_photo_collage": {
               "type": "SharedSlice"
             },

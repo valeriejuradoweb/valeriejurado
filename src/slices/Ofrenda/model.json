@@ -1,0 +1,92 @@
+{
+  "id": "ofrenda",
+  "type": "SharedSlice",
+  "name": "Ofrenda",
+  "description": "Ofrenda",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image_1": {
+          "type": "Image",
+          "config": {
+            "label": "Image 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "title_label": {
+          "type": "Text",
+          "config": {
+            "label": "Title Label",
+            "placeholder": ""
+          }
+        },
+        "title_link": {
+          "type": "Link",
+          "config": {
+            "label": "Title Link",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        },
+        "project_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Project Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": ""
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        },
+        "image_2": {
+          "type": "Image",
+          "config": {
+            "label": "Image 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_3": {
+          "type": "Image",
+          "config": {
+            "label": "Image 3",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_4": {
+          "type": "Image",
+          "config": {
+            "label": "Image 4",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -62,7 +62,6 @@ const Detail = ({ slice }: DetailProps): JSX.Element => {
               <PrismicRichText field={slice.primary.paragraph_2} />
               <PrismicNextImage field={slice.primary.image_2} />
               <PrismicNextImage field={slice.primary.image_4} />
-              <PrismicNextImage field={slice.primary.image_6} />
             </div>
             <div className="space-y-6 md:space-y-8">
               <PrismicRichText field={slice.primary.paragraph_1} />
@@ -79,6 +78,7 @@ const Detail = ({ slice }: DetailProps): JSX.Element => {
               )}
               <PrismicNextImage field={slice.primary.image_3} />
               <PrismicNextImage field={slice.primary.image_5} />
+              <PrismicNextImage field={slice.primary.image_6} />
             </div>
           </div>
           <div className="flex justify-between font-body">
