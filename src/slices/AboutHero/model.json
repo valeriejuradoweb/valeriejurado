@@ -99,7 +99,7 @@
                   "label": "Employee Name",
                   "placeholder": "",
                   "allowTargetBlank": true,
-                  "multi": "heading1,heading2,heading3,heading4,heading5,heading6,strong"
+                  "multi": "heading2"
                 }
               },
               "employee_bio": {
