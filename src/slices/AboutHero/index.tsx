@@ -18,7 +18,7 @@ const components: JSXMapSerializer = {
   ),
 
   paragraph: ({ children }) => (
-    <p className="leading-10 font-thin font-body mb-4 md:mb-8 md:max-w-[10rem] md:text-xl md:leading-9">
+    <p className="text-base leading-7 font-thin font-body md:text-base">
       {children}
     </p>
   ),
@@ -57,7 +57,10 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
           <div></div>
           <div className="relative right-0">
             <div className="md:w-[70%] md:right-0">
-              <PrismicRichText field={slice.primary.bio} />
+              <PrismicRichText
+                field={slice.primary.bio}
+                components={components}
+              />
               <div className="flex mt-4 md:mt-4">
                 <p className="text-lg pr-1 md:text-2xl">＋</p>
                 <Button
@@ -84,10 +87,10 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
             </div>
           </div>
         </div>
-        <div className="block text-white space-y-10 mt-10 md:space-y-0 md:mt-32 md:flex gap-4">
+        <div className="block text-white space-y-10 mt-10 md:space-y-0 md:mt-32 md:flex md:flex-wrap gap-4">
           {slice.primary.employee.map(
             ({ employee_photo, employee_name, employee_bio }) => (
-              <div>
+              <div className="md:basis-[32%]">
                 <PrismicNextImage field={employee_photo} />
                 <PrismicRichText
                   field={employee_name}
