@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | OrchidsSlice
   | OfrendaSlice
   | ThreePhotoCollageSlice
   | HeroSlice;
@@ -880,6 +881,111 @@ export type OfrendaSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Orchids → Default → Primary*
+ */
+export interface OrchidsSliceDefaultPrimary {
+  /**
+   * Title Label field in *Orchids → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: orchids.default.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_label: prismic.KeyTextField;
+
+  /**
+   * Title Link field in *Orchids → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: orchids.default.primary.title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  title_link: prismic.LinkField;
+
+  /**
+   * Project Description field in *Orchids → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: orchids.default.primary.project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.RichTextField;
+
+  /**
+   * Button Text field in *Orchids → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: orchids.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *Orchids → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: orchids.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Background Image field in *Orchids → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: orchids.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Mobile Background Image field in *Orchids → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: orchids.default.primary.mobile_background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  mobile_background_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Orchids Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OrchidsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<OrchidsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Orchids*
+ */
+type OrchidsSliceVariation = OrchidsSliceDefault;
+
+/**
+ * Orchids Shared Slice
+ *
+ * - **API ID**: `orchids`
+ * - **Description**: Orchids
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OrchidsSlice = prismic.SharedSlice<
+  "orchids",
+  OrchidsSliceVariation
+>;
+
+/**
  * Item in *SoCal → Default → Primary → Title Link*
  */
 export interface ThreePhotoCollageSliceDefaultPrimaryTitleLinkItem {
@@ -1054,6 +1160,10 @@ declare module "@prismicio/client" {
       OfrendaSliceDefaultPrimary,
       OfrendaSliceVariation,
       OfrendaSliceDefault,
+      OrchidsSlice,
+      OrchidsSliceDefaultPrimary,
+      OrchidsSliceVariation,
+      OrchidsSliceDefault,
       ThreePhotoCollageSlice,
       ThreePhotoCollageSliceDefaultPrimaryTitleLinkItem,
       ThreePhotoCollageSliceDefaultPrimary,

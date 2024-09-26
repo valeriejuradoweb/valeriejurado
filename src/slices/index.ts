@@ -8,5 +8,6 @@ export const components = {
   detail: dynamic(() => import("./Detail")),
   hero: dynamic(() => import("./Hero")),
   ofrenda: dynamic(() => import("./Ofrenda")),
+  orchids: dynamic(() => import("./Orchids")),
   three_photo_collage: dynamic(() => import("./SoCal")),
 };

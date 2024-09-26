@@ -43,7 +43,7 @@ const Ofrenda = ({ slice }: OfrendaProps): JSX.Element => {
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
       >
-        <div className="grid md:grid-cols-3 mb-5 md:mb-20">
+        <div className="grid md:grid-cols-3 mb-5 md:mb-0">
           <div className="flex order-1 mt-5 md:order-none">
             <div className="space-y-2 self-end">
               <TitleLink field={slice.primary.title_link}>
@@ -69,7 +69,7 @@ const Ofrenda = ({ slice }: OfrendaProps): JSX.Element => {
           </div>
           <div></div>
         </div>
-        <div className="relative flex-none z-20 h-72 w-[100%] md:flex md:h-none md:space-x-10 md:w-[85%] ">
+        <div className="relative flex-none z-20 h-72 w-[100%] md:flex md:h-none md:space-x-10 md:w-[85%] md:-bottom-20">
           <div className="relative -left-10 w-72 md:left-0 md:w-[45%] md:h-auto">
             <PrismicNextImage field={slice.primary.image_2} />
           </div>
@@ -78,8 +78,8 @@ const Ofrenda = ({ slice }: OfrendaProps): JSX.Element => {
           </div>
         </div>
       </Bounded>
-      <div className="relative md:w-[100%] md:-top-20">
-        <div className="z-10 relative md:-top-20 md:w-[100%] md:h-auto">
+      <div className="relative md:w-[100%]">
+        <div className="z-10 relative  md:w-[100%]">
           <PrismicNextImage field={slice.primary.image_4} />
         </div>
       </div>
