@@ -1,0 +1,51 @@
+{
+  "id": "prev_next",
+  "type": "SharedSlice",
+  "name": "PrevNext",
+  "description": "PrevNext",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "previous_project_title": {
+          "type": "Text",
+          "config": {
+            "label": "Previous Project Title",
+            "placeholder": ""
+          }
+        },
+        "previous_project_link": {
+          "type": "Link",
+          "config": {
+            "label": "Previous Project Link",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        },
+        "next_project_title": {
+          "type": "Text",
+          "config": {
+            "label": "Next Project Title",
+            "placeholder": ""
+          }
+        },
+        "next_project_link": {
+          "type": "Link",
+          "config": {
+            "label": "Next Project Link",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

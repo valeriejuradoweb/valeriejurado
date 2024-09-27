@@ -1,0 +1,44 @@
+{
+  "id": "detail_heading_next",
+  "type": "SharedSlice",
+  "name": "DetailHeadingNext",
+  "description": "DetailHeadingNext",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1,heading2,heading3,heading4,heading5,heading6"
+          }
+        },
+        "next_project_title": {
+          "type": "Text",
+          "config": {
+            "label": "Next Project Title",
+            "placeholder": ""
+          }
+        },
+        "next_project_link": {
+          "type": "Link",
+          "config": {
+            "label": "Next Project Link",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

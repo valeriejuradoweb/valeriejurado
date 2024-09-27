@@ -163,37 +163,16 @@
 					}
 				]
 			},
-			"next_project_title": {
-				"__TYPE__": "FieldContent",
-				"value": "mass",
-				"type": "Text"
-			},
-			"previous_project_title": {
-				"__TYPE__": "FieldContent",
-				"value": "count",
-				"type": "Text"
-			},
 			"video": {
 				"__TYPE__": "LinkContent",
 				"value": {
+					"__TYPE__": "FileLink",
 					"id": "mock_Media_link",
-					"kind": "image/jpeg",
+					"kind": "file",
 					"name": "mock_name",
 					"url": "https://source.unsplash.com/daily",
-					"size": "0",
-					"__TYPE__": "FileLink"
+					"size": "0"
 				}
-			},
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading1",
-						"content": {
-							"text": "Mirror"
-						}
-					}
-				]
 			}
 		},
 		"items": []

@@ -12,15 +12,6 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "heading": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Heading",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading1,heading2,heading3,heading4,heading5,heading6"
-          }
-        },
         "paragraph_1": {
           "type": "StructuredText",
           "config": {
@@ -37,20 +28,6 @@
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-          }
-        },
-        "next_project_title": {
-          "type": "Text",
-          "config": {
-            "label": "Next Project Title",
-            "placeholder": ""
-          }
-        },
-        "previous_project_title": {
-          "type": "Text",
-          "config": {
-            "label": "Previous Project Title",
-            "placeholder": ""
           }
         },
         "video": {

@@ -37,25 +37,8 @@ export type DetailProps = SliceComponentProps<Content.DetailSlice>;
 const Detail = ({ slice }: DetailProps): JSX.Element => {
   return (
     <section className="relative bg-white overflow-hidden">
-      <Bounded className="mt-16 md:mt-24">
+      <Bounded className="">
         <div className="mx-auto w-full max-w-4xl">
-          <div className="flex place-content-center justify-between">
-            <PrismicRichText
-              field={slice.primary.heading}
-              components={components}
-            />
-            <div className="flex font-body">
-              <div className="py-0 hidden flex-wrap md:block md:pt-1">
-                <>{slice.primary.next_project_title}</>
-              </div>
-              <Button href="" className="pl-3 pr-2">
-                <p>next</p>
-              </Button>
-              <div className="py-0 md:pt-1">
-                <Arrow />
-              </div>
-            </div>
-          </div>
           <div className="font-body my-4 grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-8 md:my-8">
             <div className="space-y-6 md:space-y-8">
               <PrismicNextImage field={slice.primary.image_1} />
@@ -79,30 +62,6 @@ const Detail = ({ slice }: DetailProps): JSX.Element => {
               <PrismicNextImage field={slice.primary.image_3} />
               <PrismicNextImage field={slice.primary.image_5} />
               <PrismicNextImage field={slice.primary.image_6} />
-            </div>
-          </div>
-          <div className="flex justify-between font-body">
-            <div className="flex">
-              <div className="scale-x-[-1] py-0 md:pt-1">
-                <Arrow />
-              </div>
-              <Button href="" className="pl-2 pr-3">
-                <p>prev</p>
-              </Button>
-              <div className="py-0 hidden flex-wrap md:block md:pt-1">
-                <>{slice.primary.previous_project_title}</>
-              </div>
-            </div>
-            <div className="flex">
-              <div className="py-0 hidden flex-wrap md:block md:pt-1">
-                <>{slice.primary.next_project_title}</>
-              </div>
-              <Button href="" className="pl-3 pr-2">
-                <p>next</p>
-              </Button>
-              <div className="py-0 md:pt-1">
-                <Arrow />
-              </div>
             </div>
           </div>
         </div>

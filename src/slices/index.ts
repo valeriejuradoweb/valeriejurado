@@ -6,10 +6,12 @@ export const components = {
   about_hero: dynamic(() => import("./AboutHero")),
   contact: dynamic(() => import("./Contact")),
   detail: dynamic(() => import("./Detail")),
+  detail_heading_next: dynamic(() => import("./DetailHeadingNext")),
   hero: dynamic(() => import("./Hero")),
   image_text: dynamic(() => import("./ImageText")),
   ofrenda: dynamic(() => import("./Ofrenda")),
   orchids: dynamic(() => import("./Orchids")),
+  prev_next: dynamic(() => import("./PrevNext")),
   three_photo_collage: dynamic(() => import("./SoCal")),
   uta_artist_space: dynamic(() => import("./UtaArtistSpace")),
 };

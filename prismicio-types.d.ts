@@ -86,6 +86,8 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | DetailHeadingNextSlice
+  | PrevNextSlice
   | ImageTextSlice
   | ContactSlice
   | AboutHeroSlice
@@ -480,16 +482,6 @@ export type ContactSlice = prismic.SharedSlice<
  */
 export interface DetailSliceDefaultPrimary {
   /**
-   * Heading field in *Detail → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: detail.default.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.RichTextField;
-
-  /**
    * Paragraph 1 field in *Detail → Default → Primary*
    *
    * - **Field Type**: Rich Text
@@ -508,26 +500,6 @@ export interface DetailSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   paragraph_2: prismic.RichTextField;
-
-  /**
-   * Next Project Title field in *Detail → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: detail.default.primary.next_project_title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  next_project_title: prismic.KeyTextField;
-
-  /**
-   * Previous Project Title field in *Detail → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: detail.default.primary.previous_project_title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  previous_project_title: prismic.KeyTextField;
 
   /**
    * Video field in *Detail → Default → Primary*
@@ -626,6 +598,71 @@ type DetailSliceVariation = DetailSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type DetailSlice = prismic.SharedSlice<"detail", DetailSliceVariation>;
+
+/**
+ * Primary content in *DetailHeadingNext → Default → Primary*
+ */
+export interface DetailHeadingNextSliceDefaultPrimary {
+  /**
+   * Heading field in *DetailHeadingNext → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: detail_heading_next.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Next Project Title field in *DetailHeadingNext → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: detail_heading_next.default.primary.next_project_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  next_project_title: prismic.KeyTextField;
+
+  /**
+   * Next Project Link field in *DetailHeadingNext → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: detail_heading_next.default.primary.next_project_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  next_project_link: prismic.LinkField;
+}
+
+/**
+ * Default variation for DetailHeadingNext Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DetailHeadingNextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DetailHeadingNextSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *DetailHeadingNext*
+ */
+type DetailHeadingNextSliceVariation = DetailHeadingNextSliceDefault;
+
+/**
+ * DetailHeadingNext Shared Slice
+ *
+ * - **API ID**: `detail_heading_next`
+ * - **Description**: DetailHeadingNext
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DetailHeadingNextSlice = prismic.SharedSlice<
+  "detail_heading_next",
+  DetailHeadingNextSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Dark → Primary*
@@ -1101,6 +1138,81 @@ export type OrchidsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *PrevNext → Default → Primary*
+ */
+export interface PrevNextSliceDefaultPrimary {
+  /**
+   * Previous Project Title field in *PrevNext → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: prev_next.default.primary.previous_project_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  previous_project_title: prismic.KeyTextField;
+
+  /**
+   * Previous Project Link field in *PrevNext → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: prev_next.default.primary.previous_project_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  previous_project_link: prismic.LinkField;
+
+  /**
+   * Next Project Title field in *PrevNext → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: prev_next.default.primary.next_project_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  next_project_title: prismic.KeyTextField;
+
+  /**
+   * Next Project Link field in *PrevNext → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: prev_next.default.primary.next_project_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  next_project_link: prismic.LinkField;
+}
+
+/**
+ * Default variation for PrevNext Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PrevNextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PrevNextSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *PrevNext*
+ */
+type PrevNextSliceVariation = PrevNextSliceDefault;
+
+/**
+ * PrevNext Shared Slice
+ *
+ * - **API ID**: `prev_next`
+ * - **Description**: PrevNext
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PrevNextSlice = prismic.SharedSlice<
+  "prev_next",
+  PrevNextSliceVariation
+>;
+
+/**
  * Item in *SoCal → Default → Primary → Title Link*
  */
 export interface ThreePhotoCollageSliceDefaultPrimaryTitleLinkItem {
@@ -1530,6 +1642,10 @@ declare module "@prismicio/client" {
       DetailSliceDefaultPrimary,
       DetailSliceVariation,
       DetailSliceDefault,
+      DetailHeadingNextSlice,
+      DetailHeadingNextSliceDefaultPrimary,
+      DetailHeadingNextSliceVariation,
+      DetailHeadingNextSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceLightPrimary,
@@ -1550,6 +1666,10 @@ declare module "@prismicio/client" {
       OrchidsSliceDefaultPrimary,
       OrchidsSliceVariation,
       OrchidsSliceDefault,
+      PrevNextSlice,
+      PrevNextSliceDefaultPrimary,
+      PrevNextSliceVariation,
+      PrevNextSliceDefault,
       ThreePhotoCollageSlice,
       ThreePhotoCollageSliceDefaultPrimaryTitleLinkItem,
       ThreePhotoCollageSliceDefaultPrimary,
