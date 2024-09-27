@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "image_text": {
+              "type": "SharedSlice"
+            },
             "contact": {
               "type": "SharedSlice"
             },

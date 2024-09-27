@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | UtaArtistSpaceSlice
   | OrchidsSlice
   | OfrendaSlice
   | ThreePhotoCollageSlice
@@ -85,6 +86,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ImageTextSlice
   | ContactSlice
   | AboutHeroSlice
   | DetailSlice
@@ -756,6 +758,36 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceLight;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Default variation for ImageText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageText*
+ */
+type ImageTextSliceVariation = ImageTextSliceDefault;
+
+/**
+ * ImageText Shared Slice
+ *
+ * - **API ID**: `image_text`
+ * - **Description**: ImageText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageTextSlice = prismic.SharedSlice<
+  "image_text",
+  ImageTextSliceVariation
+>;
+
+/**
  * Primary content in *Ofrenda → Default → Primary*
  */
 export interface OfrendaSliceDefaultPrimary {
@@ -1117,6 +1149,271 @@ export type ThreePhotoCollageSlice = prismic.SharedSlice<
   ThreePhotoCollageSliceVariation
 >;
 
+/**
+ * Primary content in *UtaArtistSpace → Default → Primary*
+ */
+export interface UtaArtistSpaceSliceDefaultPrimary {
+  /**
+   * Title Label field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_label: prismic.KeyTextField;
+
+  /**
+   * Title Link field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  title_link: prismic.LinkField;
+
+  /**
+   * Title Description field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.title_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_description: prismic.RichTextField;
+
+  /**
+   * Button Text field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Image 1 field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Image 2 field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Project 1 Title Label field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.project_1_title_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  project_1_title_label: prismic.KeyTextField;
+
+  /**
+   * Project 1 Title Link field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.project_1_title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project_1_title_link: prismic.LinkField;
+
+  /**
+   * Project 1 Description field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.project_1_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_1_description: prismic.RichTextField;
+
+  /**
+   * Image 3 field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.image_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_3: prismic.ImageField<never>;
+
+  /**
+   * Image 4 field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.image_4
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_4: prismic.ImageField<never>;
+
+  /**
+   * Project 2 Title Label field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.project_2_title_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  project_2_title_label: prismic.KeyTextField;
+
+  /**
+   * Project 2 Title Link field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.project_2_title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project_2_title_link: prismic.LinkField;
+
+  /**
+   * Project 2 Description field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.project_2_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_2_description: prismic.RichTextField;
+
+  /**
+   * Image 5 field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.image_5
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_5: prismic.ImageField<never>;
+
+  /**
+   * Project 3 Title Label field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.project_3_title_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  project_3_title_label: prismic.KeyTextField;
+
+  /**
+   * Project 3 Title Link field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.project_3_title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project_3_title_link: prismic.LinkField;
+
+  /**
+   * Project 3 Description field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.project_3_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_3_description: prismic.RichTextField;
+
+  /**
+   * Image 6 field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.image_6
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_6: prismic.ImageField<never>;
+
+  /**
+   * Project 4 Title Label field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.project_4_title_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  project_4_title_label: prismic.KeyTextField;
+
+  /**
+   * Project 4 Title Link field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.project_4_title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project_4_title_link: prismic.LinkField;
+
+  /**
+   * Project 4 Description field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.project_4_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_4_description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for UtaArtistSpace Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type UtaArtistSpaceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<UtaArtistSpaceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *UtaArtistSpace*
+ */
+type UtaArtistSpaceSliceVariation = UtaArtistSpaceSliceDefault;
+
+/**
+ * UtaArtistSpace Shared Slice
+ *
+ * - **API ID**: `uta_artist_space`
+ * - **Description**: UtaArtistSpace
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type UtaArtistSpaceSlice = prismic.SharedSlice<
+  "uta_artist_space",
+  UtaArtistSpaceSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1156,6 +1453,9 @@ declare module "@prismicio/client" {
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceLight,
+      ImageTextSlice,
+      ImageTextSliceVariation,
+      ImageTextSliceDefault,
       OfrendaSlice,
       OfrendaSliceDefaultPrimary,
       OfrendaSliceVariation,
@@ -1169,6 +1469,10 @@ declare module "@prismicio/client" {
       ThreePhotoCollageSliceDefaultPrimary,
       ThreePhotoCollageSliceVariation,
       ThreePhotoCollageSliceDefault,
+      UtaArtistSpaceSlice,
+      UtaArtistSpaceSliceDefaultPrimary,
+      UtaArtistSpaceSliceVariation,
+      UtaArtistSpaceSliceDefault,
     };
   }
 }

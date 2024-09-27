@@ -7,7 +7,9 @@ export const components = {
   contact: dynamic(() => import("./Contact")),
   detail: dynamic(() => import("./Detail")),
   hero: dynamic(() => import("./Hero")),
+  image_text: dynamic(() => import("./ImageText")),
   ofrenda: dynamic(() => import("./Ofrenda")),
   orchids: dynamic(() => import("./Orchids")),
   three_photo_collage: dynamic(() => import("./SoCal")),
+  uta_artist_space: dynamic(() => import("./UtaArtistSpace")),
 };

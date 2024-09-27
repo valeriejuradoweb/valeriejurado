@@ -5,7 +5,7 @@ import Bounded from "@/components/Bounded";
 import NavLink from "./NavLink";
 import LogoGoldLg from "@/components/LogoGoldLg";
 import LogoGoldSm from "@/components/LogoGoldSm";
-
+/*mix-blend-exclusion*/
 export default async function Header() {
   const client = createClient();
 
@@ -15,7 +15,7 @@ export default async function Header() {
     <>
       <Link
         href="/"
-        className="fixed m-auto top-7 w-14 h-10 left-0 right-0 mix-blend-exclusion z-50 md:w-96"
+        className="fixed m-auto top-7 w-14 h-10 left-0 right-0 z-50 md:w-96"
       >
         <div className="block md:hidden">
           <LogoGoldSm />
