@@ -18,6 +18,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "alliums": {
+              "type": "SharedSlice"
+            },
             "uta_artist_space": {
               "type": "SharedSlice"
             },
