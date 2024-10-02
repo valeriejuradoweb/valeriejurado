@@ -113,6 +113,7 @@ export default async function Footer() {
                 </li>
               ))}
             </ul>
+
             <p>
               © {new Date().getFullYear()} {settings.data.site_title}
             </p>

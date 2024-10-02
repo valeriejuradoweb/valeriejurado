@@ -665,6 +665,31 @@ export type DetailHeadingNextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Hero → Dark → Primary → Links*
+ */
+export interface HeroSliceDefaultPrimaryLinksItem {
+  /**
+   * Link field in *Hero → Dark → Primary → Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.links[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Label field in *Hero → Dark → Primary → Links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.links[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *Hero → Dark → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -677,26 +702,6 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   heading: prismic.RichTextField;
-
-  /**
-   * Button Text field in *Hero → Dark → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.button_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_text: prismic.KeyTextField;
-
-  /**
-   * Button Link field in *Hero → Dark → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.button_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_link: prismic.LinkField;
 
   /**
    * Background Image field in *Hero → Dark → Primary*
@@ -717,6 +722,16 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   mobile_background_image: prismic.ImageField<never>;
+
+  /**
+   * Links field in *Hero → Dark → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.links[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  links: prismic.GroupField<Simplify<HeroSliceDefaultPrimaryLinksItem>>;
 }
 
 /**
@@ -1647,6 +1662,7 @@ declare module "@prismicio/client" {
       DetailHeadingNextSliceVariation,
       DetailHeadingNextSliceDefault,
       HeroSlice,
+      HeroSliceDefaultPrimaryLinksItem,
       HeroSliceDefaultPrimary,
       HeroSliceLightPrimary,
       HeroSliceVariation,

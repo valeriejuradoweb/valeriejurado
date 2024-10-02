@@ -68,20 +68,22 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             <div className="text-white grid text-left grid-cols-2 md:grid-cols-3 md:pl-10 md:py-14">
               <div></div>
               <div></div>
-              <div className="mt-[12rem] bg-black/[.4] md:mt-[30%]">
+              <div className="mt-[10rem] bg-black/[.4] md:mt-[30%]">
                 <PrismicRichText
                   field={slice.primary.heading}
                   components={components}
                 />
-                <div className="flex">
-                  <p className="text-lg pr-1 md:text-2xl">＋</p>
-                  <Button
-                    field={slice.primary.button_link}
-                    className="mb-8 md:md-10"
-                  >
-                    {slice.primary.button_text}
-                  </Button>
-                </div>
+
+                <ul className="space-y-4">
+                  {slice.primary.links.map(({ link, label }) => (
+                    <li key={label}>
+                      <div className="flex">
+                        <p className="text-lg pr-1 md:text-2xl">＋</p>
+                        <Button field={link}>{label}</Button>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </Bounded>
