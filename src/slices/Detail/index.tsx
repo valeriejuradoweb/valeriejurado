@@ -39,15 +39,22 @@ const Detail = ({ slice }: DetailProps): JSX.Element => {
     <section className="relative bg-white overflow-hidden">
       <Bounded className="">
         <div className="mx-auto w-full max-w-4xl">
-          <div className="font-body my-4 grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-8 md:my-8">
-            <div className="space-y-6 md:space-y-8">
-              <PrismicNextImage field={slice.primary.image_1} />
-              <PrismicRichText field={slice.primary.paragraph_2} />
-              <PrismicNextImage field={slice.primary.image_2} />
-              <PrismicNextImage field={slice.primary.image_4} />
+          <div className="font-body my-2 grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-8 md:my-8">
+            <div>
+              <div className="block mb-6 md:hidden">
+                <PrismicRichText field={slice.primary.paragraph_1} />
+              </div>
+              <div className="space-y-6 md:space-y-8">
+                <PrismicNextImage field={slice.primary.image_1} />
+                <PrismicRichText field={slice.primary.paragraph_2} />
+                <PrismicNextImage field={slice.primary.image_2} />
+                <PrismicNextImage field={slice.primary.image_4} />
+              </div>
             </div>
             <div className="space-y-6 md:space-y-8">
-              <PrismicRichText field={slice.primary.paragraph_1} />
+              <div className="hidden md:block">
+                <PrismicRichText field={slice.primary.paragraph_1} />
+              </div>
               {prismic.isFilled.linkToMedia(slice.primary.video) && (
                 <video
                   playsInline
