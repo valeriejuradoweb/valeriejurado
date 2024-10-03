@@ -516,6 +516,26 @@ export interface AlliumsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image_3: prismic.ImageField<never>;
+
+  /**
+   * Mobile Image 4 field in *Alliums → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alliums.default.primary.mobile_image_4
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  mobile_image_4: prismic.ImageField<never>;
+
+  /**
+   * Mobile Image 5 field in *Alliums → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alliums.default.primary.mobile_image_5
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  mobile_image_5: prismic.ImageField<never>;
 }
 
 /**

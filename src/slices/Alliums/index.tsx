@@ -38,7 +38,7 @@ const components: JSXMapSerializer = {
 const Alliums = ({ slice }: AlliumsProps): JSX.Element => {
   return (
     <section className="relative bg-black overflow-hidden">
-      <div className="absolute flex w-full z-30 pt-10 pr-32 justify-end">
+      <div className="absolute flex w-full z-30 pt-10 justify-end pr-10 md:pr-32">
         <div className="text-white space-y-2">
           <TitleLink field={slice.primary.title_link}>
             {slice.primary.title_label}
@@ -57,11 +57,15 @@ const Alliums = ({ slice }: AlliumsProps): JSX.Element => {
       </div>
 
       <PrismicNextImage
-        className="w-[100%] z-10 -mb-96"
+        className="z-10  w-[120%] md:w-[100%] hidden md:block md:-mb-96"
         field={slice.primary.image_1}
       />
+      <PrismicNextImage
+        className="z-10  w-[140%] block md:hidden"
+        field={slice.primary.image_3}
+      />
       <Bounded>
-        <div className="items-end relative flex w-full z-30 justify-between gap-14">
+        <div className="items-end relative w-full z-30 justify-between gap-14 hidden md:flex">
           <div>
             <PrismicNextImage className="" field={slice.primary.image_2} />
           </div>
@@ -69,7 +73,24 @@ const Alliums = ({ slice }: AlliumsProps): JSX.Element => {
             <PrismicNextImage className="" field={slice.primary.image_3} />
           </div>
         </div>
+        <div className="block mb-10 md:hidden">
+          <PrismicNextImage className="" field={slice.primary.image_2} />
+        </div>
+        <div className="flex relative w-full gap-8 md:hidden">
+          <div>
+            <PrismicNextImage field={slice.primary.mobile_image_4} />
+          </div>
+          <div>
+            <PrismicNextImage field={slice.primary.mobile_image_5} />
+          </div>
+        </div>
       </Bounded>
+      <div>
+        <PrismicNextImage
+          className="w-[120%] md:w-[100%] block md:hidden"
+          field={slice.primary.image_1}
+        />
+      </div>
     </section>
   );
 };

@@ -76,6 +76,22 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "mobile_image_4": {
+          "type": "Image",
+          "config": {
+            "label": "Mobile Image 4",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "mobile_image_5": {
+          "type": "Image",
+          "config": {
+            "label": "Mobile Image 5",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}
