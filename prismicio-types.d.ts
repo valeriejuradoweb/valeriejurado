@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | PinataSlice
   | AlliumsSlice
   | UtaArtistSpaceSlice
   | OrchidsSlice
@@ -1289,6 +1290,138 @@ export type OrchidsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Pinata → Default → Primary*
+ */
+export interface PinataSliceDefaultPrimary {
+  /**
+   * Title Label field in *Pinata → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pinata.default.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_label: prismic.KeyTextField;
+
+  /**
+   * Title Link field in *Pinata → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pinata.default.primary.title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  title_link: prismic.LinkField;
+
+  /**
+   * Project Description field in *Pinata → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pinata.default.primary.project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.RichTextField;
+
+  /**
+   * Button Text field in *Pinata → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pinata.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *Pinata → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pinata.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Image 1 field in *Pinata → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pinata.default.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Image 2 field in *Pinata → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pinata.default.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Image 3 field in *Pinata → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pinata.default.primary.image_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_3: prismic.ImageField<never>;
+
+  /**
+   * Image 4 field in *Pinata → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pinata.default.primary.image_4
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_4: prismic.ImageField<never>;
+
+  /**
+   * Image 5 field in *Pinata → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pinata.default.primary.image_5
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_5: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Pinata Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PinataSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PinataSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Pinata*
+ */
+type PinataSliceVariation = PinataSliceDefault;
+
+/**
+ * Pinata Shared Slice
+ *
+ * - **API ID**: `pinata`
+ * - **Description**: Pinata
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PinataSlice = prismic.SharedSlice<"pinata", PinataSliceVariation>;
+
+/**
  * Primary content in *PrevNext → Default → Primary*
  */
 export interface PrevNextSliceDefaultPrimary {
@@ -1822,6 +1955,10 @@ declare module "@prismicio/client" {
       OrchidsSliceDefaultPrimary,
       OrchidsSliceVariation,
       OrchidsSliceDefault,
+      PinataSlice,
+      PinataSliceDefaultPrimary,
+      PinataSliceVariation,
+      PinataSliceDefault,
       PrevNextSlice,
       PrevNextSliceDefaultPrimary,
       PrevNextSliceVariation,
