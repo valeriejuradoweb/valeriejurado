@@ -49,7 +49,7 @@ const Portals = ({ slice }: PortalsProps): JSX.Element => {
           <Bounded>
             <div className="grid gap-none md:gap-20 md:grid-cols-2">
               <div className="flex items-center mb-4 md:mb-none">
-                <div className="space-y-2 text-center md:text-left">
+                <div className="space-y-2 text-center px-6 md:px-0 md:text-left">
                   <NavLink field={slice.primary.heading_link}>
                     {slice.primary.heading_label}
                   </NavLink>
@@ -90,7 +90,7 @@ const Portals = ({ slice }: PortalsProps): JSX.Element => {
                   </div>
                 </div>
                 <div className="w-[100%] md:w-auto">
-                  <div className="absolute bottom-12 md:relative md:bottom-0">
+                  <div className="absolute bottom-12 md:relative md:mb-4 md:bottom-0">
                     <PrismicNextImage field={slice.primary.image_2} />
                   </div>
                   <div className="hidden md:block">
@@ -110,7 +110,7 @@ const Portals = ({ slice }: PortalsProps): JSX.Element => {
       )}
 
       {slice.variation === "portals2" && (
-        <section className="relative bg-white overflow-hidden mb-10">
+        <section className="relative bg-white overflow-hidden mb-1 md:mb-10">
           <div className="grid grid-cols-1 gap-10 md:gap-0 md:grid-cols-3">
             <PrismicNextImage
               className="w-[80%] md:w-full"
@@ -122,7 +122,7 @@ const Portals = ({ slice }: PortalsProps): JSX.Element => {
             />
             <PrismicNextImage field={slice.primary.image_5} />
           </div>
-          <Bounded>
+          <Bounded className="-mt-5">
             {/*** ----------------Desktop Below*/}
             <div className="grid grid-cols-3">
               <div className="order-3 md:order-none">
@@ -151,7 +151,27 @@ const Portals = ({ slice }: PortalsProps): JSX.Element => {
       {slice.variation === "portals3" && (
         <section className="relative bg-white overflow-hidden">
           <Bounded>
-            <div className="block md:hidden"></div>
+            <div className="grid grid-cols-1 place-items-center space-y-4 md:space-y-4">
+              <SequenceLabel>
+                <PrismicRichText
+                  field={slice.primary.sequence_label_3}
+                  components={components}
+                />
+              </SequenceLabel>
+              <div className="w-full md:w-[40rem]">
+                <PrismicNextImage
+                  className="mb-4"
+                  field={slice.primary.image_6}
+                />
+                <TitleLink field={slice.primary.title_link_3}>
+                  {slice.primary.title_label_3}
+                </TitleLink>
+                <PrismicRichText
+                  field={slice.primary.project_description}
+                  components={components}
+                />
+              </div>
+            </div>
           </Bounded>
         </section>
       )}

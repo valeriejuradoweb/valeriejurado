@@ -6,6 +6,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <title>Test title</title>
         <link
           rel="preconnect"
           href="https://images.prismic.io"
