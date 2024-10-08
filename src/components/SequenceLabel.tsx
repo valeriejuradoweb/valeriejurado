@@ -13,13 +13,26 @@ const Diamond = () => (
   </svg>
 );
 
+const MobileDiamond = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="53" height="53" fill="none">
+    <path
+      stroke="#121212"
+      strokeWidth="0.5"
+      d="M.354 26.749L26.164.939l25.809 25.81-25.81 25.81z"
+    ></path>
+  </svg>
+);
+
 const SequenceLabel: React.FC<SequenceLabel> = ({ children, className }) => {
   return (
     <div className="flex items-center">
-      <div>
+      <div className="hidden md:block">
         <Diamond /> {/* Render the SVG icon */}
       </div>
-      <div className="absolute w-24 text-center tracking-[.3em]">
+      <div className="block md:hidden">
+        <MobileDiamond /> {/* Render Mobile the SVG icon */}
+      </div>
+      <div className="absolute w-14 text-center tracking-widest md:tracking-[.3em] md:w-24">
         <span>{children}</span> {/* Render the children */}
       </div>
     </div>

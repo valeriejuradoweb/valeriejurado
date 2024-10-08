@@ -1597,12 +1597,12 @@ export interface PortalsSlicePortals2Primary {
   /**
    * Sequence Label 2 field in *Portals → Portals-2 → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: portals.portals2.primary.sequence_label_2
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  sequence_label_2: prismic.KeyTextField;
+  sequence_label_2: prismic.RichTextField;
 
   /**
    * Title Label 2 field in *Portals → Portals-2 → Primary*
@@ -1655,12 +1655,12 @@ export interface PortalsSlicePortals3Primary {
   /**
    * Sequence Label 3 field in *Portals → Portals-3 → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: portals.portals3.primary.sequence_label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: portals.portals3.primary.sequence_label_3
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  sequence_label: prismic.KeyTextField;
+  sequence_label_3: prismic.RichTextField;
 
   /**
    * Image 6 field in *Portals → Portals-3 → Primary*

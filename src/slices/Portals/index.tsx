@@ -41,7 +41,7 @@ const Portals = ({ slice }: PortalsProps): JSX.Element => {
   return (
     <>
       {slice.variation === "default" && (
-        <section className="relative bg-white overflow-hidden">
+        <section className="relative bg-white overflow-hidden mb-14">
           <div className="hidden md:block">
             <PrismicNextImage field={slice.primary.image_1} />
           </div>
@@ -108,19 +108,46 @@ const Portals = ({ slice }: PortalsProps): JSX.Element => {
           </Bounded>
         </section>
       )}
-      ,
+
       {slice.variation === "portals2" && (
-        <section className="relative bg-white overflow-hidden">
+        <section className="relative bg-white overflow-hidden mb-10">
+          <div className="grid grid-cols-1 gap-10 md:gap-0 md:grid-cols-3">
+            <PrismicNextImage
+              className="w-[80%] md:w-full"
+              field={slice.primary.image_3}
+            />
+            <PrismicNextImage
+              className="w-[80%] place-self-end md:w-full"
+              field={slice.primary.image_4}
+            />
+            <PrismicNextImage field={slice.primary.image_5} />
+          </div>
           <Bounded>
-            <div className="flex">
-              <PrismicNextImage field={slice.primary.image_3} />
-              <PrismicNextImage field={slice.primary.image_4} />
-              <PrismicNextImage field={slice.primary.image_5} />
+            {/*** ----------------Desktop Below*/}
+            <div className="grid grid-cols-3">
+              <div className="order-3 md:order-none">
+                <TitleLink field={slice.primary.title_link_2}>
+                  {slice.primary.title_label_2}
+                </TitleLink>
+                <PrismicRichText
+                  field={slice.primary.project_description_2}
+                  components={components}
+                />
+              </div>
+              <div className="order-2 place-self-center md:order-none">
+                <SequenceLabel>
+                  <PrismicRichText
+                    field={slice.primary.sequence_label_2}
+                    components={components}
+                  />
+                </SequenceLabel>
+              </div>
+              <div></div>
             </div>
           </Bounded>
         </section>
       )}
-      ,
+
       {slice.variation === "portals3" && (
         <section className="relative bg-white overflow-hidden">
           <Bounded>
@@ -128,7 +155,6 @@ const Portals = ({ slice }: PortalsProps): JSX.Element => {
           </Bounded>
         </section>
       )}
-      ,
     </>
   );
 };

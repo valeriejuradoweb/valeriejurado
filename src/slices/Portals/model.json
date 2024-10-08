@@ -150,10 +150,12 @@
           }
         },
         "sequence_label_2": {
-          "type": "Text",
+          "type": "StructuredText",
           "config": {
             "label": "Sequence Label 2",
-            "placeholder": ""
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
           }
         },
         "title_label_2": {
@@ -193,11 +195,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "sequence_label": {
-          "type": "Text",
+        "sequence_label_3": {
+          "type": "StructuredText",
           "config": {
             "label": "Sequence Label 3",
-            "placeholder": ""
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
           }
         },
         "image_6": {

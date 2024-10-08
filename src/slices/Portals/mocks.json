@@ -220,11 +220,6 @@
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
-			"sequence_label_2": {
-				"__TYPE__": "FieldContent",
-				"value": "younger",
-				"type": "Text"
-			},
 			"title_label_2": {
 				"__TYPE__": "FieldContent",
 				"value": "felt",
@@ -248,6 +243,17 @@
 						}
 					}
 				]
+			},
+			"sequence_label_2": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Anim velit cillum officia quis non cupidatat eiusmod cupidatat eu ad enim aliqua. Commodo proident reprehenderit ipsum proident sit laboris ad consectetur exercitation reprehenderit sit nulla irure."
+						}
+					}
+				]
 			}
 		},
 		"items": [
@@ -261,11 +267,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "portals3",
 		"primary": {
-			"sequence_label": {
-				"__TYPE__": "FieldContent",
-				"value": "living",
-				"type": "Text"
-			},
 			"project_description": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -312,6 +313,17 @@
 					"url": "https://slicemachine.dev",
 					"text": "struck"
 				}
+			},
+			"sequence_label_3": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Reprehenderit id sit id reprehenderit. Aliqua id Lorem nisi reprehenderit ea reprehenderit ex non exercitation commodo proident. Pariatur sint ipsum aliqua laborum."
+						}
+					}
+				]
 			}
 		},
 		"items": [
