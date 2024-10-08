@@ -36,14 +36,13 @@ const ImageText = ({ slice }: ImageTextProps): JSX.Element => {
     <>
       {slice.variation === "default" && (
         <section className="bg-white overflow-hidden">
-          <Bounded className="">
+          <Bounded>
             <div className="mx-auto w-full max-w-4xl">
-              <div className="flex gap-14 items-center">
-                <PrismicNextImage
-                  className="w-[50%]"
-                  field={slice.primary.image}
-                />
-                <div className="font-body">
+              <div className="items-center grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-14">
+                <div>
+                  <PrismicNextImage field={slice.primary.image} />
+                </div>
+                <div>
                   <PrismicRichText
                     field={slice.primary.heading}
                     components={components}
@@ -60,10 +59,10 @@ const ImageText = ({ slice }: ImageTextProps): JSX.Element => {
       )}
       {slice.variation === "textLeft" && (
         <section className="bg-white overflow-hidden">
-          <Bounded className="">
+          <Bounded>
             <div className="mx-auto w-full max-w-4xl">
-              <div className="flex gap-14 items-center">
-                <div>
+              <div className="items-center grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-14">
+                <div className="order-2 md:order-none">
                   <PrismicRichText
                     field={slice.primary.heading}
                     components={components}
@@ -73,10 +72,9 @@ const ImageText = ({ slice }: ImageTextProps): JSX.Element => {
                     components={components}
                   />
                 </div>
-                <PrismicNextImage
-                  className="w-[50%]"
-                  field={slice.primary.image}
-                />
+                <div className="order-1 md:order-none">
+                  <PrismicNextImage field={slice.primary.image} />
+                </div>
               </div>
             </div>
           </Bounded>
