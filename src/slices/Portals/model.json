@@ -1,0 +1,241 @@
+{
+  "id": "portals",
+  "type": "SharedSlice",
+  "name": "Portals",
+  "description": "Portals",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image_1": {
+          "type": "Image",
+          "config": {
+            "label": "Image 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "mobile_image_1": {
+          "type": "Image",
+          "config": {
+            "label": "Mobile Image 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "heading_label": {
+          "type": "Text",
+          "config": {
+            "label": "Heading Label",
+            "placeholder": ""
+          }
+        },
+        "heading_link": {
+          "type": "Link",
+          "config": {
+            "label": "Heading Link",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null,
+            "allowText": true
+          }
+        },
+        "heading_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": ""
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null,
+            "allowText": true
+          }
+        },
+        "image_2": {
+          "type": "Image",
+          "config": {
+            "label": "Image 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "title_label": {
+          "type": "Text",
+          "config": {
+            "label": "Title Label",
+            "placeholder": ""
+          }
+        },
+        "title_link": {
+          "type": "Link",
+          "config": {
+            "label": "Title Link",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null,
+            "allowText": true
+          }
+        },
+        "project_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Project Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "strong,em,paragraph"
+          }
+        },
+        "sequence_label": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Sequence Label",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "portals2",
+      "name": "Portals-2",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image_3": {
+          "type": "Image",
+          "config": {
+            "label": "Image 3",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_4": {
+          "type": "Image",
+          "config": {
+            "label": "Image 4",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_5": {
+          "type": "Image",
+          "config": {
+            "label": "Image 5",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "sequence_label_2": {
+          "type": "Text",
+          "config": {
+            "label": "Sequence Label 2",
+            "placeholder": ""
+          }
+        },
+        "title_label_2": {
+          "type": "Text",
+          "config": {
+            "label": "Title Label 2",
+            "placeholder": ""
+          }
+        },
+        "title_link_2": {
+          "type": "Link",
+          "config": {
+            "label": "Title Link 2",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null,
+            "allowText": true
+          }
+        },
+        "project_description_2": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Project Description 2",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "portals3",
+      "name": "Portals-3",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "sequence_label": {
+          "type": "Text",
+          "config": {
+            "label": "Sequence Label 3",
+            "placeholder": ""
+          }
+        },
+        "image_6": {
+          "type": "Image",
+          "config": {
+            "label": "Image 6",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "title_label_3": {
+          "type": "Text",
+          "config": {
+            "label": "Title Label 3",
+            "placeholder": ""
+          }
+        },
+        "title_link_3": {
+          "type": "Link",
+          "config": {
+            "label": "Title Link 3",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null,
+            "allowText": true
+          }
+        },
+        "project_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Project Description 3",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

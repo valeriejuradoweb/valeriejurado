@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | PortalsSlice
   | PinataSlice
   | AlliumsSlice
   | UtaArtistSpaceSlice
@@ -1422,6 +1423,320 @@ type PinataSliceVariation = PinataSliceDefault;
 export type PinataSlice = prismic.SharedSlice<"pinata", PinataSliceVariation>;
 
 /**
+ * Primary content in *Portals → Default → Primary*
+ */
+export interface PortalsSliceDefaultPrimary {
+  /**
+   * Image 1 field in *Portals → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.default.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Mobile Image 1 field in *Portals → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.default.primary.mobile_image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  mobile_image_1: prismic.ImageField<never>;
+
+  /**
+   * Heading Label field in *Portals → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.default.primary.heading_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading_label: prismic.KeyTextField;
+
+  /**
+   * Heading Link field in *Portals → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.default.primary.heading_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  heading_link: prismic.LinkField;
+
+  /**
+   * Heading Description field in *Portals → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.default.primary.heading_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading_description: prismic.RichTextField;
+
+  /**
+   * Button Text field in *Portals → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *Portals → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Image 2 field in *Portals → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.default.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Title Label field in *Portals → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.default.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_label: prismic.KeyTextField;
+
+  /**
+   * Title Link field in *Portals → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.default.primary.title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  title_link: prismic.LinkField;
+
+  /**
+   * Project Description field in *Portals → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.default.primary.project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.RichTextField;
+
+  /**
+   * Sequence Label field in *Portals → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.default.primary.sequence_label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sequence_label: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Portals Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PortalsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PortalsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Portals → Portals-2 → Primary*
+ */
+export interface PortalsSlicePortals2Primary {
+  /**
+   * Image 3 field in *Portals → Portals-2 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.portals2.primary.image_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_3: prismic.ImageField<never>;
+
+  /**
+   * Image 4 field in *Portals → Portals-2 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.portals2.primary.image_4
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_4: prismic.ImageField<never>;
+
+  /**
+   * Image 5 field in *Portals → Portals-2 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.portals2.primary.image_5
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_5: prismic.ImageField<never>;
+
+  /**
+   * Sequence Label 2 field in *Portals → Portals-2 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.portals2.primary.sequence_label_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sequence_label_2: prismic.KeyTextField;
+
+  /**
+   * Title Label 2 field in *Portals → Portals-2 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.portals2.primary.title_label_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_label_2: prismic.KeyTextField;
+
+  /**
+   * Title Link 2 field in *Portals → Portals-2 → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.portals2.primary.title_link_2
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  title_link_2: prismic.LinkField;
+
+  /**
+   * Project Description 2 field in *Portals → Portals-2 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.portals2.primary.project_description_2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description_2: prismic.RichTextField;
+}
+
+/**
+ * Portals-2 variation for Portals Slice
+ *
+ * - **API ID**: `portals2`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PortalsSlicePortals2 = prismic.SharedSliceVariation<
+  "portals2",
+  Simplify<PortalsSlicePortals2Primary>,
+  never
+>;
+
+/**
+ * Primary content in *Portals → Portals-3 → Primary*
+ */
+export interface PortalsSlicePortals3Primary {
+  /**
+   * Sequence Label 3 field in *Portals → Portals-3 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.portals3.primary.sequence_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sequence_label: prismic.KeyTextField;
+
+  /**
+   * Image 6 field in *Portals → Portals-3 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.portals3.primary.image_6
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_6: prismic.ImageField<never>;
+
+  /**
+   * Title Label 3 field in *Portals → Portals-3 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.portals3.primary.title_label_3
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_label_3: prismic.KeyTextField;
+
+  /**
+   * Title Link 3 field in *Portals → Portals-3 → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.portals3.primary.title_link_3
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  title_link_3: prismic.LinkField;
+
+  /**
+   * Project Description 3 field in *Portals → Portals-3 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portals.portals3.primary.project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.RichTextField;
+}
+
+/**
+ * Portals-3 variation for Portals Slice
+ *
+ * - **API ID**: `portals3`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PortalsSlicePortals3 = prismic.SharedSliceVariation<
+  "portals3",
+  Simplify<PortalsSlicePortals3Primary>,
+  never
+>;
+
+/**
+ * Slice variation for *Portals*
+ */
+type PortalsSliceVariation =
+  | PortalsSliceDefault
+  | PortalsSlicePortals2
+  | PortalsSlicePortals3;
+
+/**
+ * Portals Shared Slice
+ *
+ * - **API ID**: `portals`
+ * - **Description**: Portals
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PortalsSlice = prismic.SharedSlice<
+  "portals",
+  PortalsSliceVariation
+>;
+
+/**
  * Primary content in *PrevNext → Default → Primary*
  */
 export interface PrevNextSliceDefaultPrimary {
@@ -1901,6 +2216,17 @@ declare module "@prismicio/client" {
     ): prismic.Client<AllDocumentTypes>;
   }
 
+  interface CreateWriteClient {
+    (
+      repositoryNameOrEndpoint: string,
+      options: prismic.WriteClientConfig,
+    ): prismic.WriteClient<AllDocumentTypes>;
+  }
+
+  interface CreateMigration {
+    (): prismic.Migration<AllDocumentTypes>;
+  }
+
   namespace Content {
     export type {
       HomepageDocument,
@@ -1959,6 +2285,14 @@ declare module "@prismicio/client" {
       PinataSliceDefaultPrimary,
       PinataSliceVariation,
       PinataSliceDefault,
+      PortalsSlice,
+      PortalsSliceDefaultPrimary,
+      PortalsSlicePortals2Primary,
+      PortalsSlicePortals3Primary,
+      PortalsSliceVariation,
+      PortalsSliceDefault,
+      PortalsSlicePortals2,
+      PortalsSlicePortals3,
       PrevNextSlice,
       PrevNextSliceDefaultPrimary,
       PrevNextSliceVariation,

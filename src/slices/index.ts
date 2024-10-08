@@ -13,6 +13,7 @@ export const components = {
   ofrenda: dynamic(() => import("./Ofrenda")),
   orchids: dynamic(() => import("./Orchids")),
   pinata: dynamic(() => import("./Pinata")),
+  portals: dynamic(() => import("./Portals")),
   prev_next: dynamic(() => import("./PrevNext")),
   three_photo_collage: dynamic(() => import("./SoCal")),
   uta_artist_space: dynamic(() => import("./UtaArtistSpace")),
