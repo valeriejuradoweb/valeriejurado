@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | BentleySlice
   | JhPiegoSlice
   | PortalsSlice
   | PinataSlice
@@ -569,6 +570,111 @@ type AlliumsSliceVariation = AlliumsSliceDefault;
 export type AlliumsSlice = prismic.SharedSlice<
   "alliums",
   AlliumsSliceVariation
+>;
+
+/**
+ * Primary content in *Bentley → Default → Primary*
+ */
+export interface BentleySliceDefaultPrimary {
+  /**
+   * Image 1 field in *Bentley → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bentley.default.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Title Link field in *Bentley → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bentley.default.primary.title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  title_link: prismic.LinkField;
+
+  /**
+   * Title Label field in *Bentley → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bentley.default.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_label: prismic.KeyTextField;
+
+  /**
+   * Description field in *Bentley → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bentley.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Button Link field in *Bentley → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bentley.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button Label field in *Bentley → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bentley.default.primary.button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField;
+
+  /**
+   * Image 2 field in *Bentley → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bentley.default.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Bentley Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BentleySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BentleySliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Bentley*
+ */
+type BentleySliceVariation = BentleySliceDefault;
+
+/**
+ * Bentley Shared Slice
+ *
+ * - **API ID**: `bentley`
+ * - **Description**: Bentley
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BentleySlice = prismic.SharedSlice<
+  "bentley",
+  BentleySliceVariation
 >;
 
 /**
@@ -2364,6 +2470,10 @@ declare module "@prismicio/client" {
       AlliumsSliceDefaultPrimary,
       AlliumsSliceVariation,
       AlliumsSliceDefault,
+      BentleySlice,
+      BentleySliceDefaultPrimary,
+      BentleySliceVariation,
+      BentleySliceDefault,
       ContactSlice,
       ContactSliceDefaultPrimary,
       ContactSliceVariation,

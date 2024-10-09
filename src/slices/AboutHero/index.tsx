@@ -53,7 +53,7 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
         field={slice.primary.mobile_background_image}
       />
       <Bounded className="font-body font-thin text-white">
-        <div className="grid mt-0 md:grid-cols-2 md:gap-10 md:mt-[8rem]">
+        <div className="grid mt-0 md:grid-cols-2 md:gap-10 md:pt-[8rem]">
           <div></div>
           <div className="relative right-0">
             <div className="md:w-[70%] md:right-0">
