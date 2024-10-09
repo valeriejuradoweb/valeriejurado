@@ -37,7 +37,7 @@ export type DetailProps = SliceComponentProps<Content.DetailSlice>;
 const Detail = ({ slice }: DetailProps): JSX.Element => {
   return (
     <section className="relative bg-white overflow-hidden">
-      <Bounded className="">
+      <Bounded className="py-8">
         <div className="mx-auto w-full max-w-4xl">
           <div className="font-body my-2 grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-8 md:my-8">
             <div>

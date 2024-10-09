@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | JhPiegoSlice
   | PortalsSlice
   | PinataSlice
   | AlliumsSlice
@@ -1058,6 +1059,121 @@ type ImageTextSliceVariation = ImageTextSliceDefault | ImageTextSliceTextLeft;
 export type ImageTextSlice = prismic.SharedSlice<
   "image_text",
   ImageTextSliceVariation
+>;
+
+/**
+ * Primary content in *JhPiego → Default → Primary*
+ */
+export interface JhPiegoSliceDefaultPrimary {
+  /**
+   * Image 1 field in *JhPiego → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jh_piego.default.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Mobile Image 1 field in *JhPiego → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jh_piego.default.primary.mobile_image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  mobile_image_1: prismic.ImageField<never>;
+
+  /**
+   * Mobile Image 2 field in *JhPiego → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jh_piego.default.primary.mobile_image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  mobile_image_2: prismic.ImageField<never>;
+
+  /**
+   * Title Link field in *JhPiego → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jh_piego.default.primary.title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  title_link: prismic.LinkField;
+
+  /**
+   * Title Label field in *JhPiego → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jh_piego.default.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_label: prismic.KeyTextField;
+
+  /**
+   * Description field in *JhPiego → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jh_piego.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Button Link field in *JhPiego → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jh_piego.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button Text field in *JhPiego → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: jh_piego.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for JhPiego Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type JhPiegoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<JhPiegoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *JhPiego*
+ */
+type JhPiegoSliceVariation = JhPiegoSliceDefault;
+
+/**
+ * JhPiego Shared Slice
+ *
+ * - **API ID**: `jh_piego`
+ * - **Description**: JhPiego
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type JhPiegoSlice = prismic.SharedSlice<
+  "jh_piego",
+  JhPiegoSliceVariation
 >;
 
 /**
@@ -2273,6 +2389,10 @@ declare module "@prismicio/client" {
       ImageTextSliceVariation,
       ImageTextSliceDefault,
       ImageTextSliceTextLeft,
+      JhPiegoSlice,
+      JhPiegoSliceDefaultPrimary,
+      JhPiegoSliceVariation,
+      JhPiegoSliceDefault,
       OfrendaSlice,
       OfrendaSliceDefaultPrimary,
       OfrendaSliceVariation,

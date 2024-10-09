@@ -40,10 +40,7 @@ const components: JSXMapSerializer = {
 const UtaArtistSpace = ({ slice }: UtaArtistSpaceProps): JSX.Element => {
   return (
     <section className="relative bg-white overflow-hidden">
-      <Bounded
-        data-slice-type={slice.slice_type}
-        data-slice-variation={slice.variation}
-      >
+      <Bounded className="py-8 md:py-8 lg:py-8">
         <div className="grid md:grid-cols-2 mb-10 md:mb-20">
           <div className="mb-5 md:mb-0">
             <div className="space-y-2 mb-5 md:mt-10">

@@ -10,6 +10,7 @@ export const components = {
   detail_heading_next: dynamic(() => import("./DetailHeadingNext")),
   hero: dynamic(() => import("./Hero")),
   image_text: dynamic(() => import("./ImageText")),
+  jh_piego: dynamic(() => import("./JhPiego")),
   ofrenda: dynamic(() => import("./Ofrenda")),
   orchids: dynamic(() => import("./Orchids")),
   pinata: dynamic(() => import("./Pinata")),

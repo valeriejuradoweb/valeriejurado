@@ -41,12 +41,12 @@ const Portals = ({ slice }: PortalsProps): JSX.Element => {
   return (
     <>
       {slice.variation === "default" && (
-        <section className="relative bg-white overflow-hidden mb-14">
+        <section className="relative bg-white overflow-hidden pb-14">
           <div className="hidden md:block">
             <PrismicNextImage field={slice.primary.image_1} />
           </div>
 
-          <Bounded>
+          <Bounded className="py-8">
             <div className="grid gap-none md:gap-20 md:grid-cols-2">
               <div className="flex items-center mb-4 md:mb-none">
                 <div className="space-y-2 text-center px-6 md:px-0 md:text-left">
@@ -110,7 +110,7 @@ const Portals = ({ slice }: PortalsProps): JSX.Element => {
       )}
 
       {slice.variation === "portals2" && (
-        <section className="relative bg-white overflow-hidden mb-1 md:mb-10">
+        <section className="relative bg-white overflow-hidden mb-0 md:pb-10">
           <div className="grid grid-cols-1 gap-10 md:gap-0 md:grid-cols-3">
             <PrismicNextImage
               className="w-[80%] md:w-full"
@@ -122,7 +122,7 @@ const Portals = ({ slice }: PortalsProps): JSX.Element => {
             />
             <PrismicNextImage field={slice.primary.image_5} />
           </div>
-          <Bounded className="-mt-5">
+          <Bounded className="pt-4 pb-6 md:py-8">
             {/*** ----------------Desktop Below*/}
             <div className="grid grid-cols-3">
               <div className="order-3 md:order-none">
@@ -150,7 +150,7 @@ const Portals = ({ slice }: PortalsProps): JSX.Element => {
 
       {slice.variation === "portals3" && (
         <section className="relative bg-white overflow-hidden">
-          <Bounded>
+          <Bounded className="py-8">
             <div className="grid grid-cols-1 place-items-center space-y-4 md:space-y-4">
               <SequenceLabel>
                 <PrismicRichText

@@ -18,6 +18,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "jh_piego": {
+              "type": "SharedSlice"
+            },
             "portals": {
               "type": "SharedSlice"
             },

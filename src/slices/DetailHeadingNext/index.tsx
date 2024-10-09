@@ -38,7 +38,7 @@ export type DetailHeadingNextProps =
 const DetailHeadingNext = ({ slice }: DetailHeadingNextProps): JSX.Element => {
   return (
     <section className="relative bg-white overflow-hidden -mb-10 z-20 md:-mb-10 ">
-      <Bounded className="mt-16 md:mt-24 first-letter">
+      <Bounded className="mt-16 py-8 md:mt-24 first-letter">
         <div className="mx-auto w-full max-w-4xl">
           <div className="flex place-content-center justify-between">
             <PrismicRichText

@@ -39,10 +39,7 @@ const components: JSXMapSerializer = {
 const Ofrenda = ({ slice }: OfrendaProps): JSX.Element => {
   return (
     <section className="relative bg-white overflow-hidden">
-      <Bounded
-        data-slice-type={slice.slice_type}
-        data-slice-variation={slice.variation}
-      >
+      <Bounded className="py-8 md:py-8 lg:py-8">
         <div className="grid md:grid-cols-3 mb-5 md:mb-0">
           <div className="flex order-1 mt-5 md:order-none">
             <div className="space-y-2 self-end">

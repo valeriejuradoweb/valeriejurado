@@ -16,6 +16,7 @@ const Contact = ({ slice }: ContactProps): JSX.Element => {
       <Bounded
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
+        className="py-8"
       >
         {/*BELOW IS THE CUSTOM CODED FORM FROM MAILCHIMP, THIS IS NOT EDITABLE WITHOUT DEVELOPER HELP*/}
         <div className="mt-20 grid grid-cols-1 place-self-center font-body">

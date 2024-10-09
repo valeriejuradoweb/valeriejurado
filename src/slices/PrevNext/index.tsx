@@ -30,7 +30,7 @@ export type PrevNextProps = SliceComponentProps<Content.PrevNextSlice>;
 const PrevNext = ({ slice }: PrevNextProps): JSX.Element => {
   return (
     <section className=" bg-white">
-      <Bounded>
+      <Bounded className="py-8">
         <div className="mx-auto w-full max-w-4xl">
           <div className="flex justify-between font-body">
             <div className="flex">

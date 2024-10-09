@@ -28,7 +28,7 @@ export default async function Header() {
       {/*mix-blend-color-burn*/}
       <Bounded
         as="header"
-        className="fixed top-0 z-50 w-full mix-blend-difference"
+        className="fixed top-0 z-50 w-full mix-blend-difference py-8"
       >
         <div className="">
           <div className="gap-4">

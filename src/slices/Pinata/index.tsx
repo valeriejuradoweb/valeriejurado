@@ -38,7 +38,7 @@ const components: JSXMapSerializer = {
 const Pinata = ({ slice }: PinataProps): JSX.Element => {
   return (
     <section className="relative bg-white overflow-hidden">
-      <Bounded className=" -mb-5 md:mb-none">
+      <Bounded className="py-8 md:py-8 lg:py-8">
         <div className="md:flex md:gap-14">
           <div className="mb-4 md:w-[60%] md:-mb-40">
             <PrismicNextImage field={slice.primary.image_1} />
