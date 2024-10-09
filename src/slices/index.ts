@@ -17,6 +17,7 @@ export const components = {
   pinata: dynamic(() => import("./Pinata")),
   portals: dynamic(() => import("./Portals")),
   prev_next: dynamic(() => import("./PrevNext")),
+  ruysch: dynamic(() => import("./Ruysch")),
   three_photo_collage: dynamic(() => import("./SoCal")),
   uta_artist_space: dynamic(() => import("./UtaArtistSpace")),
 };

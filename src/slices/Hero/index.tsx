@@ -65,7 +65,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             data-slice-type={slice.slice_type}
             data-slice-variation={slice.variation}
           >
-            <div className="text-white grid text-left grid-cols-2 md:grid-cols-3 md:pl-10 md:py-14">
+            <div className="text-[#DEDEDE] grid text-left grid-cols-2 md:grid-cols-3 md:pl-10 md:py-14">
               <div></div>
               <div></div>
               <div className="mt-[10rem] bg-black/[.4] md:mt-[30%]">

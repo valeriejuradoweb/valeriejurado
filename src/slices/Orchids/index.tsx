@@ -60,7 +60,7 @@ const Orchids = ({ slice }: OrchidsProps): JSX.Element => {
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
       >
-        <div className="text-white grid grid-rows-2 h-[1200px] md:h-[1800px]">
+        <div className="text-[#DEDEDE] grid grid-rows-2 h-[1200px] md:h-[1800px]">
           <div className="relative self-end space-y-2 -bottom-32 md:bottom-0">
             <TitleLink field={slice.primary.title_link}>
               {slice.primary.title_label}

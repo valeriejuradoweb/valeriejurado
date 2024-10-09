@@ -39,7 +39,7 @@ const Alliums = ({ slice }: AlliumsProps): JSX.Element => {
   return (
     <section className="relative bg-black overflow-hidden">
       <div className="absolute flex w-full z-30 pt-10 justify-end pr-10 md:pr-32">
-        <div className="text-white space-y-2">
+        <div className="text-[#DEDEDE] space-y-2">
           <TitleLink field={slice.primary.title_link}>
             {slice.primary.title_label}
           </TitleLink>

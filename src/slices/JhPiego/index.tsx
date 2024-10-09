@@ -42,7 +42,7 @@ const JhPiego = ({ slice }: JhPiegoProps): JSX.Element => {
         className="z-10 block md:w-[100%] md:hidden"
         field={slice.primary.mobile_image_1}
       />
-      <div className="w-full z-30 justify-center text-white pt-10 md:pt-14 flex px-7 md:absolute md:px-6">
+      <div className="w-full z-30 justify-center text-[#DEDEDE] pt-10 md:pt-14 flex px-7 md:absolute md:px-6">
         <div className="space-y-2">
           <TitleLink field={slice.primary.title_link}>
             {slice.primary.title_label}

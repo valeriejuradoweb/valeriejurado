@@ -52,7 +52,7 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
         className="block md:hidden"
         field={slice.primary.mobile_background_image}
       />
-      <Bounded className="font-body font-thin text-white">
+      <Bounded className="font-body font-thin text-[#DEDEDE]">
         <div className="grid mt-0 md:grid-cols-2 md:gap-10 md:pt-[8rem]">
           <div></div>
           <div className="relative right-0">
@@ -87,7 +87,7 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
             </div>
           </div>
         </div>
-        <div className="block text-white space-y-10 mt-10 md:space-y-0 md:mt-32 md:flex md:flex-wrap gap-4">
+        <div className="block text-[#DEDEDE] space-y-10 mt-10 md:space-y-0 md:mt-32 md:flex md:flex-wrap gap-4">
           {slice.primary.employee.map(
             ({ employee_photo, employee_name, employee_bio }) => (
               <div className="md:basis-[32%]">

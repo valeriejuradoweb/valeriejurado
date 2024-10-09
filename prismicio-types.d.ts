@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | RuyschSlice
   | BentleySlice
   | JhPiegoSlice
   | PortalsSlice
@@ -2034,6 +2035,277 @@ export type PrevNextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Ruysch → Default → Primary*
+ */
+export interface RuyschSliceDefaultPrimary {
+  /**
+   * Image 1 field in *Ruysch → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.default.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Heading Label field in *Ruysch → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.default.primary.heading_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading_label: prismic.KeyTextField;
+
+  /**
+   * Heading Link field in *Ruysch → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.default.primary.heading_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  heading_link: prismic.LinkField;
+
+  /**
+   * Heading Description field in *Ruysch → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.default.primary.heading_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading_description: prismic.RichTextField;
+
+  /**
+   * Button Text field in *Ruysch → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *Ruysch → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Sequence Label field in *Ruysch → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.default.primary.sequence_label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sequence_label: prismic.RichTextField;
+
+  /**
+   * Title Link field in *Ruysch → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.default.primary.title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  title_link: prismic.LinkField;
+
+  /**
+   * Title Label field in *Ruysch → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.default.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_label: prismic.KeyTextField;
+
+  /**
+   * Title Description field in *Ruysch → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.default.primary.title_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Ruysch Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RuyschSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RuyschSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Ruysch → Ruysch 2 → Primary*
+ */
+export interface RuyschSliceRuysch2Primary {
+  /**
+   * Sequence Label 2 field in *Ruysch → Ruysch 2 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.ruysch2.primary.sequence_label_2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sequence_label_2: prismic.RichTextField;
+
+  /**
+   * Image 2 field in *Ruysch → Ruysch 2 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.ruysch2.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Title Link 2 field in *Ruysch → Ruysch 2 → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.ruysch2.primary.title_link_2
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  title_link_2: prismic.LinkField;
+
+  /**
+   * Title Label 2 field in *Ruysch → Ruysch 2 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.ruysch2.primary.title_label_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_label_2: prismic.KeyTextField;
+
+  /**
+   * Description field in *Ruysch → Ruysch 2 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.ruysch2.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Ruysch 2 variation for Ruysch Slice
+ *
+ * - **API ID**: `ruysch2`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RuyschSliceRuysch2 = prismic.SharedSliceVariation<
+  "ruysch2",
+  Simplify<RuyschSliceRuysch2Primary>,
+  never
+>;
+
+/**
+ * Primary content in *Ruysch → Ruysch 3 → Primary*
+ */
+export interface RuyschSliceRuysch3Primary {
+  /**
+   * Sequence Label 3 field in *Ruysch → Ruysch 3 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.ruysch3.primary.sequence_label_3
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sequence_label_3: prismic.RichTextField;
+
+  /**
+   * Image 3 field in *Ruysch → Ruysch 3 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.ruysch3.primary.image_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_3: prismic.ImageField<never>;
+
+  /**
+   * Title Link 3 field in *Ruysch → Ruysch 3 → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.ruysch3.primary.title_link_3
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  title_link_3: prismic.LinkField;
+
+  /**
+   * Title Label 3 field in *Ruysch → Ruysch 3 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.ruysch3.primary.title_label_3
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_label_3: prismic.KeyTextField;
+
+  /**
+   * Description field in *Ruysch → Ruysch 3 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ruysch.ruysch3.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Ruysch 3 variation for Ruysch Slice
+ *
+ * - **API ID**: `ruysch3`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RuyschSliceRuysch3 = prismic.SharedSliceVariation<
+  "ruysch3",
+  Simplify<RuyschSliceRuysch3Primary>,
+  never
+>;
+
+/**
+ * Slice variation for *Ruysch*
+ */
+type RuyschSliceVariation =
+  | RuyschSliceDefault
+  | RuyschSliceRuysch2
+  | RuyschSliceRuysch3;
+
+/**
+ * Ruysch Shared Slice
+ *
+ * - **API ID**: `ruysch`
+ * - **Description**: Ruysch
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RuyschSlice = prismic.SharedSlice<"ruysch", RuyschSliceVariation>;
+
+/**
  * Item in *SoCal → Default → Primary → Title Link*
  */
 export interface ThreePhotoCollageSliceDefaultPrimaryTitleLinkItem {
@@ -2527,6 +2799,14 @@ declare module "@prismicio/client" {
       PrevNextSliceDefaultPrimary,
       PrevNextSliceVariation,
       PrevNextSliceDefault,
+      RuyschSlice,
+      RuyschSliceDefaultPrimary,
+      RuyschSliceRuysch2Primary,
+      RuyschSliceRuysch3Primary,
+      RuyschSliceVariation,
+      RuyschSliceDefault,
+      RuyschSliceRuysch2,
+      RuyschSliceRuysch3,
       ThreePhotoCollageSlice,
       ThreePhotoCollageSliceDefaultPrimaryTitleLinkItem,
       ThreePhotoCollageSliceDefaultPrimary,
