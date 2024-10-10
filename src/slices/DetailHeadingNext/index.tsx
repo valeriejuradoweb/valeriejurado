@@ -20,7 +20,7 @@ const components: JSXMapSerializer = {
   ),
 
   paragraph: ({ children }) => (
-    <p className="text-base leading-7 font-light font-body mb-4 md:mb-8 md:max-w-md md:text-xl md:leading-10">
+    <p className="text-base leading-7 font-body md:max-w-md md:text-base">
       {children}
     </p>
   ),
@@ -41,10 +41,16 @@ const DetailHeadingNext = ({ slice }: DetailHeadingNextProps): JSX.Element => {
       <Bounded className="mt-16 py-8 md:mt-24 first-letter">
         <div className="mx-auto w-full max-w-4xl">
           <div className="flex place-content-center justify-between">
-            <PrismicRichText
-              field={slice.primary.heading}
-              components={components}
-            />
+            <div>
+              <PrismicRichText
+                field={slice.primary.heading}
+                components={components}
+              />
+              <PrismicRichText
+                field={slice.primary.description}
+                components={components}
+              />
+            </div>
             <div className="flex font-body">
               <div className="py-0 hidden flex-wrap md:block md:pt-1">
                 <>{slice.primary.next_project_title}</>

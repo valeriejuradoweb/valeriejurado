@@ -27,7 +27,7 @@
             "label": "Paragraph",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph"
+            "multi": "paragraph,strong,em"
           }
         },
         "image": {
@@ -64,7 +64,7 @@
             "label": "Paragraph",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph"
+            "multi": "paragraph,strong,em"
           }
         },
         "image": {

@@ -25,6 +25,17 @@
 					"__TYPE__": "ExternalLink",
 					"url": "https://slicemachine.dev"
 				}
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Fugiat enim proident magna velit. Sit incididunt laboris id quis voluptate laborum veniam deserunt nisi ut dolor aliquip eiusmod reprehenderit non."
+						}
+					}
+				]
 			}
 		},
 		"items": []
