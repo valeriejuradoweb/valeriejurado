@@ -38,7 +38,7 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative bg-black md:bg-black/[.01]"
+      className="relative bg-black md:bg-black/[.001]"
     >
       {prismic.isFilled.image(background_image) && (
         <PrismicNextImage
@@ -61,14 +61,17 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
                 field={slice.primary.bio}
                 components={components}
               />
-              <div className="flex mt-4 md:mt-4">
-                <p className="text-lg pr-1 md:text-2xl">＋</p>
-                <Button
-                  field={slice.primary.button_link}
-                  className="mb-12 md:md-10 "
-                >
-                  {slice.primary.button_text}
-                </Button>
+              <div className="py-6">
+                {slice.primary.button.map(({ link, label }) => (
+                  <div className="block py-2">
+                    <div className="flex">
+                      <p className="text-lg pr-1 md:text-2xl">＋</p>
+                      <Button field={link} className="">
+                        {label}
+                      </Button>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
             <div>
@@ -76,7 +79,7 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
                 field={slice.primary.client_list_heading}
                 components={components}
               />{" "}
-              <div className="grid grid-cols-2 mt-6">
+              <div className="grid grid-cols-2 mt-2">
                 <div>
                   <PrismicRichText field={slice.primary.client_list_1} />
                 </div>
@@ -90,8 +93,16 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
         <div className="block text-[#DEDEDE] space-y-10 mt-10 md:space-y-0 md:mt-32 md:flex md:flex-wrap gap-4">
           {slice.primary.employee.map(
             ({ employee_photo, employee_name, employee_bio }) => (
-              <div className="md:basis-[32%]">
-                <PrismicNextImage field={employee_photo} />
+              <div className="md:basis-[32%] space-y-2">
+                <div className="w-full max-w-sm">
+                  <div className="aspect-w-16 aspect-h-11">
+                    <PrismicNextImage
+                      className="object-cover w-full h-full"
+                      field={employee_photo}
+                    />
+                  </div>
+                </div>
+
                 <PrismicRichText
                   field={employee_name}
                   components={components}
