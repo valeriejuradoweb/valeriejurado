@@ -277,6 +277,31 @@ export type AllDocumentTypes =
   | SettingsDocument;
 
 /**
+ * Item in *AboutHero → Default → Primary → Button*
+ */
+export interface AboutHeroSliceDefaultPrimaryButtonItem {
+  /**
+   * Link field in *AboutHero → Default → Primary → Button*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.button[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Label field in *AboutHero → Default → Primary → Button*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.button[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
  * Item in *AboutHero → Default → Primary → Employee*
  */
 export interface AboutHeroSliceDefaultPrimaryEmployeeItem {
@@ -344,6 +369,16 @@ export interface AboutHeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   button_link: prismic.LinkField;
+
+  /**
+   * Button field in *AboutHero → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.button[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  button: prismic.GroupField<Simplify<AboutHeroSliceDefaultPrimaryButtonItem>>;
 
   /**
    * Client List Heading field in *AboutHero → Default → Primary*
@@ -2734,6 +2769,7 @@ declare module "@prismicio/client" {
       SettingsDocumentDataNavigationItem,
       AllDocumentTypes,
       AboutHeroSlice,
+      AboutHeroSliceDefaultPrimaryButtonItem,
       AboutHeroSliceDefaultPrimaryEmployeeItem,
       AboutHeroSliceDefaultPrimary,
       AboutHeroSliceVariation,

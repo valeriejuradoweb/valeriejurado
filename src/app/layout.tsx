@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./safari.css";
 import clsx from "clsx";
 import { Red_Hat_Display, Red_Hat_Text } from "next/font/google";
 
