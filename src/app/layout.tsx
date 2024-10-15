@@ -5,7 +5,8 @@ import clsx from "clsx";
 import { Red_Hat_Display, Red_Hat_Text } from "next/font/google";
 
 import Header from "@/components/Header";
-import { createClient } from "@/prismicio";
+import { createClient, repositoryName } from "@/prismicio";
+import { PrismicPreview } from "@prismicio/next";
 import Footer from "@/components/Footer";
 
 const redhatdisplay = Red_Hat_Display({
@@ -67,6 +68,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
   );
