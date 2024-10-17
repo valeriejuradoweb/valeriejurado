@@ -92,6 +92,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TitleAndImagesSlice
   | DetailHeadingNextSlice
   | PrevNextSlice
   | ImageTextSlice
@@ -2483,6 +2484,231 @@ export type ThreePhotoCollageSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *TitleAndImages → Default → Primary*
+ */
+export interface TitleAndImagesSliceDefaultPrimary {
+  /**
+   * Back Label field in *TitleAndImages → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.default.primary.back_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  back_label: prismic.KeyTextField;
+
+  /**
+   * Back Link field in *TitleAndImages → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.default.primary.back_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  back_link: prismic.LinkField;
+
+  /**
+   * Heading field in *TitleAndImages → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *TitleAndImages → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Image 1 field in *TitleAndImages → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.default.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Image 2 field in *TitleAndImages → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.default.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Title Label field in *TitleAndImages → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.default.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_label: prismic.RichTextField;
+
+  /**
+   * Project Description field in *TitleAndImages → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.default.primary.project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for TitleAndImages Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TitleAndImagesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TitleAndImagesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *TitleAndImages → 2Images1Video → Primary*
+ */
+export interface TitleAndImagesSlice2Images1VideoPrimary {
+  /**
+   * Back Label field in *TitleAndImages → 2Images1Video → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.2Images1Video.primary.back_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  back_label: prismic.KeyTextField;
+
+  /**
+   * Back Link field in *TitleAndImages → 2Images1Video → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.2Images1Video.primary.back_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  back_link: prismic.LinkField;
+
+  /**
+   * Heading field in *TitleAndImages → 2Images1Video → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.2Images1Video.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *TitleAndImages → 2Images1Video → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.2Images1Video.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Image 1 field in *TitleAndImages → 2Images1Video → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.2Images1Video.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Image 2 field in *TitleAndImages → 2Images1Video → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.2Images1Video.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Title Label field in *TitleAndImages → 2Images1Video → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.2Images1Video.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_label: prismic.RichTextField;
+
+  /**
+   * Project Description field in *TitleAndImages → 2Images1Video → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.2Images1Video.primary.project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.RichTextField;
+
+  /**
+   * Video field in *TitleAndImages → 2Images1Video → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.2Images1Video.primary.video
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video: prismic.LinkToMediaField;
+}
+
+/**
+ * 2Images1Video variation for TitleAndImages Slice
+ *
+ * - **API ID**: `2Images1Video`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TitleAndImagesSlice2Images1Video = prismic.SharedSliceVariation<
+  "2Images1Video",
+  Simplify<TitleAndImagesSlice2Images1VideoPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TitleAndImages*
+ */
+type TitleAndImagesSliceVariation =
+  | TitleAndImagesSliceDefault
+  | TitleAndImagesSlice2Images1Video;
+
+/**
+ * TitleAndImages Shared Slice
+ *
+ * - **API ID**: `title_and_images`
+ * - **Description**: TitleAndImages
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TitleAndImagesSlice = prismic.SharedSlice<
+  "title_and_images",
+  TitleAndImagesSliceVariation
+>;
+
+/**
  * Primary content in *UtaArtistSpace → Default → Primary*
  */
 export interface UtaArtistSpaceSliceDefaultPrimary {
@@ -2858,6 +3084,12 @@ declare module "@prismicio/client" {
       ThreePhotoCollageSliceDefaultPrimary,
       ThreePhotoCollageSliceVariation,
       ThreePhotoCollageSliceDefault,
+      TitleAndImagesSlice,
+      TitleAndImagesSliceDefaultPrimary,
+      TitleAndImagesSlice2Images1VideoPrimary,
+      TitleAndImagesSliceVariation,
+      TitleAndImagesSliceDefault,
+      TitleAndImagesSlice2Images1Video,
       UtaArtistSpaceSlice,
       UtaArtistSpaceSliceDefaultPrimary,
       UtaArtistSpaceSliceVariation,

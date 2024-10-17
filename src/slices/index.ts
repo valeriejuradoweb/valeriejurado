@@ -19,5 +19,6 @@ export const components = {
   prev_next: dynamic(() => import("./PrevNext")),
   ruysch: dynamic(() => import("./Ruysch")),
   three_photo_collage: dynamic(() => import("./SoCal")),
+  title_and_images: dynamic(() => import("./TitleAndImages")),
   uta_artist_space: dynamic(() => import("./UtaArtistSpace")),
 };
