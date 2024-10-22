@@ -18,6 +18,7 @@ export const components = {
   portals: dynamic(() => import("./Portals")),
   prev_next: dynamic(() => import("./PrevNext")),
   ruysch: dynamic(() => import("./Ruysch")),
+  three_images: dynamic(() => import("./ThreeImages")),
   three_photo_collage: dynamic(() => import("./SoCal")),
   title_and_images: dynamic(() => import("./TitleAndImages")),
   two_images: dynamic(() => import("./TwoImages")),

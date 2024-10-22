@@ -92,6 +92,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ThreeImagesSlice
   | TwoImagesSlice
   | TitleAndImagesSlice
   | DetailHeadingNextSlice
@@ -2353,6 +2354,161 @@ type RuyschSliceVariation =
 export type RuyschSlice = prismic.SharedSlice<"ruysch", RuyschSliceVariation>;
 
 /**
+ * Primary content in *ThreeImages → Default → Primary*
+ */
+export interface ThreeImagesSliceDefaultPrimary {
+  /**
+   * Image 1 field in *ThreeImages → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_images.default.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Image 2 field in *ThreeImages → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_images.default.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Image 3 field in *ThreeImages → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_images.default.primary.image_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_3: prismic.ImageField<never>;
+
+  /**
+   * Title Label field in *ThreeImages → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Optional Caption Title
+   * - **API ID Path**: three_images.default.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_label: prismic.RichTextField;
+
+  /**
+   * Project Description field in *ThreeImages → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Optional Caption Description
+   * - **API ID Path**: three_images.default.primary.project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ThreeImages Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThreeImagesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ThreeImagesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *ThreeImages → Collage → Primary*
+ */
+export interface ThreeImagesSliceCollagePrimary {
+  /**
+   * Image 1 field in *ThreeImages → Collage → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_images.collage.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Image 2 field in *ThreeImages → Collage → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_images.collage.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Image 3 field in *ThreeImages → Collage → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_images.collage.primary.image_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_3: prismic.ImageField<never>;
+
+  /**
+   * Title Label field in *ThreeImages → Collage → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Optional Caption Title
+   * - **API ID Path**: three_images.collage.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_label: prismic.RichTextField;
+
+  /**
+   * Project Description field in *ThreeImages → Collage → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Optional Caption Description
+   * - **API ID Path**: three_images.collage.primary.project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.RichTextField;
+}
+
+/**
+ * Collage variation for ThreeImages Slice
+ *
+ * - **API ID**: `collage`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThreeImagesSliceCollage = prismic.SharedSliceVariation<
+  "collage",
+  Simplify<ThreeImagesSliceCollagePrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ThreeImages*
+ */
+type ThreeImagesSliceVariation =
+  | ThreeImagesSliceDefault
+  | ThreeImagesSliceCollage;
+
+/**
+ * ThreeImages Shared Slice
+ *
+ * - **API ID**: `three_images`
+ * - **Description**: ThreeImages
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThreeImagesSlice = prismic.SharedSlice<
+  "three_images",
+  ThreeImagesSliceVariation
+>;
+
+/**
  * Item in *SoCal → Default → Primary → Title Link*
  */
 export interface ThreePhotoCollageSliceDefaultPrimaryTitleLinkItem {
@@ -3333,6 +3489,12 @@ declare module "@prismicio/client" {
       RuyschSliceDefault,
       RuyschSliceRuysch2,
       RuyschSliceRuysch3,
+      ThreeImagesSlice,
+      ThreeImagesSliceDefaultPrimary,
+      ThreeImagesSliceCollagePrimary,
+      ThreeImagesSliceVariation,
+      ThreeImagesSliceDefault,
+      ThreeImagesSliceCollage,
       ThreePhotoCollageSlice,
       ThreePhotoCollageSliceDefaultPrimaryTitleLinkItem,
       ThreePhotoCollageSliceDefaultPrimary,
