@@ -2847,11 +2847,70 @@ export type TitleAndImagesSlice2Images1Video = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *TitleAndImages → No Images → Primary*
+ */
+export interface TitleAndImagesSliceNoImagesPrimary {
+  /**
+   * Back Label field in *TitleAndImages → No Images → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.noImages.primary.back_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  back_label: prismic.KeyTextField;
+
+  /**
+   * Back Link field in *TitleAndImages → No Images → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.noImages.primary.back_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  back_link: prismic.LinkField;
+
+  /**
+   * Heading field in *TitleAndImages → No Images → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.noImages.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *TitleAndImages → No Images → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.noImages.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * No Images variation for TitleAndImages Slice
+ *
+ * - **API ID**: `noImages`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TitleAndImagesSliceNoImages = prismic.SharedSliceVariation<
+  "noImages",
+  Simplify<TitleAndImagesSliceNoImagesPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *TitleAndImages*
  */
 type TitleAndImagesSliceVariation =
   | TitleAndImagesSliceDefault
-  | TitleAndImagesSlice2Images1Video;
+  | TitleAndImagesSlice2Images1Video
+  | TitleAndImagesSliceNoImages;
 
 /**
  * TitleAndImages Shared Slice
@@ -2951,7 +3010,7 @@ export interface TwoImagesSliceAlignLeftPrimary {
    * Title Label field in *TwoImages → AlignLeft → Primary*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Optional Caption Title
    * - **API ID Path**: two_images.alignLeft.primary.title_label
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
@@ -2961,7 +3020,7 @@ export interface TwoImagesSliceAlignLeftPrimary {
    * Project Description field in *TwoImages → AlignLeft → Primary*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Optional Caption Description
    * - **API ID Path**: two_images.alignLeft.primary.project_description
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
@@ -3009,7 +3068,7 @@ export interface TwoImagesSliceAlignRightPrimary {
    * Title Label field in *TwoImages → AlignRight → Primary*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Optional Caption Title
    * - **API ID Path**: two_images.alignRight.primary.title_label
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
@@ -3019,7 +3078,7 @@ export interface TwoImagesSliceAlignRightPrimary {
    * Project Description field in *TwoImages → AlignRight → Primary*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Optional Caption Description
    * - **API ID Path**: two_images.alignRight.primary.project_description
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
@@ -3067,7 +3126,7 @@ export interface TwoImagesSliceVariedSizePrimary {
    * Title Label field in *TwoImages → VariedSize → Primary*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Optional Caption Title
    * - **API ID Path**: two_images.variedSize.primary.title_label
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
@@ -3077,7 +3136,7 @@ export interface TwoImagesSliceVariedSizePrimary {
    * Project Description field in *TwoImages → VariedSize → Primary*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Optional Caption Description
    * - **API ID Path**: two_images.variedSize.primary.project_description
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
@@ -3503,9 +3562,11 @@ declare module "@prismicio/client" {
       TitleAndImagesSlice,
       TitleAndImagesSliceDefaultPrimary,
       TitleAndImagesSlice2Images1VideoPrimary,
+      TitleAndImagesSliceNoImagesPrimary,
       TitleAndImagesSliceVariation,
       TitleAndImagesSliceDefault,
       TitleAndImagesSlice2Images1Video,
+      TitleAndImagesSliceNoImages,
       TwoImagesSlice,
       TwoImagesSliceDefaultPrimary,
       TwoImagesSliceAlignLeftPrimary,

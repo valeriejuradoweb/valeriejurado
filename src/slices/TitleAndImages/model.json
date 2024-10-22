@@ -169,6 +169,51 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "noImages",
+      "name": "No Images",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "back_label": {
+          "type": "Text",
+          "config": {
+            "label": "Back Label",
+            "placeholder": ""
+          }
+        },
+        "back_link": {
+          "type": "Link",
+          "config": {
+            "label": "Back Link",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1,heading2,heading3,heading4,heading5,heading6"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

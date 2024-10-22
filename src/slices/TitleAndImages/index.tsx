@@ -25,7 +25,7 @@ const components: JSXMapSerializer = {
   ),
 
   paragraph: ({ children }) => (
-    <p className="text-base leading-7 font-body md:max-w-md md:text-base">
+    <p className="text-base leading-7 font-body md:max-w-[24rem] md:text-base">
       {children}
     </p>
   ),
@@ -173,6 +173,33 @@ const TitleAndImages = ({ slice }: TitleAndImagesProps): JSX.Element => {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </Bounded>
+        </section>
+      )}
+      {slice.variation === "noImages" && (
+        <section className="bg-white overflow-hidden">
+          <Bounded className="mt-16 py-8 md:mt-24">
+            <div className="mx-auto w-full max-w-4xl">
+              <div className="flex">
+                <div className="scale-x-[-1] py-0 md:pt-1">
+                  <Arrow />
+                </div>
+                <Button field={slice.primary.back_link} className="pl-2 pr-3">
+                  <p>{slice.primary.back_label}</p>
+                </Button>
+              </div>
+
+              <div className="space-y-2 mt-8 md:space-y-4">
+                <PrismicRichText
+                  field={slice.primary.title}
+                  components={components}
+                />
+                <PrismicRichText
+                  field={slice.primary.description}
+                  components={components}
+                />
               </div>
             </div>
           </Bounded>

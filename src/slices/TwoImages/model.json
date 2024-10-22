@@ -77,7 +77,7 @@
           "type": "StructuredText",
           "config": {
             "label": "Title Label",
-            "placeholder": "",
+            "placeholder": "Optional Caption Title",
             "allowTargetBlank": true,
             "multi": "heading2"
           }
@@ -86,7 +86,7 @@
           "type": "StructuredText",
           "config": {
             "label": "Project Description",
-            "placeholder": "",
+            "placeholder": "Optional Caption Description",
             "allowTargetBlank": true,
             "multi": "paragraph,strong,em"
           }
@@ -122,7 +122,7 @@
           "type": "StructuredText",
           "config": {
             "label": "Title Label",
-            "placeholder": "",
+            "placeholder": "Optional Caption Title",
             "allowTargetBlank": true,
             "multi": "heading2"
           }
@@ -131,7 +131,7 @@
           "type": "StructuredText",
           "config": {
             "label": "Project Description",
-            "placeholder": "",
+            "placeholder": "Optional Caption Description",
             "allowTargetBlank": true,
             "multi": "paragraph,strong,em"
           }
@@ -167,7 +167,7 @@
           "type": "StructuredText",
           "config": {
             "label": "Title Label",
-            "placeholder": "",
+            "placeholder": "Optional Caption Title",
             "allowTargetBlank": true,
             "multi": "heading2"
           }
@@ -176,7 +176,7 @@
           "type": "StructuredText",
           "config": {
             "label": "Project Description",
-            "placeholder": "",
+            "placeholder": "Optional Caption Description",
             "allowTargetBlank": true,
             "multi": "paragraph,strong,em"
           }
