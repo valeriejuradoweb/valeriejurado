@@ -40,7 +40,10 @@ const components: JSXMapSerializer = {
 const UtaArtistSpace = ({ slice }: UtaArtistSpaceProps): JSX.Element => {
   return (
     <section className="relative bg-white overflow-hidden">
-      <Bounded className="py-8 md:py-8 lg:py-8">
+      <Bounded
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+      >
         <div className="grid md:grid-cols-2 mb-10 md:mb-20">
           <div className="mb-5 md:mb-0">
             <div className="space-y-2 mb-5 md:mt-10">
@@ -103,7 +106,7 @@ const UtaArtistSpace = ({ slice }: UtaArtistSpaceProps): JSX.Element => {
           </div>
         </div>
         <div className="grid gap-10 md:grid-cols-2 md:mt-40 md:gap-24">
-          <div>
+          <div className="">
             <PrismicNextImage field={slice.primary.image_5} className="mb-5" />
             <TitleLink field={slice.primary.project_3_title_link}>
               {slice.primary.project_3_title_label}
@@ -113,7 +116,7 @@ const UtaArtistSpace = ({ slice }: UtaArtistSpaceProps): JSX.Element => {
               components={components}
             />
           </div>
-          <div>
+          <div className="mb-8">
             <PrismicNextImage field={slice.primary.image_6} className="mb-5" />
             <TitleLink field={slice.primary.project_4_title_link}>
               {slice.primary.project_4_title_label}
