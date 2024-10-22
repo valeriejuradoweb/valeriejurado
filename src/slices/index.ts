@@ -23,4 +23,5 @@ export const components = {
   title_and_images: dynamic(() => import("./TitleAndImages")),
   two_images: dynamic(() => import("./TwoImages")),
   uta_artist_space: dynamic(() => import("./UtaArtistSpace")),
+  uta_weekly_dark: dynamic(() => import("./UtaWeeklyDark")),
 };

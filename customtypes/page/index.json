@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "uta_weekly_dark": {
+              "type": "SharedSlice"
+            },
             "three_images": {
               "type": "SharedSlice"
             },

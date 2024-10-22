@@ -92,6 +92,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | UtaWeeklyDarkSlice
   | ThreeImagesSlice
   | TwoImagesSlice
   | TitleAndImagesSlice
@@ -3442,6 +3443,61 @@ export type UtaArtistSpaceSlice = prismic.SharedSlice<
   UtaArtistSpaceSliceVariation
 >;
 
+/**
+ * Primary content in *UtaWeeklyDark → Default → Primary*
+ */
+export interface UtaWeeklyDarkSliceDefaultPrimary {
+  /**
+   * Image 1 field in *UtaWeeklyDark → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_weekly_dark.default.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Image 2 field in *UtaWeeklyDark → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_weekly_dark.default.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for UtaWeeklyDark Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type UtaWeeklyDarkSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<UtaWeeklyDarkSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *UtaWeeklyDark*
+ */
+type UtaWeeklyDarkSliceVariation = UtaWeeklyDarkSliceDefault;
+
+/**
+ * UtaWeeklyDark Shared Slice
+ *
+ * - **API ID**: `uta_weekly_dark`
+ * - **Description**: UtaWeeklyDark
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type UtaWeeklyDarkSlice = prismic.SharedSlice<
+  "uta_weekly_dark",
+  UtaWeeklyDarkSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -3581,6 +3637,10 @@ declare module "@prismicio/client" {
       UtaArtistSpaceSliceDefaultPrimary,
       UtaArtistSpaceSliceVariation,
       UtaArtistSpaceSliceDefault,
+      UtaWeeklyDarkSlice,
+      UtaWeeklyDarkSliceDefaultPrimary,
+      UtaWeeklyDarkSliceVariation,
+      UtaWeeklyDarkSliceDefault,
     };
   }
 }
