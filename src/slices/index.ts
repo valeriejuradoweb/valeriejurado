@@ -20,5 +20,6 @@ export const components = {
   ruysch: dynamic(() => import("./Ruysch")),
   three_photo_collage: dynamic(() => import("./SoCal")),
   title_and_images: dynamic(() => import("./TitleAndImages")),
+  two_images: dynamic(() => import("./TwoImages")),
   uta_artist_space: dynamic(() => import("./UtaArtistSpace")),
 };

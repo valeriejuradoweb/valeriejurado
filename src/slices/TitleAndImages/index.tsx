@@ -55,7 +55,7 @@ const TitleAndImages = ({ slice }: TitleAndImagesProps): JSX.Element => {
                   <p>{slice.primary.back_label}</p>
                 </Button>
               </div>
-              <div className="grid md:grid-cols-2 mt-8 h-auto md:h-[40rem]">
+              <div className="grid md:grid-cols-2 mt-8 h-auto md:h-[28rem] md:mb-[4rem] lg:h-[40rem]">
                 <div className="space-y-6 md:space-y-16">
                   <div className="space-y-2 md:space-y-4">
                     <PrismicRichText
@@ -86,7 +86,7 @@ const TitleAndImages = ({ slice }: TitleAndImagesProps): JSX.Element => {
                     </div>
                   </div>
                 </div>
-                <div className="hidden z-10 relative md:top-40 md:w-[40%] md:right-0 md:block md:absolute">
+                <div className="hidden z-10 relative md:top-40 md:w-[38%] md:right-0 md:block md:absolute">
                   <div className="aspect-w-3 aspect-h-4">
                     <PrismicNextImage
                       className="object-cover w-full h-full"

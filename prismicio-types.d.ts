@@ -92,6 +92,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TwoImagesSlice
   | TitleAndImagesSlice
   | DetailHeadingNextSlice
   | PrevNextSlice
@@ -2709,6 +2710,259 @@ export type TitleAndImagesSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *TwoImages → Default → Primary*
+ */
+export interface TwoImagesSliceDefaultPrimary {
+  /**
+   * Image 1 field in *TwoImages → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.default.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Image 2 field in *TwoImages → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.default.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Title Label field in *TwoImages → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Optional Caption Title
+   * - **API ID Path**: two_images.default.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_label: prismic.RichTextField;
+
+  /**
+   * Project Description field in *TwoImages → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Optional Caption Description
+   * - **API ID Path**: two_images.default.primary.project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for TwoImages Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TwoImagesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TwoImagesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *TwoImages → AlignLeft → Primary*
+ */
+export interface TwoImagesSliceAlignLeftPrimary {
+  /**
+   * Image 1 field in *TwoImages → AlignLeft → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.alignLeft.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Image 2 field in *TwoImages → AlignLeft → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.alignLeft.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Title Label field in *TwoImages → AlignLeft → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.alignLeft.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_label: prismic.RichTextField;
+
+  /**
+   * Project Description field in *TwoImages → AlignLeft → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.alignLeft.primary.project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.RichTextField;
+}
+
+/**
+ * AlignLeft variation for TwoImages Slice
+ *
+ * - **API ID**: `alignLeft`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TwoImagesSliceAlignLeft = prismic.SharedSliceVariation<
+  "alignLeft",
+  Simplify<TwoImagesSliceAlignLeftPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *TwoImages → AlignRight → Primary*
+ */
+export interface TwoImagesSliceAlignRightPrimary {
+  /**
+   * Image 1 field in *TwoImages → AlignRight → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.alignRight.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Image 2 field in *TwoImages → AlignRight → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.alignRight.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Title Label field in *TwoImages → AlignRight → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.alignRight.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_label: prismic.RichTextField;
+
+  /**
+   * Project Description field in *TwoImages → AlignRight → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.alignRight.primary.project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.RichTextField;
+}
+
+/**
+ * AlignRight variation for TwoImages Slice
+ *
+ * - **API ID**: `alignRight`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TwoImagesSliceAlignRight = prismic.SharedSliceVariation<
+  "alignRight",
+  Simplify<TwoImagesSliceAlignRightPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *TwoImages → VariedSize → Primary*
+ */
+export interface TwoImagesSliceVariedSizePrimary {
+  /**
+   * Image 1 field in *TwoImages → VariedSize → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.variedSize.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Image 2 field in *TwoImages → VariedSize → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.variedSize.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Title Label field in *TwoImages → VariedSize → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.variedSize.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_label: prismic.RichTextField;
+
+  /**
+   * Project Description field in *TwoImages → VariedSize → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.variedSize.primary.project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.RichTextField;
+}
+
+/**
+ * VariedSize variation for TwoImages Slice
+ *
+ * - **API ID**: `variedSize`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TwoImagesSliceVariedSize = prismic.SharedSliceVariation<
+  "variedSize",
+  Simplify<TwoImagesSliceVariedSizePrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TwoImages*
+ */
+type TwoImagesSliceVariation =
+  | TwoImagesSliceDefault
+  | TwoImagesSliceAlignLeft
+  | TwoImagesSliceAlignRight
+  | TwoImagesSliceVariedSize;
+
+/**
+ * TwoImages Shared Slice
+ *
+ * - **API ID**: `two_images`
+ * - **Description**: TwoImages
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TwoImagesSlice = prismic.SharedSlice<
+  "two_images",
+  TwoImagesSliceVariation
+>;
+
+/**
  * Primary content in *UtaArtistSpace → Default → Primary*
  */
 export interface UtaArtistSpaceSliceDefaultPrimary {
@@ -3090,6 +3344,16 @@ declare module "@prismicio/client" {
       TitleAndImagesSliceVariation,
       TitleAndImagesSliceDefault,
       TitleAndImagesSlice2Images1Video,
+      TwoImagesSlice,
+      TwoImagesSliceDefaultPrimary,
+      TwoImagesSliceAlignLeftPrimary,
+      TwoImagesSliceAlignRightPrimary,
+      TwoImagesSliceVariedSizePrimary,
+      TwoImagesSliceVariation,
+      TwoImagesSliceDefault,
+      TwoImagesSliceAlignLeft,
+      TwoImagesSliceAlignRight,
+      TwoImagesSliceVariedSize,
       UtaArtistSpaceSlice,
       UtaArtistSpaceSliceDefaultPrimary,
       UtaArtistSpaceSliceVariation,
