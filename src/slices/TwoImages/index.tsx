@@ -42,7 +42,7 @@ const TwoImages = ({ slice }: TwoImagesProps): JSX.Element => {
       {slice.variation === "default" && (
         <section className="bg-white overflow-hidden">
           <Bounded className="">
-            <div className="grid grid-cols-1 justify-center py-8 space-y-10 md:grid-cols-2 md:space-y-0 md:gap-10 md:flex md:py-16">
+            <div className="grid grid-cols-1 justify-center py-4 md:grid-cols-2 md:space-y-0 md:gap-10 md:flex md:py-8">
               <div>
                 <PrismicNextImage
                   field={slice.primary.image_1}
