@@ -41,7 +41,7 @@ const ThreeImages = ({ slice }: ThreeImagesProps): JSX.Element => {
     <>
       {slice.variation === "default" && (
         <section className="bg-white overflow-hidden py-4 md:py-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8  w-full md:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full md:gap-10">
             <div className="aspect-w-3 aspect-h-4">
               <PrismicNextImage
                 field={slice.primary.image_1}
@@ -75,8 +75,8 @@ const ThreeImages = ({ slice }: ThreeImagesProps): JSX.Element => {
         </section>
       )}
       {slice.variation === "collage" && (
-        <section className="bg-white overflow-hidden py-8 md:py-16">
-          <div className="grid md:grid-cols-3 mb-10 md:-mb-40">
+        <section className="bg-white overflow-hidden py-4 md:py-8">
+          <div className="grid mb-8 md:grid-cols-3 md:-mb-40">
             <div className="space-y-1 hidden md:block md:space-y-2 md:place-self-center">
               <PrismicRichText
                 field={slice.primary.title_label}
@@ -94,7 +94,7 @@ const ThreeImages = ({ slice }: ThreeImagesProps): JSX.Element => {
               />
             </div>
           </div>
-          <div className="grid gap-10 md:gap-40 grid-cols-3">
+          <div className="grid gap-8 md:gap-40 grid-cols-3">
             <div className="col-span-2 aspect-w-4 aspect-h-3">
               <PrismicNextImage
                 field={slice.primary.image_2}

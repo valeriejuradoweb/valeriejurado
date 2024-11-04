@@ -45,7 +45,7 @@ const TitleAndImages = ({ slice }: TitleAndImagesProps): JSX.Element => {
     <>
       {slice.variation === "default" && (
         <section className="bg-white overflow-hidden">
-          <Bounded className="mt-16 py-8 md:mt-24">
+          <Bounded className="mt-16 py-4 md:py-8 md:mt-24">
             <div className="mx-auto w-full max-w-4xl">
               <div className="flex">
                 <div className="scale-x-[-1] py-0 md:pt-1">
@@ -86,7 +86,7 @@ const TitleAndImages = ({ slice }: TitleAndImagesProps): JSX.Element => {
                     </div>
                   </div>
                 </div>
-                <div className="hidden z-10 relative md:top-40 md:w-[38%] md:right-0 md:block md:absolute">
+                <div className="z-10 relative top-8 md:top-40 md:w-[38%] md:right-0 md:absolute">
                   <div className="aspect-w-3 aspect-h-4">
                     <PrismicNextImage
                       className="object-cover w-full h-full"
