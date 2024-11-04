@@ -111,7 +111,7 @@ const TitleAndImages = ({ slice }: TitleAndImagesProps): JSX.Element => {
                   <p>{slice.primary.back_label}</p>
                 </Button>
               </div>
-              <div className="grid mt-8 gap-5 md:grid-cols-2 md:gap-0 h-auto md:h-[60rem]">
+              <div className="grid mt-8 gap-8 md:grid-cols-2 md:gap-0 h-auto md:h-[53rem]">
                 <div className="space-y-6 md:space-y-8">
                   <div className="space-y-2 md:space-y-4">
                     <PrismicRichText
@@ -134,17 +134,17 @@ const TitleAndImages = ({ slice }: TitleAndImagesProps): JSX.Element => {
                     />
                   </div>
 
-                  <div className="z-10 md:absolute md:left-0 md:gap-10 md:flex md:w-[30rem]">
+                  <div className="z-10 space-y-8 md:space-y-0 md:absolute md:left-0 md:gap-10 md:flex md:w-[30rem]">
                     <PrismicNextImage field={slice.primary.image_1} />
 
                     <PrismicNextImage
                       field={slice.primary.image_2}
-                      className="hidden md:block"
+                      className=""
                     />
                   </div>
                 </div>
                 <div className="">
-                  <div className="mb-4 md:w-80 md:float-right">
+                  <div className="md:w-80 md:float-right">
                     <div className="aspect-w-5 aspect-h-7">
                       {prismic.isFilled.linkToMedia(slice.primary.video) && (
                         <video

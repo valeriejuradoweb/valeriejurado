@@ -40,21 +40,21 @@ const ThreeImages = ({ slice }: ThreeImagesProps): JSX.Element => {
   return (
     <>
       {slice.variation === "default" && (
-        <section className="bg-white overflow-hidden py-8 md:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full">
+        <section className="bg-white overflow-hidden py-4 md:py-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8  w-full md:gap-10">
             <div className="aspect-w-3 aspect-h-4">
               <PrismicNextImage
                 field={slice.primary.image_1}
                 className="object-cover w-full h-full"
               />
             </div>
-            <div className="aspect-w-3 aspect-h-4 hidden md:block">
+            <div className="aspect-w-3 aspect-h-4">
               <PrismicNextImage
                 field={slice.primary.image_2}
                 className="object-cover w-full h-full"
               />
             </div>
-            <div className="aspect-w-3 aspect-h-4 hidden md:block">
+            <div className="aspect-w-3 aspect-h-4">
               <PrismicNextImage
                 field={slice.primary.image_3}
                 className="object-cover w-full h-full"
