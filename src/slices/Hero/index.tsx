@@ -9,6 +9,7 @@ import {
 import Bounded from "@/components/Bounded";
 import Button from "@/components/Button";
 import Heading from "@/components/Heading";
+import ArrowLight from "@/components/ArrowLight";
 
 const components: JSXMapSerializer = {
   heading1: ({ children }) => (
@@ -17,6 +18,12 @@ const components: JSXMapSerializer = {
       size="sm"
       className="md:mb-8 mb-4 mt-12 first:mt-0 last:mb-0"
     >
+      {children}
+    </Heading>
+  ),
+
+  heading2: ({ children }) => (
+    <Heading as="h2" size="xs" className="font-medium font-body">
       {children}
     </Heading>
   ),
@@ -61,7 +68,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           )}
 
           <Bounded
-            className="px-4 py-10 h-[48rem] md:h-svh md:py-20 md:px-6 lg:py-20"
+            className="px-4 py-10 h-[48rem] md:h-[98svh] md:py-20 md:px-6 lg:py-20"
             data-slice-type={slice.slice_type}
             data-slice-variation={slice.variation}
           >
@@ -84,6 +91,15 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                     </li>
                   ))}
                 </ul>
+              </div>
+            </div>
+            <div className="font-body font-medium absolute -bottom-8 left-[50%] -translate-x-2/4 -translate-y-2/4 flex text-white bg-[#121212] z-40 py-2 px-4 drop-shadow-xl">
+              <div className="rotate-90">
+                <ArrowLight />
+              </div>
+              <h2 className="pr-[.75rem] pl-[1.1rem]">featured</h2>
+              <div className="rotate-90">
+                <ArrowLight />
               </div>
             </div>
           </Bounded>
