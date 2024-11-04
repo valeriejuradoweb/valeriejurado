@@ -39,8 +39,11 @@ const ImageText = ({ slice }: ImageTextProps): JSX.Element => {
           <Bounded>
             <div className="mx-auto w-full max-w-4xl">
               <div className="items-center grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-14">
-                <div>
-                  <PrismicNextImage field={slice.primary.image} />
+                <div className="aspect-w-5 aspect-h-7">
+                  <PrismicNextImage
+                    field={slice.primary.image}
+                    className="object-cover w-full h-full"
+                  />
                 </div>
                 <div>
                   <PrismicRichText
@@ -72,8 +75,11 @@ const ImageText = ({ slice }: ImageTextProps): JSX.Element => {
                     components={components}
                   />
                 </div>
-                <div className="order-1 md:order-none">
-                  <PrismicNextImage field={slice.primary.image} />
+                <div className="aspect-w-5 aspect-h-7 order-1 md:order-none">
+                  <PrismicNextImage
+                    field={slice.primary.image}
+                    className="object-cover w-full h-full"
+                  />
                 </div>
               </div>
             </div>

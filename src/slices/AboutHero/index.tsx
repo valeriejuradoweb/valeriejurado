@@ -81,10 +81,16 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
               />{" "}
               <div className="grid grid-cols-2 mt-2">
                 <div>
-                  <PrismicRichText field={slice.primary.client_list_1} />
+                  <PrismicRichText
+                    field={slice.primary.client_list_1}
+                    components={components}
+                  />
                 </div>
                 <div>
-                  <PrismicRichText field={slice.primary.client_list_2} />
+                  <PrismicRichText
+                    field={slice.primary.client_list_2}
+                    components={components}
+                  />
                 </div>
               </div>
             </div>

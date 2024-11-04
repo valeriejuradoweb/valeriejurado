@@ -46,7 +46,7 @@ const UtaArtistSpace = ({ slice }: UtaArtistSpaceProps): JSX.Element => {
       >
         <div className="grid md:grid-cols-2 mb-10 md:mb-20">
           <div className="mb-5 md:mb-0">
-            <div className="space-y-2 mb-5 md:mt-10">
+            <div className="space-y-2 mb-5 mt-8 md:mt-10">
               <TitleLink field={slice.primary.title_link}>
                 {slice.primary.title_label}
               </TitleLink>
