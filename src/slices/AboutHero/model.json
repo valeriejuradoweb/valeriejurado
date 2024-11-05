@@ -12,6 +12,15 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "bio_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Bio Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
+          }
+        },
         "bio": {
           "type": "StructuredText",
           "config": {
@@ -48,8 +57,7 @@
                   "label": "Link",
                   "placeholder": "",
                   "allowTargetBlank": true,
-                  "select": null,
-                  "allowText": true
+                  "select": null
                 }
               },
               "label": {
@@ -134,7 +142,7 @@
                   "label": "Employee Bio",
                   "placeholder": "",
                   "allowTargetBlank": true,
-                  "multi": "paragraph"
+                  "multi": "paragraph,strong,em,heading3"
                 }
               }
             }

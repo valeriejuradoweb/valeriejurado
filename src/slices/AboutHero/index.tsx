@@ -17,6 +17,12 @@ const components: JSXMapSerializer = {
     </Heading>
   ),
 
+  heading3: ({ children }) => (
+    <Heading as="h3" size="xxs" className="font-semibold">
+      {children}
+    </Heading>
+  ),
+
   paragraph: ({ children }) => (
     <p className="text-base leading-7 font-thin font-body md:text-base">
       {children}
@@ -58,9 +64,15 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
           <div className="relative right-0">
             <div className="md:w-[70%] md:right-0">
               <PrismicRichText
-                field={slice.primary.bio}
+                field={slice.primary.bio_heading}
                 components={components}
               />
+              <div className="mt-4 space-y-2">
+                <PrismicRichText
+                  field={slice.primary.bio}
+                  components={components}
+                />
+              </div>
               <div className="py-6">
                 {slice.primary.button.map(({ link, label }) => (
                   <div className="block py-2">
@@ -99,9 +111,9 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
         <div className="block text-[#DEDEDE] space-y-10 mt-10 md:space-y-0 md:mt-32 md:flex md:flex-wrap gap-4">
           {slice.primary.employee.map(
             ({ employee_photo, employee_name, employee_bio }) => (
-              <div className="md:basis-[32%] space-y-2">
+              <div className="md:basis-[32%] space-y-1">
                 <div className="w-full max-w-sm">
-                  <div className="aspect-w-16 aspect-h-11">
+                  <div className="aspect-w-16 aspect-h-11 mb-2">
                     <PrismicNextImage
                       className="object-cover w-full h-full"
                       field={employee_photo}
@@ -113,7 +125,7 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
                   field={employee_name}
                   components={components}
                 />
-                <PrismicRichText field={employee_bio} />
+                <PrismicRichText field={employee_bio} components={components} />
               </div>
             )
           )}

@@ -95,7 +95,7 @@ const TwoImages = ({ slice }: TwoImagesProps): JSX.Element => {
       )}
       {slice.variation === "alignRight" && (
         <section className="bg-white overflow-hidden">
-          <div className="float-right py-8 space-y-10 block md:space-y-0 md:gap-10 md:flex md:py-16">
+          <div className="float-right py-4 space-y-8 block md:space-y-0 md:gap-10 md:flex md:py-8">
             <div className="space-y-1 px-7 md:px-0 md:space-y-2">
               <PrismicRichText
                 field={slice.primary.title_label}

@@ -136,7 +136,7 @@
 										{
 											"type": "paragraph",
 											"content": {
-												"text": "Deserunt anim fugiat veniam. Est commodo laboris eiusmod mollit incididunt. Ut eu occaecat ex nisi in quis culpa eu."
+												"text": "Officia est do veniam sint dolore commodo elit veniam veniam Lorem eiusmod. Amet est est ullamco irure."
 											}
 										}
 									]
@@ -189,12 +189,22 @@
 									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "ExternalLink",
-										"url": "http://twitter.com",
-										"text": "corn"
+										"url": "https://slicemachine.dev"
 									}
 								}
 							]
 						]
+					}
+				]
+			},
+			"bio_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Enim ea magna ex quis Lorem id eu cillum duis."
+						}
 					}
 				]
 			}

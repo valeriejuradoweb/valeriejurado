@@ -37,7 +37,7 @@ const ImageText = ({ slice }: ImageTextProps): JSX.Element => {
       {slice.variation === "default" && (
         <section className="bg-white overflow-hidden">
           <Bounded>
-            <div className="mx-auto w-full max-w-4xl">
+            <div className="mx-auto w-full max-w-4xl py-4 md:py-8">
               <div className="items-center grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-14">
                 <div className="aspect-w-5 aspect-h-7">
                   <PrismicNextImage
@@ -63,7 +63,7 @@ const ImageText = ({ slice }: ImageTextProps): JSX.Element => {
       {slice.variation === "textLeft" && (
         <section className="bg-white overflow-hidden">
           <Bounded>
-            <div className="mx-auto w-full max-w-4xl">
+            <div className="mx-auto w-full max-w-4xl py-4 md:py-8">
               <div className="items-center grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-14">
                 <div className="order-2 md:order-none">
                   <PrismicRichText

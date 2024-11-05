@@ -21,6 +21,15 @@
             "multi": "heading1,heading2,heading3,heading4,heading5,heading6"
           }
         },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
         "next_project_title": {
           "type": "Text",
           "config": {
@@ -35,15 +44,6 @@
             "placeholder": "",
             "allowTargetBlank": false,
             "select": null
-          }
-        },
-        "description": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Description",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em"
           }
         }
       },

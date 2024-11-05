@@ -345,6 +345,16 @@ export interface AboutHeroSliceDefaultPrimaryEmployeeItem {
  */
 export interface AboutHeroSliceDefaultPrimary {
   /**
+   * Bio Heading field in *AboutHero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.bio_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  bio_heading: prismic.RichTextField;
+
+  /**
    * Bio field in *AboutHero → Default → Primary*
    *
    * - **Field Type**: Rich Text
@@ -899,6 +909,16 @@ export interface DetailHeadingNextSliceDefaultPrimary {
   heading: prismic.RichTextField;
 
   /**
+   * Description field in *DetailHeadingNext → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: detail_heading_next.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
    * Next Project Title field in *DetailHeadingNext → Default → Primary*
    *
    * - **Field Type**: Text
@@ -917,16 +937,6 @@ export interface DetailHeadingNextSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   next_project_link: prismic.LinkField;
-
-  /**
-   * Description field in *DetailHeadingNext → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: detail_heading_next.default.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
 }
 
 /**
