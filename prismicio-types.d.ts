@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | FruitsOfOurLaborSlice
   | RuyschSlice
   | BentleySlice
   | JhPiegoSlice
@@ -967,6 +968,111 @@ type DetailHeadingNextSliceVariation = DetailHeadingNextSliceDefault;
 export type DetailHeadingNextSlice = prismic.SharedSlice<
   "detail_heading_next",
   DetailHeadingNextSliceVariation
+>;
+
+/**
+ * Primary content in *FruitsOfOurLabor → Default → Primary*
+ */
+export interface FruitsOfOurLaborSliceDefaultPrimary {
+  /**
+   * Image 1 field in *FruitsOfOurLabor → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fruits_of_our_labor.default.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Image 2 field in *FruitsOfOurLabor → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fruits_of_our_labor.default.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Title Link field in *FruitsOfOurLabor → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fruits_of_our_labor.default.primary.title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  title_link: prismic.LinkField;
+
+  /**
+   * Title Label field in *FruitsOfOurLabor → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fruits_of_our_labor.default.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_label: prismic.KeyTextField;
+
+  /**
+   * Project Description field in *FruitsOfOurLabor → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fruits_of_our_labor.default.primary.project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.RichTextField;
+
+  /**
+   * Button Link field in *FruitsOfOurLabor → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fruits_of_our_labor.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button Text field in *FruitsOfOurLabor → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fruits_of_our_labor.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for FruitsOfOurLabor Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FruitsOfOurLaborSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FruitsOfOurLaborSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FruitsOfOurLabor*
+ */
+type FruitsOfOurLaborSliceVariation = FruitsOfOurLaborSliceDefault;
+
+/**
+ * FruitsOfOurLabor Shared Slice
+ *
+ * - **API ID**: `fruits_of_our_labor`
+ * - **Description**: FruitsOfOurLabor
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FruitsOfOurLaborSlice = prismic.SharedSlice<
+  "fruits_of_our_labor",
+  FruitsOfOurLaborSliceVariation
 >;
 
 /**
@@ -3565,6 +3671,10 @@ declare module "@prismicio/client" {
       DetailHeadingNextSliceDefaultPrimary,
       DetailHeadingNextSliceVariation,
       DetailHeadingNextSliceDefault,
+      FruitsOfOurLaborSlice,
+      FruitsOfOurLaborSliceDefaultPrimary,
+      FruitsOfOurLaborSliceVariation,
+      FruitsOfOurLaborSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimaryLinksItem,
       HeroSliceDefaultPrimary,

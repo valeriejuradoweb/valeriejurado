@@ -18,6 +18,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "fruits_of_our_labor": {
+              "type": "SharedSlice"
+            },
             "ruysch": {
               "type": "SharedSlice"
             },
