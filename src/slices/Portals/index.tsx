@@ -124,25 +124,24 @@ const Portals = ({ slice }: PortalsProps): JSX.Element => {
           </div>
           <Bounded className="pt-4 pb-6 md:py-8">
             {/*** ----------------Desktop Below*/}
-            <div className="grid grid-cols-3">
-              <div className="order-3 md:order-none">
-                <TitleLink field={slice.primary.title_link_2}>
-                  {slice.primary.title_label_2}
-                </TitleLink>
-                <PrismicRichText
-                  field={slice.primary.project_description_2}
-                  components={components}
-                />
-              </div>
-              <div className="order-2 place-self-center md:order-none">
+            <div className="grid grid-cols-1 place-items-center">
+              <div className="flex gap-6 md:gap-8">
                 <SequenceLabel>
                   <PrismicRichText
                     field={slice.primary.sequence_label_2}
                     components={components}
                   />
                 </SequenceLabel>
+                <div className="self-center">
+                  <TitleLink field={slice.primary.title_link_2}>
+                    {slice.primary.title_label_2}
+                  </TitleLink>
+                  <PrismicRichText
+                    field={slice.primary.project_description_2}
+                    components={components}
+                  />
+                </div>
               </div>
-              <div></div>
             </div>
           </Bounded>
         </section>
@@ -152,24 +151,28 @@ const Portals = ({ slice }: PortalsProps): JSX.Element => {
         <section className="relative bg-white overflow-hidden">
           <Bounded className="py-8">
             <div className="grid grid-cols-1 place-items-center space-y-4 md:space-y-4">
-              <SequenceLabel>
-                <PrismicRichText
-                  field={slice.primary.sequence_label_3}
-                  components={components}
-                />
-              </SequenceLabel>
               <div className="w-full md:w-[40rem]">
                 <PrismicNextImage
                   className="mb-4"
                   field={slice.primary.image_6}
                 />
-                <TitleLink field={slice.primary.title_link_3}>
-                  {slice.primary.title_label_3}
-                </TitleLink>
-                <PrismicRichText
-                  field={slice.primary.project_description}
-                  components={components}
-                />
+                <div className="flex gap-6 md:gap-8">
+                  <SequenceLabel>
+                    <PrismicRichText
+                      field={slice.primary.sequence_label_3}
+                      components={components}
+                    />
+                  </SequenceLabel>
+                  <div>
+                    <TitleLink field={slice.primary.title_link_3}>
+                      {slice.primary.title_label_3}
+                    </TitleLink>
+                    <PrismicRichText
+                      field={slice.primary.project_description}
+                      components={components}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </Bounded>
