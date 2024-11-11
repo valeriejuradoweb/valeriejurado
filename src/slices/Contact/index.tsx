@@ -19,7 +19,7 @@ const Contact = ({ slice }: ContactProps): JSX.Element => {
         className="py-8"
       >
         {/*BELOW IS THE CUSTOM CODED FORM FROM MAILCHIMP, THIS IS NOT EDITABLE WITHOUT DEVELOPER HELP*/}
-        <div className="mt-20 grid grid-cols-1 place-self-center font-body">
+        <div className="pt-20 grid grid-cols-1 place-self-center font-body">
           <div className="place-self-center md:w-[40rem]">
             <PrismicRichText field={slice.primary.contact_page_text} />
 

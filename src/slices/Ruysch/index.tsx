@@ -117,27 +117,28 @@ const Ruysch = ({ slice }: RuyschProps): JSX.Element => {
           <div className="grid grid-cols-1 px-7 md:px-0 md:grid-cols-3 md:gap-16">
             <div></div>
             <div className="space-y-6">
-              <div className="grid place-items-center">
-                <SequenceLabelWhite>
-                  <PrismicRichText
-                    field={slice.primary.sequence_label_2}
-                    components={components}
-                  />
-                </SequenceLabelWhite>
-              </div>
               <PrismicNextImage
                 className="border-8 border-[#2B2B2B]"
                 field={slice.primary.image_2}
               />
-
-              <div className="space-y-2">
-                <TitleLink field={slice.primary.title_link_2}>
-                  {slice.primary.title_label_2}
-                </TitleLink>
-                <PrismicRichText
-                  field={slice.primary.description}
-                  components={components}
-                />
+              <div className="grid grid-cols-1 place-items-center">
+                <div className="flex gap-6 md:gap-8">
+                  <SequenceLabelWhite>
+                    <PrismicRichText
+                      field={slice.primary.sequence_label_2}
+                      components={components}
+                    />
+                  </SequenceLabelWhite>
+                  <div className="space-y-2">
+                    <TitleLink field={slice.primary.title_link_2}>
+                      {slice.primary.title_label_2}
+                    </TitleLink>
+                    <PrismicRichText
+                      field={slice.primary.description}
+                      components={components}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -153,7 +154,10 @@ const Ruysch = ({ slice }: RuyschProps): JSX.Element => {
       {slice.variation === "ruysch3" && (
         <section className="relative bg-black text-[#DEDEDE] overflow-hidden py-6">
           <div className="grid grid-cols-1 place-items-center md:grid-cols-2">
-            <div className="flex place-items-center gap-6 md:gap-8 md:mt-0 md:order-none">
+            <div className="order-none md:order-2">
+              <PrismicNextImage field={slice.primary.image_3} />
+            </div>
+            <div className="flex place-items-center gap-6 order-none md:gap-8 md:mt-0 md:order-1">
               <div>
                 <SequenceLabelWhite>
                   <PrismicRichText
@@ -171,9 +175,6 @@ const Ruysch = ({ slice }: RuyschProps): JSX.Element => {
                   components={components}
                 />
               </div>
-            </div>
-            <div>
-              <PrismicNextImage field={slice.primary.image_3} />
             </div>
           </div>
 
