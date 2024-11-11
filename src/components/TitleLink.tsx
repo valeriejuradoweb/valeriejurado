@@ -9,7 +9,7 @@ export default function TitleLink({
   // Ensure 'prefetch' is a boolean before passing
   return (
     <PrismicNextLink
-      className={`text-lg tracking-wide underline underline-offset-4 font-display font-medium md:text-2xl ${className}`}
+      className={`text-lg tracking-wide underline underline-offset-4 font-display font-medium hover:opacity-65 transition-opacity duration-200 ease-in-out md:text-2xl ${className}`}
       prefetch={typeof prefetch === "boolean" ? prefetch : true} // Ensure it’s a boolean
       {...restProps} // Spread the rest of the props
     />

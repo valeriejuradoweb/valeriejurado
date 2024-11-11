@@ -40,7 +40,7 @@ const components: JSXMapSerializer = {
 const ThreePhotoCollage = ({ slice }: ThreePhotoCollageProps): JSX.Element => {
   return (
     <section className="relative bg-white overflow-hidden">
-      <Bounded className="py-8">
+      <Bounded className="py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 relative z-20">
           <div></div>
           <div className="">
