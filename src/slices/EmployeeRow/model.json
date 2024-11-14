@@ -1,0 +1,97 @@
+{
+  "id": "employee_row",
+  "type": "SharedSlice",
+  "name": "EmployeeRow",
+  "description": "EmployeeRow",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "employee_photo": {
+          "type": "Image",
+          "config": {
+            "label": "Employee Photo",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "employee_name": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Employee Name",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "employee_bio": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Employee Bio",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading3,paragraph,strong,em"
+          }
+        },
+        "employee_photo_2": {
+          "type": "Image",
+          "config": {
+            "label": "Employee Photo 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "employee_name_2": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Employee Name 2",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "employee_bio_2": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Employee Bio 2",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading3,strong,em"
+          }
+        },
+        "employee_photo_3": {
+          "type": "Image",
+          "config": {
+            "label": "Employee Photo 3",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "employee_name_3": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Employee Name 3",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "employee_bio_3": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Employee Bio 3",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading3,strong,em"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -74,19 +74,24 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
                 />
               </div>
               <div className="py-6">
-                {slice.primary.button.map(({ link, label }) => (
-                  <div className="block py-2">
-                    <div className="flex">
-                      <p className="text-lg pr-1 md:text-2xl">＋</p>
-                      <Button field={link} className="">
-                        {label}
-                      </Button>
+                {slice.primary.button.map(({ link, label }) => {
+                  // Ensure label is not null
+                  if (label == null) return null; // If label is null or undefined, skip rendering this button
+
+                  return (
+                    <div key={label} className="block py-2">
+                      <div className="flex">
+                        <p className="text-lg pr-1 md:text-2xl">＋</p>
+                        <Button field={link} className="">
+                          {label}
+                        </Button>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
-            <div>
+            <div className="mb-8">
               <PrismicRichText
                 field={slice.primary.client_list_heading}
                 components={components}
@@ -108,7 +113,7 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
             </div>
           </div>
         </div>
-        <div className="block text-[#DEDEDE] space-y-10 mt-10 md:space-y-0 md:mt-32 md:flex md:flex-wrap gap-4">
+        {/*<div className="block text-[#DEDEDE] space-y-10 mt-10 md:space-y-0 md:mt-32 md:flex md:flex-wrap gap-4">
           {slice.primary.employee.map(
             ({ employee_photo, employee_name, employee_bio }) => (
               <div className="md:basis-[32%] space-y-1">
@@ -129,7 +134,25 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
               </div>
             )
           )}
-        </div>
+        </div>*/}
+        {/*<div className="block text-[#DEDEDE] space-y-10 mt-10 md:space-y-0 md:mt-32 md:flex md:flex-wrap gap-4">
+          <div className="w-full max-w-sm">
+            <div className="aspect-w-16 aspect-h-11 mb-2">
+              <PrismicNextImage
+                className="object-cover w-full h-full"
+                field={slice.primary.employee_photo}
+              />
+            </div>
+          </div>
+          <PrismicRichText
+            field={slice.primary.employee_name}
+            components={components}
+          />
+          <PrismicRichText
+            field={slice.primary.employee_bio}
+            components={components}
+          />
+        </div>*/}
       </Bounded>
     </section>
   );

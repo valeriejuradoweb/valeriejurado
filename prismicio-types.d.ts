@@ -93,6 +93,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | EmployeeRowSlice
   | UtaWeeklyDarkSlice
   | ThreeImagesSlice
   | TwoImagesSlice
@@ -307,41 +308,6 @@ export interface AboutHeroSliceDefaultPrimaryButtonItem {
 }
 
 /**
- * Item in *AboutHero → Default → Primary → Employee*
- */
-export interface AboutHeroSliceDefaultPrimaryEmployeeItem {
-  /**
-   * Employee Photo field in *AboutHero → Default → Primary → Employee*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about_hero.default.primary.employee[].employee_photo
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  employee_photo: prismic.ImageField<never>;
-
-  /**
-   * Employee Name field in *AboutHero → Default → Primary → Employee*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about_hero.default.primary.employee[].employee_name
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  employee_name: prismic.RichTextField;
-
-  /**
-   * Employee Bio field in *AboutHero → Default → Primary → Employee*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about_hero.default.primary.employee[].employee_bio
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  employee_bio: prismic.RichTextField;
-}
-
-/**
  * Primary content in *AboutHero → Default → Primary*
  */
 export interface AboutHeroSliceDefaultPrimary {
@@ -444,18 +410,6 @@ export interface AboutHeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   mobile_background_image: prismic.ImageField<never>;
-
-  /**
-   * Employee field in *AboutHero → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about_hero.default.primary.employee[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  employee: prismic.GroupField<
-    Simplify<AboutHeroSliceDefaultPrimaryEmployeeItem>
-  >;
 }
 
 /**
@@ -968,6 +922,131 @@ type DetailHeadingNextSliceVariation = DetailHeadingNextSliceDefault;
 export type DetailHeadingNextSlice = prismic.SharedSlice<
   "detail_heading_next",
   DetailHeadingNextSliceVariation
+>;
+
+/**
+ * Primary content in *EmployeeRow → Default → Primary*
+ */
+export interface EmployeeRowSliceDefaultPrimary {
+  /**
+   * Employee Photo field in *EmployeeRow → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: employee_row.default.primary.employee_photo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  employee_photo: prismic.ImageField<never>;
+
+  /**
+   * Employee Name field in *EmployeeRow → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: employee_row.default.primary.employee_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  employee_name: prismic.RichTextField;
+
+  /**
+   * Employee Bio field in *EmployeeRow → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: employee_row.default.primary.employee_bio
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  employee_bio: prismic.RichTextField;
+
+  /**
+   * Employee Photo 2 field in *EmployeeRow → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: employee_row.default.primary.employee_photo_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  employee_photo_2: prismic.ImageField<never>;
+
+  /**
+   * Employee Name 2 field in *EmployeeRow → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: employee_row.default.primary.employee_name_2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  employee_name_2: prismic.RichTextField;
+
+  /**
+   * Employee Bio 2 field in *EmployeeRow → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: employee_row.default.primary.employee_bio_2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  employee_bio_2: prismic.RichTextField;
+
+  /**
+   * Employee Photo 3 field in *EmployeeRow → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: employee_row.default.primary.employee_photo_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  employee_photo_3: prismic.ImageField<never>;
+
+  /**
+   * Employee Name 3 field in *EmployeeRow → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: employee_row.default.primary.employee_name_3
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  employee_name_3: prismic.RichTextField;
+
+  /**
+   * Employee Bio 3 field in *EmployeeRow → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: employee_row.default.primary.employee_bio_3
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  employee_bio_3: prismic.RichTextField;
+}
+
+/**
+ * Default variation for EmployeeRow Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EmployeeRowSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<EmployeeRowSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *EmployeeRow*
+ */
+type EmployeeRowSliceVariation = EmployeeRowSliceDefault;
+
+/**
+ * EmployeeRow Shared Slice
+ *
+ * - **API ID**: `employee_row`
+ * - **Description**: EmployeeRow
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EmployeeRowSlice = prismic.SharedSlice<
+  "employee_row",
+  EmployeeRowSliceVariation
 >;
 
 /**
@@ -2626,31 +2705,6 @@ export type ThreeImagesSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *SoCal → Default → Primary → Title Link*
- */
-export interface ThreePhotoCollageSliceDefaultPrimaryTitleLinkItem {
-  /**
-   * Link field in *SoCal → Default → Primary → Title Link*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_photo_collage.default.primary.title_link[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-
-  /**
-   * Label field in *SoCal → Default → Primary → Title Link*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: three_photo_collage.default.primary.title_link[].label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  label: prismic.KeyTextField;
-}
-
-/**
  * Primary content in *SoCal → Default → Primary*
  */
 export interface ThreePhotoCollageSliceDefaultPrimary {
@@ -2667,14 +2721,22 @@ export interface ThreePhotoCollageSliceDefaultPrimary {
   /**
    * Title Link field in *SoCal → Default → Primary*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: three_photo_collage.default.primary.title_link[]
-   * - **Documentation**: https://prismic.io/docs/field#group
+   * - **API ID Path**: three_photo_collage.default.primary.title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  title_link: prismic.GroupField<
-    Simplify<ThreePhotoCollageSliceDefaultPrimaryTitleLinkItem>
-  >;
+  title_link: prismic.LinkField;
+
+  /**
+   * Title Label field in *SoCal → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_photo_collage.default.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_label: prismic.KeyTextField;
 
   /**
    * Project Description field in *SoCal → Default → Primary*
@@ -3647,7 +3709,6 @@ declare module "@prismicio/client" {
       AllDocumentTypes,
       AboutHeroSlice,
       AboutHeroSliceDefaultPrimaryButtonItem,
-      AboutHeroSliceDefaultPrimaryEmployeeItem,
       AboutHeroSliceDefaultPrimary,
       AboutHeroSliceVariation,
       AboutHeroSliceDefault,
@@ -3671,6 +3732,10 @@ declare module "@prismicio/client" {
       DetailHeadingNextSliceDefaultPrimary,
       DetailHeadingNextSliceVariation,
       DetailHeadingNextSliceDefault,
+      EmployeeRowSlice,
+      EmployeeRowSliceDefaultPrimary,
+      EmployeeRowSliceVariation,
+      EmployeeRowSliceDefault,
       FruitsOfOurLaborSlice,
       FruitsOfOurLaborSliceDefaultPrimary,
       FruitsOfOurLaborSliceVariation,
@@ -3731,7 +3796,6 @@ declare module "@prismicio/client" {
       ThreeImagesSliceDefault,
       ThreeImagesSliceCollage,
       ThreePhotoCollageSlice,
-      ThreePhotoCollageSliceDefaultPrimaryTitleLinkItem,
       ThreePhotoCollageSliceDefaultPrimary,
       ThreePhotoCollageSliceVariation,
       ThreePhotoCollageSliceDefault,

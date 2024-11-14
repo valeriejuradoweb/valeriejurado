@@ -63,41 +63,13 @@
 			"video": {
 				"__TYPE__": "LinkContent",
 				"value": {
+					"__TYPE__": "FileLink",
 					"id": "mock_Media_link",
 					"kind": "image/jpeg",
 					"name": "mock_name",
 					"url": "https://source.unsplash.com/daily",
-					"size": "0",
-					"__TYPE__": "FileLink"
+					"size": "0"
 				}
-			},
-			"title_link": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"link",
-								{
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "http://twitter.com"
-									}
-								}
-							],
-							[
-								"label",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "wear",
-									"type": "Text"
-								}
-							]
-						]
-					}
-				]
 			},
 			"button_text": {
 				"__TYPE__": "FieldContent",
@@ -109,6 +81,18 @@
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "https://slicemachine.dev"
+				}
+			},
+			"title_label": {
+				"__TYPE__": "FieldContent",
+				"value": "price",
+				"type": "Text"
+			},
+			"title_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
 				}
 			}
 		},

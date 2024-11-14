@@ -57,11 +57,9 @@ const ThreePhotoCollage = ({ slice }: ThreePhotoCollageProps): JSX.Element => {
             )}
           </div>
           <div className="content-center pt-5 md:pt-0 space-y-2">
-            {slice.primary.title_link.map(({ link, label }) => (
-              <TitleLink field={link} className="">
-                {label}
-              </TitleLink>
-            ))}
+            <TitleLink field={slice.primary.title_link}>
+              {slice.primary.title_label}
+            </TitleLink>
 
             <PrismicRichText
               field={slice.primary.project_description}

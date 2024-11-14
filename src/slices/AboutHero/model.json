@@ -112,41 +112,6 @@
             "constraint": {},
             "thumbnails": []
           }
-        },
-        "employee": {
-          "type": "Group",
-          "config": {
-            "label": "Employee",
-            "repeat": true,
-            "fields": {
-              "employee_photo": {
-                "type": "Image",
-                "config": {
-                  "label": "Employee Photo",
-                  "constraint": {},
-                  "thumbnails": []
-                }
-              },
-              "employee_name": {
-                "type": "StructuredText",
-                "config": {
-                  "label": "Employee Name",
-                  "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "heading2"
-                }
-              },
-              "employee_bio": {
-                "type": "StructuredText",
-                "config": {
-                  "label": "Employee Bio",
-                  "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph,strong,em,heading3"
-                }
-              }
-            }
-          }
         }
       },
       "items": {}

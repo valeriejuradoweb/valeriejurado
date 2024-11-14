@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "employee_row": {
+              "type": "SharedSlice"
+            },
             "uta_weekly_dark": {
               "type": "SharedSlice"
             },

@@ -9,6 +9,7 @@ export const components = {
   contact: dynamic(() => import("./Contact")),
   detail: dynamic(() => import("./Detail")),
   detail_heading_next: dynamic(() => import("./DetailHeadingNext")),
+  employee_row: dynamic(() => import("./EmployeeRow")),
   fruits_of_our_labor: dynamic(() => import("./FruitsOfOurLabor")),
   hero: dynamic(() => import("./Hero")),
   image_text: dynamic(() => import("./ImageText")),

@@ -21,27 +21,19 @@
           }
         },
         "title_link": {
-          "type": "Group",
+          "type": "Link",
           "config": {
             "label": "Title Link",
-            "repeat": true,
-            "fields": {
-              "link": {
-                "type": "Link",
-                "config": {
-                  "label": "Link",
-                  "placeholder": "",
-                  "select": null
-                }
-              },
-              "label": {
-                "type": "Text",
-                "config": {
-                  "label": "Label",
-                  "placeholder": ""
-                }
-              }
-            }
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        },
+        "title_label": {
+          "type": "Text",
+          "config": {
+            "label": "Title Label",
+            "placeholder": ""
           }
         },
         "project_description": {
