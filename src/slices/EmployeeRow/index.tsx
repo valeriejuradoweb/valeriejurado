@@ -38,7 +38,7 @@ export type EmployeeRowProps = SliceComponentProps<Content.EmployeeRowSlice>;
  */
 const EmployeeRow = ({ slice }: EmployeeRowProps): JSX.Element => {
   return (
-    <section className="relative bg-neutral-400">
+    <section className="relative bg-black">
       <Bounded>
         <div className="grid grid-cols-1 text-[#DEDEDE] gap-6 py-6 md:gap-4 md:grid-cols-3 ">
           <div>
