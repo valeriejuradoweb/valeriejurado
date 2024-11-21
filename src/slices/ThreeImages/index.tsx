@@ -120,6 +120,60 @@ const ThreeImages = ({ slice }: ThreeImagesProps): JSX.Element => {
           </div>
         </section>
       )}
+      {slice.variation === "landscapeWithSpacing" && (
+        <section className="bg-white overflow-hidden py-4 md:py-8">
+          <Bounded>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full md:gap-10">
+              <div className="aspect-w-4 aspect-h-3">
+                <PrismicNextImage
+                  field={slice.primary.image_1}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <div className="aspect-w-4 aspect-h-3">
+                <PrismicNextImage
+                  field={slice.primary.image_2}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <div className="aspect-w-4 aspect-h-3">
+                <PrismicNextImage
+                  field={slice.primary.image_3}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
+          </Bounded>
+        </section>
+      )}
+      {slice.variation === "portraitWithSpacing" && (
+        <section className="bg-white overflow-hidden py-4 md:py-8">
+          <section className="bg-white overflow-hidden py-4 md:py-8">
+            <Bounded>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full md:gap-10">
+                <div className="aspect-w-3 aspect-h-4">
+                  <PrismicNextImage
+                    field={slice.primary.image_1}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="aspect-w-3 aspect-h-4">
+                  <PrismicNextImage
+                    field={slice.primary.image_2}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="aspect-w-3 aspect-h-4">
+                  <PrismicNextImage
+                    field={slice.primary.image_3}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+              </div>
+            </Bounded>
+          </section>
+        </section>
+      )}
     </>
   );
 };

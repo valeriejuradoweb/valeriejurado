@@ -2686,11 +2686,109 @@ export type ThreeImagesSliceCollage = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ThreeImages → Portrait with Spacing → Primary*
+ */
+export interface ThreeImagesSlicePortraitWithSpacingPrimary {
+  /**
+   * Image 1 field in *ThreeImages → Portrait with Spacing → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_images.portraitWithSpacing.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Image 2 field in *ThreeImages → Portrait with Spacing → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_images.portraitWithSpacing.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Image 3 field in *ThreeImages → Portrait with Spacing → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_images.portraitWithSpacing.primary.image_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_3: prismic.ImageField<never>;
+}
+
+/**
+ * Portrait with Spacing variation for ThreeImages Slice
+ *
+ * - **API ID**: `portraitWithSpacing`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThreeImagesSlicePortraitWithSpacing = prismic.SharedSliceVariation<
+  "portraitWithSpacing",
+  Simplify<ThreeImagesSlicePortraitWithSpacingPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *ThreeImages → Landscape with Spacing → Primary*
+ */
+export interface ThreeImagesSliceLandscapeWithSpacingPrimary {
+  /**
+   * Image 1 field in *ThreeImages → Landscape with Spacing → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_images.landscapeWithSpacing.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Image 2 field in *ThreeImages → Landscape with Spacing → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_images.landscapeWithSpacing.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Image 3 field in *ThreeImages → Landscape with Spacing → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_images.landscapeWithSpacing.primary.image_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_3: prismic.ImageField<never>;
+}
+
+/**
+ * Landscape with Spacing variation for ThreeImages Slice
+ *
+ * - **API ID**: `landscapeWithSpacing`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThreeImagesSliceLandscapeWithSpacing = prismic.SharedSliceVariation<
+  "landscapeWithSpacing",
+  Simplify<ThreeImagesSliceLandscapeWithSpacingPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *ThreeImages*
  */
 type ThreeImagesSliceVariation =
   | ThreeImagesSliceDefault
-  | ThreeImagesSliceCollage;
+  | ThreeImagesSliceCollage
+  | ThreeImagesSlicePortraitWithSpacing
+  | ThreeImagesSliceLandscapeWithSpacing;
 
 /**
  * ThreeImages Shared Slice
@@ -3792,9 +3890,13 @@ declare module "@prismicio/client" {
       ThreeImagesSlice,
       ThreeImagesSliceDefaultPrimary,
       ThreeImagesSliceCollagePrimary,
+      ThreeImagesSlicePortraitWithSpacingPrimary,
+      ThreeImagesSliceLandscapeWithSpacingPrimary,
       ThreeImagesSliceVariation,
       ThreeImagesSliceDefault,
       ThreeImagesSliceCollage,
+      ThreeImagesSlicePortraitWithSpacing,
+      ThreeImagesSliceLandscapeWithSpacing,
       ThreePhotoCollageSlice,
       ThreePhotoCollageSliceDefaultPrimary,
       ThreePhotoCollageSliceVariation,
