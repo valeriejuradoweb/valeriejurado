@@ -93,7 +93,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                 </ul>
               </div>
             </div>
-            <div className="font-body font-medium absolute -bottom-8 left-[50%] -translate-x-2/4 -translate-y-2/4 flex text-white bg-[#121212] z-40 py-2 px-4 drop-shadow-xl">
+            <div className="animate-bounce font-body font-medium absolute -bottom-6 -translate-x-2/4 -translate-y-2/4 flex text-white bg-[#121212] z-40 py-2 px-4 drop-shadow-xl left-[27%] md:left-[43%]">
               <div className="rotate-90">
                 <ArrowLight />
               </div>
