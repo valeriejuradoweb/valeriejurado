@@ -97,7 +97,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               <div className="rotate-90">
                 <ArrowLight />
               </div>
-              <h2 className="pr-[.75rem] pl-[1.1rem]">featured</h2>
+              <h2 className="pr-[.75rem] pl-[1.1rem]">selected works</h2>
               <div className="rotate-90">
                 <ArrowLight />
               </div>
