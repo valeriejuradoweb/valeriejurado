@@ -166,6 +166,15 @@
             "placeholder": "",
             "select": "media"
           }
+        },
+        "video_link": {
+          "type": "Link",
+          "config": {
+            "label": "Video Link",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null
+          }
         }
       },
       "items": {}

@@ -183,6 +183,60 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "variedSizeWithVideo",
+      "name": "Varied Size with Video",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image_2": {
+          "type": "Image",
+          "config": {
+            "label": "Image 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "video": {
+          "type": "Link",
+          "config": {
+            "label": "Video",
+            "placeholder": "",
+            "select": "media"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "defaultWithVideo",
+      "name": "Default with Video",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image_1": {
+          "type": "Image",
+          "config": {
+            "label": "Image 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "video": {
+          "type": "Link",
+          "config": {
+            "label": "Video",
+            "placeholder": "",
+            "select": "media"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

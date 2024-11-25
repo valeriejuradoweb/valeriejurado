@@ -3108,6 +3108,16 @@ export interface TitleAndImagesSlice2Images1VideoPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   video: prismic.LinkToMediaField;
+
+  /**
+   * Video Link field in *TitleAndImages → 2Images1Video → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: title_and_images.2Images1Video.primary.video_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video_link: prismic.LinkField;
 }
 
 /**
@@ -3434,13 +3444,91 @@ export type TwoImagesSliceVariedSize = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *TwoImages → Varied Size with Video → Primary*
+ */
+export interface TwoImagesSliceVariedSizeWithVideoPrimary {
+  /**
+   * Image 2 field in *TwoImages → Varied Size with Video → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.variedSizeWithVideo.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Video field in *TwoImages → Varied Size with Video → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.variedSizeWithVideo.primary.video
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video: prismic.LinkToMediaField;
+}
+
+/**
+ * Varied Size with Video variation for TwoImages Slice
+ *
+ * - **API ID**: `variedSizeWithVideo`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TwoImagesSliceVariedSizeWithVideo = prismic.SharedSliceVariation<
+  "variedSizeWithVideo",
+  Simplify<TwoImagesSliceVariedSizeWithVideoPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *TwoImages → Default with Video → Primary*
+ */
+export interface TwoImagesSliceDefaultWithVideoPrimary {
+  /**
+   * Image 1 field in *TwoImages → Default with Video → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.defaultWithVideo.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Video field in *TwoImages → Default with Video → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.defaultWithVideo.primary.video
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video: prismic.LinkToMediaField;
+}
+
+/**
+ * Default with Video variation for TwoImages Slice
+ *
+ * - **API ID**: `defaultWithVideo`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TwoImagesSliceDefaultWithVideo = prismic.SharedSliceVariation<
+  "defaultWithVideo",
+  Simplify<TwoImagesSliceDefaultWithVideoPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *TwoImages*
  */
 type TwoImagesSliceVariation =
   | TwoImagesSliceDefault
   | TwoImagesSliceAlignLeft
   | TwoImagesSliceAlignRight
-  | TwoImagesSliceVariedSize;
+  | TwoImagesSliceVariedSize
+  | TwoImagesSliceVariedSizeWithVideo
+  | TwoImagesSliceDefaultWithVideo;
 
 /**
  * TwoImages Shared Slice
@@ -3914,11 +4002,15 @@ declare module "@prismicio/client" {
       TwoImagesSliceAlignLeftPrimary,
       TwoImagesSliceAlignRightPrimary,
       TwoImagesSliceVariedSizePrimary,
+      TwoImagesSliceVariedSizeWithVideoPrimary,
+      TwoImagesSliceDefaultWithVideoPrimary,
       TwoImagesSliceVariation,
       TwoImagesSliceDefault,
       TwoImagesSliceAlignLeft,
       TwoImagesSliceAlignRight,
       TwoImagesSliceVariedSize,
+      TwoImagesSliceVariedSizeWithVideo,
+      TwoImagesSliceDefaultWithVideo,
       UtaArtistSpaceSlice,
       UtaArtistSpaceSliceDefaultPrimary,
       UtaArtistSpaceSliceVariation,
