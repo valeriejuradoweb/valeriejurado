@@ -151,21 +151,20 @@ const TwoImages = ({ slice }: TwoImagesProps): JSX.Element => {
       {slice.variation === "variedSizeWithVideo" && (
         <section className="bg-white overflow-hidden">
           <Bounded className="">
-            <div className="grid grid-cols-1 items-center justify-center py-4 md:grid-cols-2 md:space-y-0 md:gap-10 md:flex md:py-8">
-              <div className="aspect-w-5 aspect-h-7">
+            <div className="grid grid-cols-1 items-center justify-center py-4 gap-8 md:grid-cols-2 md:space-y-0 md:gap-10 md:flex md:py-8">
+              <div className="">
                 {prismic.isFilled.linkToMedia(slice.primary.video) && (
                   <video
                     playsInline
                     autoPlay
                     muted
                     loop
-                    className="z-20 object-cover w-full h-full"
+                    className="w-screen md:max-h-[30rem] md:w-auto"
                   >
                     <source src={slice.primary.video.url} type="video/mp4" />
                   </video>
                 )}
               </div>
-
               <div>
                 <PrismicNextImage
                   field={slice.primary.image_2}
