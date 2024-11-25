@@ -3,7 +3,7 @@ import Bounded from "@/components/Bounded";
 import Button from "@/components/Button";
 import Heading from "@/components/Heading";
 import { Content } from "@prismicio/client";
-import { PrismicNextImage } from "@prismicio/next";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import {
   JSXMapSerializer,
   PrismicRichText,
@@ -145,22 +145,24 @@ const TitleAndImages = ({ slice }: TitleAndImagesProps): JSX.Element => {
                 </div>
                 <div className="">
                   <div className="md:w-80 md:float-right">
-                    <div className="aspect-w-5 aspect-h-7">
-                      {prismic.isFilled.linkToMedia(slice.primary.video) && (
-                        <video
-                          playsInline
-                          autoPlay
-                          muted
-                          loop
-                          className="z-20 object-cover w-full h-full"
-                        >
-                          <source
-                            src={slice.primary.video.url}
-                            type="video/mp4"
-                          />
-                        </video>
-                      )}
-                    </div>
+                    <PrismicNextLink field={slice.primary.video_link}>
+                      <div className="aspect-w-5 aspect-h-7">
+                        {prismic.isFilled.linkToMedia(slice.primary.video) && (
+                          <video
+                            playsInline
+                            autoPlay
+                            muted
+                            loop
+                            className="z-20 object-cover w-full h-full"
+                          >
+                            <source
+                              src={slice.primary.video.url}
+                              type="video/mp4"
+                            />
+                          </video>
+                        )}
+                      </div>
+                    </PrismicNextLink>
                     <div className="block mt-4 space-y-1 md:hidden md:space-y-2">
                       <PrismicRichText
                         field={slice.primary.title_label}
