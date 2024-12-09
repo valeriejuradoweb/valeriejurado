@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | FilipinoAmericanHeritageMonthSlice
   | FruitsOfOurLaborSlice
   | RuyschSlice
   | BentleySlice
@@ -1047,6 +1048,123 @@ type EmployeeRowSliceVariation = EmployeeRowSliceDefault;
 export type EmployeeRowSlice = prismic.SharedSlice<
   "employee_row",
   EmployeeRowSliceVariation
+>;
+
+/**
+ * Primary content in *FilipinoAmericanHeritageMonth → Default → Primary*
+ */
+export interface FilipinoAmericanHeritageMonthSliceDefaultPrimary {
+  /**
+   * Image 1 field in *FilipinoAmericanHeritageMonth → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: filipino_american_heritage_month.default.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Image 2 field in *FilipinoAmericanHeritageMonth → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: filipino_american_heritage_month.default.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Title Link field in *FilipinoAmericanHeritageMonth → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: filipino_american_heritage_month.default.primary.title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  title_link: prismic.LinkField;
+
+  /**
+   * Title Label field in *FilipinoAmericanHeritageMonth → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: filipino_american_heritage_month.default.primary.title_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_label: prismic.KeyTextField;
+
+  /**
+   * Description field in *FilipinoAmericanHeritageMonth → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: filipino_american_heritage_month.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Button Link field in *FilipinoAmericanHeritageMonth → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: filipino_american_heritage_month.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button Label field in *FilipinoAmericanHeritageMonth → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: filipino_american_heritage_month.default.primary.button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField;
+
+  /**
+   * Desktop Background Image field in *FilipinoAmericanHeritageMonth → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: filipino_american_heritage_month.default.primary.desktop_background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  desktop_background_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for FilipinoAmericanHeritageMonth Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FilipinoAmericanHeritageMonthSliceDefault =
+  prismic.SharedSliceVariation<
+    "default",
+    Simplify<FilipinoAmericanHeritageMonthSliceDefaultPrimary>,
+    never
+  >;
+
+/**
+ * Slice variation for *FilipinoAmericanHeritageMonth*
+ */
+type FilipinoAmericanHeritageMonthSliceVariation =
+  FilipinoAmericanHeritageMonthSliceDefault;
+
+/**
+ * FilipinoAmericanHeritageMonth Shared Slice
+ *
+ * - **API ID**: `filipino_american_heritage_month`
+ * - **Description**: FilipinoAmericanHeritageMonth
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FilipinoAmericanHeritageMonthSlice = prismic.SharedSlice<
+  "filipino_american_heritage_month",
+  FilipinoAmericanHeritageMonthSliceVariation
 >;
 
 /**
@@ -3922,6 +4040,10 @@ declare module "@prismicio/client" {
       EmployeeRowSliceDefaultPrimary,
       EmployeeRowSliceVariation,
       EmployeeRowSliceDefault,
+      FilipinoAmericanHeritageMonthSlice,
+      FilipinoAmericanHeritageMonthSliceDefaultPrimary,
+      FilipinoAmericanHeritageMonthSliceVariation,
+      FilipinoAmericanHeritageMonthSliceDefault,
       FruitsOfOurLaborSlice,
       FruitsOfOurLaborSliceDefaultPrimary,
       FruitsOfOurLaborSliceVariation,

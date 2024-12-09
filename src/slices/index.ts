@@ -10,6 +10,9 @@ export const components = {
   detail: dynamic(() => import("./Detail")),
   detail_heading_next: dynamic(() => import("./DetailHeadingNext")),
   employee_row: dynamic(() => import("./EmployeeRow")),
+  filipino_american_heritage_month: dynamic(
+    () => import("./FilipinoAmericanHeritageMonth"),
+  ),
   fruits_of_our_labor: dynamic(() => import("./FruitsOfOurLabor")),
   hero: dynamic(() => import("./Hero")),
   image_text: dynamic(() => import("./ImageText")),
