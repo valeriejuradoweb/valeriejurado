@@ -3,3 +3,10 @@
     mix-blend-mode: normal !important; /* Apply styles specifically in Safari */
   }
 }
+
+/* Disable mix-blend-mode on small screens (mobile) */
+@media (max-width: 640px) {
+  .mobile-blend {
+    mix-blend-mode: normal !important; /* Apply blend mode normal on mobile screens */
+  }
+}
