@@ -24,7 +24,7 @@ export default async function Header() {
           <LogoGoldLg />
         </div>
       </Link>
-      <div className="fixed m-auto top-7 w-14 h-10 left-0 right-0 z-40 md:w-[410px] bg-[#121212]/80 blur-xl mix-blend-color-burn safari-blend"></div>
+      <div className="fixed m-auto top-7 w-14 h-10 left-0 right-0 z-40 md:w-[410px] bg-[#121212]/80 blur-xl mix-blend-color-burn safari-blend mobile-blend"></div>
 
       <Bounded
         as="header"
