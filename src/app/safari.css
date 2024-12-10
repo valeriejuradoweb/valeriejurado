@@ -1,5 +1,5 @@
 @supports (-webkit-appearance: none) and (not (backdrop-filter: none)) {
-    .safari-blend {
-      mix-blend-mode: normal !important; /* Apply styles specifically in Safari */
-    }
-  } 
+  .safari-blend {
+    mix-blend-mode: normal !important; /* Apply styles specifically in Safari */
+  }
+}
