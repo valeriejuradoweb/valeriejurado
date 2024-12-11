@@ -44,25 +44,30 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative bg-black md:bg-black/[.001]"
+      className="relative bg-black md:bg-black"
     >
-      {prismic.isFilled.image(background_image) && (
+      {/*{prismic.isFilled.image(background_image) && (
         <PrismicNextImage
           field={slice.primary.background_image}
           alt=""
           fill={true}
           className="pointer-events-none select-none object-cover object-left-top -z-50 md:block"
         />
-      )}
+      )}*/}
       <PrismicNextImage
         className="block md:hidden"
         field={slice.primary.mobile_background_image}
       />
       <Bounded className="font-body font-thin text-[#DEDEDE]">
-        <div className="grid mt-0 md:grid-cols-2 md:gap-10 md:pt-[8rem]">
-          <div></div>
-          <div className="relative right-0">
-            <div className="md:w-[70%] md:right-0">
+        <div className="grid mt-0 md:grid-cols-3 md:pt-[8rem]">
+          <div className="md:col-span-2">
+            <PrismicNextImage
+              className="hidden md:block"
+              field={slice.primary.background_image}
+            />
+          </div>
+          <div className="relative right-0 col-span-1">
+            <div className=" md:right-0">
               <PrismicRichText
                 field={slice.primary.bio_heading}
                 components={components}
