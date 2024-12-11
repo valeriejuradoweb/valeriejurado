@@ -49,15 +49,15 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
   return (
     <>
       {slice.variation === "default" && (
-        <section className="relative  md:bg-black/[.1]">
-          {prismic.isFilled.image(background_image) && (
+        <section className="relative  md:bg-black">
+          {/*{prismic.isFilled.image(background_image) && (
             <PrismicNextImage
               field={slice.primary.background_image}
               alt=""
               fill={true}
               className="hidden md:block pointer-events-none select-none object-cover -z-50"
             />
-          )}
+          )}*/}
           {prismic.isFilled.image(background_image) && (
             <PrismicNextImage
               field={slice.primary.mobile_background_image}
@@ -67,14 +67,22 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             />
           )}
 
-          <Bounded
-            className="px-4 py-10 h-[98svh] md:h-[98svh] md:py-20 md:px-6 lg:py-20"
+          <div
+            className="px-4 py-10 h-[98svh] md:h-[98svh] md:py-0 md:px-0 lg:py-0"
             data-slice-type={slice.slice_type}
             data-slice-variation={slice.variation}
           >
-            <div className="text-[#DEDEDE] grid text-left grid-cols-2 md:grid-cols-3 md:pl-10 md:py-14">
-              <div></div>
-              <div></div>
+            <div className="text-[#DEDEDE] grid text-left grid-cols-2 md:grid-cols-3 md:gap-10 md:h-[98svh]">
+              <div className="col-span-2 relative">
+                {prismic.isFilled.image(background_image) && (
+                  <PrismicNextImage
+                    field={slice.primary.background_image}
+                    alt=""
+                    className="pointer-events-none select-none object-right object-cover h-full hidden md:block "
+                  />
+                )}
+              </div>
+
               <div className="mt-[10rem] bg-black/[.4] md:mt-[30%]">
                 <PrismicRichText
                   field={slice.primary.heading}
@@ -102,7 +110,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                 <ArrowLight />
               </div>
             </div>
-          </Bounded>
+          </div>
         </section>
       )}{" "}
       {slice.variation === "light" && (
