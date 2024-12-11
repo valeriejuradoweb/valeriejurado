@@ -127,6 +127,38 @@ const UtaArtistSpace = ({ slice }: UtaArtistSpaceProps): JSX.Element => {
             />
           </div>
         </div>
+        <div className="grid md:grid-cols-2 mb-10 h-auto md:mb-20 md:h-[60rem]">
+          <div className="mb-5 md:mb-0">
+            <PrismicNextImage
+              field={slice.primary.image_8}
+              className="w-96 mt-10 mb-5 hidden md:block"
+            />
+            <div className="hidden md:block">
+              <TitleLink field={slice.primary.project_5_title_link}>
+                {slice.primary.project_5_title_label}
+              </TitleLink>
+              <PrismicRichText
+                field={slice.primary.project_5_description}
+                components={components}
+              />
+            </div>
+          </div>
+          <div className="mb-5">
+            <PrismicNextImage
+              field={slice.primary.image_7}
+              className="relative md:bottom-10 md:w-[45rem] md:absolute"
+            />
+          </div>
+          <div className="block md:hidden">
+            <TitleLink field={slice.primary.project_5_title_link}>
+              {slice.primary.project_5_title_label}
+            </TitleLink>
+            <PrismicRichText
+              field={slice.primary.project_5_description}
+              components={components}
+            />
+          </div>
+        </div>
       </Bounded>
     </section>
   );

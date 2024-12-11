@@ -3893,6 +3893,56 @@ export interface UtaArtistSpaceSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   project_4_description: prismic.RichTextField;
+
+  /**
+   * Image 7 field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.image_7
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_7: prismic.ImageField<never>;
+
+  /**
+   * Image 8 field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.image_8
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_8: prismic.ImageField<never>;
+
+  /**
+   * Project 5 Title Label field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.project_5_title_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  project_5_title_label: prismic.KeyTextField;
+
+  /**
+   * Project 5 Title Link field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.project_5_title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project_5_title_link: prismic.LinkField;
+
+  /**
+   * Project 5 Description field in *UtaArtistSpace → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_artist_space.default.primary.project_5_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_5_description: prismic.RichTextField;
 }
 
 /**
@@ -3986,17 +4036,6 @@ declare module "@prismicio/client" {
       repositoryNameOrEndpoint: string,
       options?: prismic.ClientConfig,
     ): prismic.Client<AllDocumentTypes>;
-  }
-
-  interface CreateWriteClient {
-    (
-      repositoryNameOrEndpoint: string,
-      options: prismic.WriteClientConfig,
-    ): prismic.WriteClient<AllDocumentTypes>;
-  }
-
-  interface CreateMigration {
-    (): prismic.Migration<AllDocumentTypes>;
   }
 
   namespace Content {

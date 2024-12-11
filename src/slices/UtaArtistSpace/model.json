@@ -200,6 +200,47 @@
             "allowTargetBlank": true,
             "multi": "paragraph,strong,em"
           }
+        },
+        "image_7": {
+          "type": "Image",
+          "config": {
+            "label": "Image 7",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_8": {
+          "type": "Image",
+          "config": {
+            "label": "Image 8",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "project_5_title_label": {
+          "type": "Text",
+          "config": {
+            "label": "Project 5 Title Label",
+            "placeholder": ""
+          }
+        },
+        "project_5_title_link": {
+          "type": "Link",
+          "config": {
+            "label": "Project 5 Title Link",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        },
+        "project_5_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Project 5 Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
         }
       },
       "items": {}
