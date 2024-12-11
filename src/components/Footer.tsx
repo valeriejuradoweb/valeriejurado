@@ -4,6 +4,7 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import Link from "next/link";
 import LogoFullWhiteLg from "@/components/LogoFullWhiteLg";
+import LogoGoldSm from "./LogoGoldSm";
 
 export default async function Footer() {
   const client = createClient();
@@ -18,7 +19,7 @@ export default async function Footer() {
             field={settings.data.footer_background_image}
             alt=""
             fill={true}
-            className="pointer-events-none select-none object-cover -z-50 md:block"
+            className="pointer-events-none select-none object-cover -z-50 bg-left-top md:block"
           />
         )}
 
@@ -100,19 +101,19 @@ export default async function Footer() {
           </div>
 
           <div className="pt-8 space-y-6">
-            <div className="relative py-6">
-              <Link className="flex" href="/">
-                <LogoFullWhiteLg />
+            <div className="py-4 grid">
+              <Link className="justify-self-center" href="/">
+                <LogoGoldSm />
               </Link>
             </div>
 
-            <ul className="underline underline-offset-4 md:text-xl">
+            {/*<ul className="underline underline-offset-4 md:text-xl">
               {settings.data.navigation.map(({ link, label }) => (
                 <li key={label}>
                   <PrismicNextLink field={link}>{label}</PrismicNextLink>
                 </li>
               ))}
-            </ul>
+            </ul>*/}
 
             <p>
               © {new Date().getFullYear()} {settings.data.site_title}
