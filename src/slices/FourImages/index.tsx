@@ -15,7 +15,7 @@ const FourImages = ({ slice }: FourImagesProps): JSX.Element => {
   return (
     <>
       {slice.variation === "default" && (
-        <section className="bg-white overflow-hidden py-8">
+        <section className="bg-white overflow-hidden py-4 md:py-8">
           <div className="pb-8 space-y-8 block md:space-y-0 md:gap-10 md:flex md:justify-end md:py-8">
             <PrismicNextImage
               field={slice.primary.image_1}
@@ -54,7 +54,35 @@ const FourImages = ({ slice }: FourImagesProps): JSX.Element => {
         </section>
       )}
       {slice.variation === "1Video3Images" && (
-        <section className="bg-white overflow-hidden"></section>
+        <section className="bg-white overflow-hidden py-4 md:py-8">
+          <div className="block pt-0 md:absolute md:right-0 md:pt-16">
+            <PrismicNextImage
+              field={slice.primary.image_2}
+              className="w-screen mb-8 md:max-h-[20rem] md:w-auto md:mb-10"
+            />
+            <PrismicNextImage
+              field={slice.primary.image_3}
+              className="w-screen mb-8 md:max-h-[20rem] md:w-auto"
+            />
+          </div>
+          <div className="space-y-8 block md:space-y-0 md:gap-10 md:flex md:py-8">
+            {prismic.isFilled.linkToMedia(slice.primary.video_1) && (
+              <video
+                playsInline
+                autoPlay
+                muted
+                loop
+                className="w-screen md:max-h-[48rem] md:w-auto"
+              >
+                <source src={slice.primary.video_1.url} type="video/mp4" />
+              </video>
+            )}
+            <PrismicNextImage
+              field={slice.primary.image_1}
+              className="w-screen md:max-h-[48rem] md:w-auto"
+            />
+          </div>
+        </section>
       )}
     </>
   );
