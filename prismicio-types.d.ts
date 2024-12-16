@@ -4245,9 +4245,49 @@ export type UtaWeeklyDarkSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *UtaWeeklyDark → 1 Image 1 Video → Primary*
+ */
+export interface UtaWeeklyDarkSlice1Image1VideoPrimary {
+  /**
+   * Image 1 field in *UtaWeeklyDark → 1 Image 1 Video → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_weekly_dark.1Image1Video.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Video 2 field in *UtaWeeklyDark → 1 Image 1 Video → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: uta_weekly_dark.1Image1Video.primary.video_2
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video_2: prismic.LinkToMediaField;
+}
+
+/**
+ * 1 Image 1 Video variation for UtaWeeklyDark Slice
+ *
+ * - **API ID**: `1Image1Video`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type UtaWeeklyDarkSlice1Image1Video = prismic.SharedSliceVariation<
+  "1Image1Video",
+  Simplify<UtaWeeklyDarkSlice1Image1VideoPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *UtaWeeklyDark*
  */
-type UtaWeeklyDarkSliceVariation = UtaWeeklyDarkSliceDefault;
+type UtaWeeklyDarkSliceVariation =
+  | UtaWeeklyDarkSliceDefault
+  | UtaWeeklyDarkSlice1Image1Video;
 
 /**
  * UtaWeeklyDark Shared Slice
@@ -4421,8 +4461,10 @@ declare module "@prismicio/client" {
       UtaArtistSpaceSliceDefault,
       UtaWeeklyDarkSlice,
       UtaWeeklyDarkSliceDefaultPrimary,
+      UtaWeeklyDarkSlice1Image1VideoPrimary,
       UtaWeeklyDarkSliceVariation,
       UtaWeeklyDarkSliceDefault,
+      UtaWeeklyDarkSlice1Image1Video,
     };
   }
 }

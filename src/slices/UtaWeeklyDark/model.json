@@ -30,6 +30,33 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "1Image1Video",
+      "name": "1 Image 1 Video",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image_1": {
+          "type": "Image",
+          "config": {
+            "label": "Image 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "video_2": {
+          "type": "Link",
+          "config": {
+            "label": "Video 2",
+            "placeholder": "",
+            "select": "media"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

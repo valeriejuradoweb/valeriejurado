@@ -72,7 +72,7 @@ const TwoImages = ({ slice }: TwoImagesProps): JSX.Element => {
       )}
       {slice.variation === "alignLeft" && (
         <section className="bg-white overflow-hidden">
-          <div className="py-8 space-y-10 block md:space-y-0 md:gap-10 md:flex md:py-16">
+          <div className="py-4 space-y-10 block md:space-y-0 md:gap-10 md:flex md:py-8">
             <PrismicNextImage
               field={slice.primary.image_1}
               className="w-screen md:max-h-[30rem] md:w-auto"
