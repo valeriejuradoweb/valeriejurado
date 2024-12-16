@@ -1,4 +1,5 @@
 import { Content } from "@prismicio/client";
+import { PrismicNextImage } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
 
 /**
@@ -11,11 +12,8 @@ export type OneImageProps = SliceComponentProps<Content.OneImageSlice>;
  */
 const OneImage = ({ slice }: OneImageProps): JSX.Element => {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for one_image (variation: {slice.variation}) Slices
+    <section className="bg-white overflow-hidden py-4 md:py-8">
+      <PrismicNextImage field={slice.primary.image_1} />
     </section>
   );
 };
