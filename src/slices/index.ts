@@ -19,6 +19,7 @@ export const components = {
   image_text: dynamic(() => import("./ImageText")),
   jh_piego: dynamic(() => import("./JhPiego")),
   ofrenda: dynamic(() => import("./Ofrenda")),
+  one_image: dynamic(() => import("./OneImage")),
   orchids: dynamic(() => import("./Orchids")),
   pinata: dynamic(() => import("./Pinata")),
   portals: dynamic(() => import("./Portals")),

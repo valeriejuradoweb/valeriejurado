@@ -1,0 +1,27 @@
+{
+  "id": "one_image",
+  "type": "SharedSlice",
+  "name": "OneImage",
+  "description": "OneImage",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Full Width",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image_1": {
+          "type": "Image",
+          "config": {
+            "label": "Image 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

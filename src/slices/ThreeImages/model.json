@@ -179,6 +179,41 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "2Images1Video",
+      "name": "2 Images 1 Video",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image_1": {
+          "type": "Image",
+          "config": {
+            "label": "Image 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "video_2": {
+          "type": "Link",
+          "config": {
+            "label": "Video 2",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "image_3": {
+          "type": "Image",
+          "config": {
+            "label": "Image 3",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

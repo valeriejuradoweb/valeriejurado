@@ -94,6 +94,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | OneImageSlice
   | FourImagesSlice
   | EmployeeRowSlice
   | UtaWeeklyDarkSlice
@@ -1907,6 +1908,51 @@ export type OfrendaSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *OneImage → Full Width → Primary*
+ */
+export interface OneImageSliceDefaultPrimary {
+  /**
+   * Image 1 field in *OneImage → Full Width → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: one_image.default.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+}
+
+/**
+ * Full Width variation for OneImage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OneImageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<OneImageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *OneImage*
+ */
+type OneImageSliceVariation = OneImageSliceDefault;
+
+/**
+ * OneImage Shared Slice
+ *
+ * - **API ID**: `one_image`
+ * - **Description**: OneImage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OneImageSlice = prismic.SharedSlice<
+  "one_image",
+  OneImageSliceVariation
+>;
+
+/**
  * Primary content in *Orchids → Default → Primary*
  */
 export interface OrchidsSliceDefaultPrimary {
@@ -3036,13 +3082,62 @@ export type ThreeImagesSliceLandscapeWithSpacing = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ThreeImages → 2 Images 1 Video → Primary*
+ */
+export interface ThreeImagesSlice2Images1VideoPrimary {
+  /**
+   * Image 1 field in *ThreeImages → 2 Images 1 Video → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_images.2Images1Video.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Video 2 field in *ThreeImages → 2 Images 1 Video → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_images.2Images1Video.primary.video_2
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video_2: prismic.LinkToMediaField;
+
+  /**
+   * Image 3 field in *ThreeImages → 2 Images 1 Video → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_images.2Images1Video.primary.image_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_3: prismic.ImageField<never>;
+}
+
+/**
+ * 2 Images 1 Video variation for ThreeImages Slice
+ *
+ * - **API ID**: `2Images1Video`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThreeImagesSlice2Images1Video = prismic.SharedSliceVariation<
+  "2Images1Video",
+  Simplify<ThreeImagesSlice2Images1VideoPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *ThreeImages*
  */
 type ThreeImagesSliceVariation =
   | ThreeImagesSliceDefault
   | ThreeImagesSliceCollage
   | ThreeImagesSlicePortraitWithSpacing
-  | ThreeImagesSliceLandscapeWithSpacing;
+  | ThreeImagesSliceLandscapeWithSpacing
+  | ThreeImagesSlice2Images1Video;
 
 /**
  * ThreeImages Shared Slice
@@ -4250,6 +4345,10 @@ declare module "@prismicio/client" {
       OfrendaSliceDefaultPrimary,
       OfrendaSliceVariation,
       OfrendaSliceDefault,
+      OneImageSlice,
+      OneImageSliceDefaultPrimary,
+      OneImageSliceVariation,
+      OneImageSliceDefault,
       OrchidsSlice,
       OrchidsSliceDefaultPrimary,
       OrchidsSliceVariation,
@@ -4283,11 +4382,13 @@ declare module "@prismicio/client" {
       ThreeImagesSliceCollagePrimary,
       ThreeImagesSlicePortraitWithSpacingPrimary,
       ThreeImagesSliceLandscapeWithSpacingPrimary,
+      ThreeImagesSlice2Images1VideoPrimary,
       ThreeImagesSliceVariation,
       ThreeImagesSliceDefault,
       ThreeImagesSliceCollage,
       ThreeImagesSlicePortraitWithSpacing,
       ThreeImagesSliceLandscapeWithSpacing,
+      ThreeImagesSlice2Images1Video,
       ThreePhotoCollageSlice,
       ThreePhotoCollageSliceDefaultPrimary,
       ThreePhotoCollageSliceVariation,

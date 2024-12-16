@@ -1,6 +1,7 @@
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
 import { Content } from "@prismicio/client";
+import * as prismic from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import {
   JSXMapSerializer,
@@ -172,6 +173,37 @@ const ThreeImages = ({ slice }: ThreeImagesProps): JSX.Element => {
               </div>
             </Bounded>
           </section>
+        </section>
+      )}
+      {slice.variation === "2Images1Video" && (
+        <section className="bg-white overflow-hidden py-4 md:py-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full md:gap-10">
+            <div className="aspect-w-3 aspect-h-4">
+              <PrismicNextImage
+                field={slice.primary.image_1}
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <div className="aspect-w-3 aspect-h-4">
+              {prismic.isFilled.linkToMedia(slice.primary.video_2) && (
+                <video
+                  playsInline
+                  autoPlay
+                  muted
+                  loop
+                  className="object-cover w-full h-full"
+                >
+                  <source src={slice.primary.video_2.url} type="video/mp4" />
+                </video>
+              )}
+            </div>
+            <div className="aspect-w-3 aspect-h-4">
+              <PrismicNextImage
+                field={slice.primary.image_3}
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </div>
         </section>
       )}
     </>
