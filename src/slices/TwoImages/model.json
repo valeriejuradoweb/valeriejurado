@@ -237,6 +237,33 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "alignLeftWithVideo",
+      "name": "Align Left with Video",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image_1": {
+          "type": "Image",
+          "config": {
+            "label": "Image 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "video": {
+          "type": "Link",
+          "config": {
+            "label": "Video",
+            "placeholder": "",
+            "select": "media"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

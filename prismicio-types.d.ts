@@ -1270,6 +1270,16 @@ export interface FourImagesSlice1Video3ImagesPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image_3: prismic.ImageField<never>;
+
+  /**
+   * Video Link field in *FourImages → 1 Video 3 Images → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: four_images.1Video3Images.primary.videolink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  videolink: prismic.LinkField;
 }
 
 /**
@@ -3869,6 +3879,44 @@ export type TwoImagesSliceDefaultWithVideo = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *TwoImages → Align Left with Video → Primary*
+ */
+export interface TwoImagesSliceAlignLeftWithVideoPrimary {
+  /**
+   * Image 1 field in *TwoImages → Align Left with Video → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.alignLeftWithVideo.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Video field in *TwoImages → Align Left with Video → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: two_images.alignLeftWithVideo.primary.video
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video: prismic.LinkToMediaField;
+}
+
+/**
+ * Align Left with Video variation for TwoImages Slice
+ *
+ * - **API ID**: `alignLeftWithVideo`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TwoImagesSliceAlignLeftWithVideo = prismic.SharedSliceVariation<
+  "alignLeftWithVideo",
+  Simplify<TwoImagesSliceAlignLeftWithVideoPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *TwoImages*
  */
 type TwoImagesSliceVariation =
@@ -3877,7 +3925,8 @@ type TwoImagesSliceVariation =
   | TwoImagesSliceAlignRight
   | TwoImagesSliceVariedSize
   | TwoImagesSliceVariedSizeWithVideo
-  | TwoImagesSliceDefaultWithVideo;
+  | TwoImagesSliceDefaultWithVideo
+  | TwoImagesSliceAlignLeftWithVideo;
 
 /**
  * TwoImages Shared Slice
@@ -4448,6 +4497,7 @@ declare module "@prismicio/client" {
       TwoImagesSliceVariedSizePrimary,
       TwoImagesSliceVariedSizeWithVideoPrimary,
       TwoImagesSliceDefaultWithVideoPrimary,
+      TwoImagesSliceAlignLeftWithVideoPrimary,
       TwoImagesSliceVariation,
       TwoImagesSliceDefault,
       TwoImagesSliceAlignLeft,
@@ -4455,6 +4505,7 @@ declare module "@prismicio/client" {
       TwoImagesSliceVariedSize,
       TwoImagesSliceVariedSizeWithVideo,
       TwoImagesSliceDefaultWithVideo,
+      TwoImagesSliceAlignLeftWithVideo,
       UtaArtistSpaceSlice,
       UtaArtistSpaceSliceDefaultPrimary,
       UtaArtistSpaceSliceVariation,

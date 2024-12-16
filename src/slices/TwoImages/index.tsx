@@ -202,6 +202,28 @@ const TwoImages = ({ slice }: TwoImagesProps): JSX.Element => {
           </Bounded>
         </section>
       )}
+      {slice.variation === "alignLeftWithVideo" && (
+        <section className="bg-white overflow-hidden">
+          <div className="py-4 space-y-10 block md:space-y-0 md:gap-10 md:flex md:py-8">
+            <PrismicNextImage
+              field={slice.primary.image_1}
+              className="w-screen md:max-h-[30rem] md:w-auto"
+            />
+
+            {prismic.isFilled.linkToMedia(slice.primary.video) && (
+              <video
+                playsInline
+                autoPlay
+                muted
+                loop
+                className="w-screen md:max-h-[30rem] md:w-auto"
+              >
+                <source src={slice.primary.video.url} type="video/mp4" />
+              </video>
+            )}
+          </div>
+        </section>
+      )}
     </>
   );
 };
