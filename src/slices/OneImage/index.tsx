@@ -12,7 +12,7 @@ export type OneImageProps = SliceComponentProps<Content.OneImageSlice>;
  */
 const OneImage = ({ slice }: OneImageProps): JSX.Element => {
   return (
-    <section className="bg-white overflow-hidden py-4 md:py-8">
+    <section className="bg-white overflow-hidden">
       <PrismicNextImage field={slice.primary.image_1} />
     </section>
   );
