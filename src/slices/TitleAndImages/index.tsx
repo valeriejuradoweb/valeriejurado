@@ -111,7 +111,7 @@ const TitleAndImages = ({ slice }: TitleAndImagesProps): JSX.Element => {
                   <p>{slice.primary.back_label}</p>
                 </Button>
               </div>
-              <div className="grid mt-8 gap-8 md:grid-cols-2 md:gap-0 h-auto md:h-[53rem]">
+              <div className="grid mt-8 gap-8 md:grid-cols-2 md:gap-0">
                 <div className="space-y-6 md:space-y-8">
                   <div className="space-y-2 md:space-y-4">
                     <PrismicRichText
@@ -133,51 +133,39 @@ const TitleAndImages = ({ slice }: TitleAndImagesProps): JSX.Element => {
                       components={components}
                     />
                   </div>
-
-                  <div className="z-10 space-y-8 md:space-y-0 md:absolute md:left-0 md:gap-10 md:flex md:w-[30rem]">
-                    <PrismicNextImage field={slice.primary.image_1} />
-
-                    <PrismicNextImage
-                      field={slice.primary.image_2}
-                      className=""
-                    />
-                  </div>
-                </div>
-                <div className="">
-                  <div className="md:w-80 md:float-right">
-                    <PrismicNextLink field={slice.primary.video_link}>
-                      <div className="aspect-w-5 aspect-h-7">
-                        {prismic.isFilled.linkToMedia(slice.primary.video) && (
-                          <video
-                            playsInline
-                            autoPlay
-                            muted
-                            loop
-                            className="z-20 object-cover w-full h-full"
-                          >
-                            <source
-                              src={slice.primary.video.url}
-                              type="video/mp4"
-                            />
-                          </video>
-                        )}
-                      </div>
-                    </PrismicNextLink>
-                    <div className="block mt-4 space-y-1 md:hidden md:space-y-2">
-                      <PrismicRichText
-                        field={slice.primary.title_label}
-                        components={components}
-                      />
-                      <PrismicRichText
-                        field={slice.primary.project_description}
-                        components={components}
-                      />
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
           </Bounded>
+          <div className="block w-full m-auto mb-8 px-7 md:px-0 md:absolute md:w-[21rem] md:right-48 md:top-44">
+            <PrismicNextLink field={slice.primary.video_link}>
+              <div className="aspect-w-5 aspect-h-7">
+                {prismic.isFilled.linkToMedia(slice.primary.video) && (
+                  <video
+                    playsInline
+                    autoPlay
+                    muted
+                    loop
+                    className="z-20 object-cover w-full h-full"
+                  >
+                    <source src={slice.primary.video.url} type="video/mp4" />
+                  </video>
+                )}
+              </div>
+            </PrismicNextLink>
+          </div>
+
+          <div className="z-10 space-y-8 md:space-y-0 md:left-0 md:gap-10 md:flex">
+            <PrismicNextImage
+              field={slice.primary.image_1}
+              className="w-screen md:max-h-[38rem] md:w-auto"
+            />
+
+            <PrismicNextImage
+              field={slice.primary.image_2}
+              className="w-screen md:max-h-[38rem] md:w-auto"
+            />
+          </div>
         </section>
       )}
       {slice.variation === "noImages" && (
