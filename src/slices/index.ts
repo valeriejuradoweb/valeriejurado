@@ -13,6 +13,7 @@ export const components = {
   filipino_american_heritage_month: dynamic(
     () => import("./FilipinoAmericanHeritageMonth"),
   ),
+  four_images: dynamic(() => import("./FourImages")),
   fruits_of_our_labor: dynamic(() => import("./FruitsOfOurLabor")),
   hero: dynamic(() => import("./Hero")),
   image_text: dynamic(() => import("./ImageText")),

@@ -1,0 +1,94 @@
+{
+  "id": "four_images",
+  "type": "SharedSlice",
+  "name": "FourImages",
+  "description": "FourImages",
+  "variations": [
+    {
+      "id": "default",
+      "name": "3 Videos 1 Image",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image_1": {
+          "type": "Image",
+          "config": {
+            "label": "Image 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "video_1": {
+          "type": "Link",
+          "config": {
+            "label": "Video 1",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "video_2": {
+          "type": "Link",
+          "config": {
+            "label": "Video 2",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "video_3": {
+          "type": "Link",
+          "config": {
+            "label": "Video 3",
+            "placeholder": "",
+            "select": "media"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "1Video3Images",
+      "name": "1 Video 3 Images",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image_1": {
+          "type": "Image",
+          "config": {
+            "label": "Image 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "video_1": {
+          "type": "Link",
+          "config": {
+            "label": "Video 1",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "image_2": {
+          "type": "Image",
+          "config": {
+            "label": "Image 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_3": {
+          "type": "Image",
+          "config": {
+            "label": "Image 3",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

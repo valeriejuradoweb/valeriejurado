@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "four_images": {
+              "type": "SharedSlice"
+            },
             "employee_row": {
               "type": "SharedSlice"
             },

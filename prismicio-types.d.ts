@@ -94,6 +94,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | FourImagesSlice
   | EmployeeRowSlice
   | UtaWeeklyDarkSlice
   | ThreeImagesSlice
@@ -1165,6 +1166,141 @@ type FilipinoAmericanHeritageMonthSliceVariation =
 export type FilipinoAmericanHeritageMonthSlice = prismic.SharedSlice<
   "filipino_american_heritage_month",
   FilipinoAmericanHeritageMonthSliceVariation
+>;
+
+/**
+ * Primary content in *FourImages → 3 Videos 1 Image → Primary*
+ */
+export interface FourImagesSliceDefaultPrimary {
+  /**
+   * Image 1 field in *FourImages → 3 Videos 1 Image → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: four_images.default.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Video 1 field in *FourImages → 3 Videos 1 Image → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: four_images.default.primary.video_1
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video_1: prismic.LinkToMediaField;
+
+  /**
+   * Video 2 field in *FourImages → 3 Videos 1 Image → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: four_images.default.primary.video_2
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video_2: prismic.LinkToMediaField;
+
+  /**
+   * Video 3 field in *FourImages → 3 Videos 1 Image → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: four_images.default.primary.video_3
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video_3: prismic.LinkToMediaField;
+}
+
+/**
+ * 3 Videos 1 Image variation for FourImages Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FourImagesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FourImagesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *FourImages → 1 Video 3 Images → Primary*
+ */
+export interface FourImagesSlice1Video3ImagesPrimary {
+  /**
+   * Image 1 field in *FourImages → 1 Video 3 Images → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: four_images.1Video3Images.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Video 1 field in *FourImages → 1 Video 3 Images → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: four_images.1Video3Images.primary.video_1
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video_1: prismic.LinkToMediaField;
+
+  /**
+   * Image 2 field in *FourImages → 1 Video 3 Images → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: four_images.1Video3Images.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Image 3 field in *FourImages → 1 Video 3 Images → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: four_images.1Video3Images.primary.image_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_3: prismic.ImageField<never>;
+}
+
+/**
+ * 1 Video 3 Images variation for FourImages Slice
+ *
+ * - **API ID**: `1Video3Images`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FourImagesSlice1Video3Images = prismic.SharedSliceVariation<
+  "1Video3Images",
+  Simplify<FourImagesSlice1Video3ImagesPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FourImages*
+ */
+type FourImagesSliceVariation =
+  | FourImagesSliceDefault
+  | FourImagesSlice1Video3Images;
+
+/**
+ * FourImages Shared Slice
+ *
+ * - **API ID**: `four_images`
+ * - **Description**: FourImages
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FourImagesSlice = prismic.SharedSlice<
+  "four_images",
+  FourImagesSliceVariation
 >;
 
 /**
@@ -4083,6 +4219,12 @@ declare module "@prismicio/client" {
       FilipinoAmericanHeritageMonthSliceDefaultPrimary,
       FilipinoAmericanHeritageMonthSliceVariation,
       FilipinoAmericanHeritageMonthSliceDefault,
+      FourImagesSlice,
+      FourImagesSliceDefaultPrimary,
+      FourImagesSlice1Video3ImagesPrimary,
+      FourImagesSliceVariation,
+      FourImagesSliceDefault,
+      FourImagesSlice1Video3Images,
       FruitsOfOurLaborSlice,
       FruitsOfOurLaborSliceDefaultPrimary,
       FruitsOfOurLaborSliceVariation,
