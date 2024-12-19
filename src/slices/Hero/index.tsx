@@ -29,7 +29,7 @@ const components: JSXMapSerializer = {
   ),
 
   paragraph: ({ children }) => (
-    <p className="text-base leading-7 font-thin font-body mb-4 max-w-[12rem] md:mb-8 md:max-w-[22rem] md:text-xl md:leading-9">
+    <p className="text-base leading-7 font-medium font-body mb-4 max-w-[12rem] md:mb-8 md:max-w-[22rem] md:text-xl md:leading-9 md:font-semibold">
       {children}
     </p>
   ),
@@ -83,7 +83,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                 )}
               </div>
 
-              <div className="mt-[10rem] bg-black/[.4] md:mt-[30%]">
+              <div className="mt-[10rem] bg-black/[.4] md:h-full md:mt-[50%]">
                 <PrismicRichText
                   field={slice.primary.heading}
                   components={components}
