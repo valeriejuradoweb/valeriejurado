@@ -13,7 +13,7 @@ export default async function Footer() {
 
   return (
     <footer>
-      <section className="relative">
+      <section className="relative bg-black">
         {prismic.isFilled.image(settings.data.footer_background_image) && (
           <PrismicNextImage
             field={settings.data.footer_background_image}
