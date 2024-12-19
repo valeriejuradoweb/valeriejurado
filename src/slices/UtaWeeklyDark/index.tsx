@@ -25,7 +25,7 @@ const UtaWeeklyDark = ({ slice }: UtaWeeklyDarkProps): JSX.Element => {
       )}
       {slice.variation === "1Image1Video" && (
         <section className="relative bg-black overflow-hidden py-4 md:py-8">
-          <div className="block border-8 border-[#2B2B2B] w-[80%] m-auto md:w-[25%] md:absolute md:top-10 md:right-10">
+          <div className="block border-[5px] border-[#2B2B2B] w-[80%] m-auto md:w-[25%] md:absolute md:top-10 md:right-10">
             {prismic.isFilled.linkToMedia(slice.primary.video_2) && (
               <video playsInline autoPlay muted loop className="object-cover">
                 <source src={slice.primary.video_2.url} type="video/mp4" />
