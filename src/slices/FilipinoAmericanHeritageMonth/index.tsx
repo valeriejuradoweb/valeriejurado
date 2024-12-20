@@ -110,7 +110,7 @@ const FilipinoAmericanHeritageMonth = ({
                   field={slice.primary.image_1}
                 />
               </div>
-              <div className="relative justify-self-center space-y-2 mt-10 md:mt-28 md:w-[35%] md:justify-self-end">
+              <div className="relative justify-self-center space-y-2 mt-10 md:mt-28 md:w-[35%]">
                 <TitleLink field={slice.primary.title_link}>
                   {slice.primary.title_label}
                 </TitleLink>
