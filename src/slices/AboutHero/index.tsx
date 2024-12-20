@@ -1,9 +1,11 @@
 import Bounded from "@/components/Bounded";
 import Button from "@/components/Button";
 import Heading from "@/components/Heading";
+import IconInsta from "@/components/IconInsta";
+import IconMail from "@/components/IconMail";
 import * as prismic from "@prismicio/client";
 import { Content } from "@prismicio/client";
-import { PrismicNextImage } from "@prismicio/next";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import {
   JSXMapSerializer,
   PrismicRichText,
@@ -78,8 +80,20 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
                   components={components}
                 />
               </div>
-              <div className="py-6">
-                {slice.primary.button.map(({ link, label }) => {
+              <div className="py-6 flex gap-10">
+                <PrismicNextLink
+                  field={slice.primary.mail_link}
+                  className="hover:opacity-65 transition-opacity duration-200 ease-in-out"
+                >
+                  <IconMail />
+                </PrismicNextLink>
+                <PrismicNextLink
+                  field={slice.primary.instagram_link}
+                  className="hover:opacity-65 transition-opacity duration-200 ease-in-out"
+                >
+                  <IconInsta />
+                </PrismicNextLink>
+                {/*} {slice.primary.button.map(({ link, label }) => {
                   // Ensure label is not null
                   if (label == null) return null; // If label is null or undefined, skip rendering this button
 
@@ -93,7 +107,7 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
                       </div>
                     </div>
                   );
-                })}
+                })} */}
               </div>
             </div>
             <div className="mb-8">

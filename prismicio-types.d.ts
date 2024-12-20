@@ -365,6 +365,26 @@ export interface AboutHeroSliceDefaultPrimary {
   button: prismic.GroupField<Simplify<AboutHeroSliceDefaultPrimaryButtonItem>>;
 
   /**
+   * Instagram Link field in *AboutHero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.instagram_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  instagram_link: prismic.LinkField;
+
+  /**
+   * Mail Link field in *AboutHero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.mail_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  mail_link: prismic.LinkField;
+
+  /**
    * Client List Heading field in *AboutHero → Default → Primary*
    *
    * - **Field Type**: Rich Text

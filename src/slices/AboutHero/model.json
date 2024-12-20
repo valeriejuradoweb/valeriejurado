@@ -70,6 +70,24 @@
             }
           }
         },
+        "instagram_link": {
+          "type": "Link",
+          "config": {
+            "label": "Instagram Link",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        },
+        "mail_link": {
+          "type": "Link",
+          "config": {
+            "label": "Mail Link",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        },
         "client_list_heading": {
           "type": "StructuredText",
           "config": {
