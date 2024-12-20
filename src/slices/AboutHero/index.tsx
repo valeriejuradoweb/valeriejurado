@@ -93,21 +93,6 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
                 >
                   <IconInsta />
                 </PrismicNextLink>
-                {/*} {slice.primary.button.map(({ link, label }) => {
-                  // Ensure label is not null
-                  if (label == null) return null; // If label is null or undefined, skip rendering this button
-
-                  return (
-                    <div key={label} className="block py-2">
-                      <div className="flex">
-                        <p className="text-lg pr-1 md:text-2xl">＋</p>
-                        <Button field={link} className="">
-                          {label}
-                        </Button>
-                      </div>
-                    </div>
-                  );
-                })} */}
               </div>
             </div>
             <div className="mb-8">
@@ -115,63 +100,28 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
                 field={slice.primary.client_list_heading}
                 components={components}
               />{" "}
-              <div className="grid grid-cols-2 mt-2">
-                <div>
-                  <PrismicRichText
-                    field={slice.primary.client_list_1}
-                    components={components}
-                  />
-                </div>
-                <div>
-                  <PrismicRichText
-                    field={slice.primary.client_list_2}
-                    components={components}
-                  />
-                </div>
+              <div className="">
+                <ul className="grid grid-cols-2 gap-x-4 py-2">
+                  {slice.primary.client_list.map(({ client, client_link }) => {
+                    // Ensure label is not null
+                    if (client == null) return null; // If label is null or undefined, skip rendering this button
+
+                    return (
+                      <li
+                        key={client}
+                        className="block pb-1 hover:opacity-65 transition-opacity duration-200 ease-in-out"
+                      >
+                        <PrismicNextLink field={client_link}>
+                          {client}
+                        </PrismicNextLink>
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
             </div>
           </div>
         </div>
-        {/*<div className="block text-[#DEDEDE] space-y-10 mt-10 md:space-y-0 md:mt-32 md:flex md:flex-wrap gap-4">
-          {slice.primary.employee.map(
-            ({ employee_photo, employee_name, employee_bio }) => (
-              <div className="md:basis-[32%] space-y-1">
-                <div className="w-full max-w-sm">
-                  <div className="aspect-w-16 aspect-h-11 mb-2">
-                    <PrismicNextImage
-                      className="object-cover w-full h-full"
-                      field={employee_photo}
-                    />
-                  </div>
-                </div>
-
-                <PrismicRichText
-                  field={employee_name}
-                  components={components}
-                />
-                <PrismicRichText field={employee_bio} components={components} />
-              </div>
-            )
-          )}
-        </div>*/}
-        {/*<div className="block text-[#DEDEDE] space-y-10 mt-10 md:space-y-0 md:mt-32 md:flex md:flex-wrap gap-4">
-          <div className="w-full max-w-sm">
-            <div className="aspect-w-16 aspect-h-11 mb-2">
-              <PrismicNextImage
-                className="object-cover w-full h-full"
-                field={slice.primary.employee_photo}
-              />
-            </div>
-          </div>
-          <PrismicRichText
-            field={slice.primary.employee_name}
-            components={components}
-          />
-          <PrismicRichText
-            field={slice.primary.employee_bio}
-            components={components}
-          />
-        </div>*/}
       </Bounded>
     </section>
   );

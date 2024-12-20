@@ -60,28 +60,6 @@
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
-			"client_list_1": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Minim ad veniam eiusmod fugiat occaecat occaecat do cupidatat. Esse ullamco nulla et enim aute."
-						}
-					}
-				]
-			},
-			"client_list_2": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Ullamco elit aute labore est voluptate reprehenderit consectetur sint ullamco aliqua culpa voluptate."
-						}
-					}
-				]
-			},
 			"mobile_background_image": {
 				"origin": {
 					"id": "main",
@@ -157,6 +135,34 @@
 					"__TYPE__": "ExternalLink",
 					"url": "https://slicemachine.dev"
 				}
+			},
+			"client_list": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"client",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "fun",
+									"type": "Text"
+								}
+							],
+							[
+								"client_link",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com"
+									}
+								}
+							]
+						]
+					}
+				]
 			}
 		},
 		"items": []

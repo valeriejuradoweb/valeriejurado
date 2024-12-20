@@ -97,22 +97,29 @@
             "multi": "heading1,heading2,heading3,heading4,heading5,heading6,strong"
           }
         },
-        "client_list_1": {
-          "type": "StructuredText",
+        "client_list": {
+          "type": "Group",
           "config": {
-            "label": "Client List 1",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "list-item,paragraph"
-          }
-        },
-        "client_list_2": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Client List 2",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,list-item"
+            "label": "Client List",
+            "repeat": true,
+            "fields": {
+              "client": {
+                "type": "Text",
+                "config": {
+                  "label": "Client",
+                  "placeholder": ""
+                }
+              },
+              "client_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Client Link",
+                  "placeholder": "",
+                  "allowTargetBlank": false,
+                  "select": null
+                }
+              }
+            }
           }
         },
         "background_image": {

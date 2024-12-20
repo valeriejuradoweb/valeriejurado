@@ -311,6 +311,31 @@ export interface AboutHeroSliceDefaultPrimaryButtonItem {
 }
 
 /**
+ * Item in *AboutHero → Default → Primary → Client List*
+ */
+export interface AboutHeroSliceDefaultPrimaryClientListItem {
+  /**
+   * Client field in *AboutHero → Default → Primary → Client List*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.client_list[].client
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  client: prismic.KeyTextField;
+
+  /**
+   * Client Link field in *AboutHero → Default → Primary → Client List*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_hero.default.primary.client_list[].client_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  client_link: prismic.LinkField;
+}
+
+/**
  * Primary content in *AboutHero → Default → Primary*
  */
 export interface AboutHeroSliceDefaultPrimary {
@@ -395,24 +420,16 @@ export interface AboutHeroSliceDefaultPrimary {
   client_list_heading: prismic.RichTextField;
 
   /**
-   * Client List 1 field in *AboutHero → Default → Primary*
+   * Client List field in *AboutHero → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: about_hero.default.primary.client_list_1
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **API ID Path**: about_hero.default.primary.client_list[]
+   * - **Documentation**: https://prismic.io/docs/field#group
    */
-  client_list_1: prismic.RichTextField;
-
-  /**
-   * Client List 2 field in *AboutHero → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about_hero.default.primary.client_list_2
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  client_list_2: prismic.RichTextField;
+  client_list: prismic.GroupField<
+    Simplify<AboutHeroSliceDefaultPrimaryClientListItem>
+  >;
 
   /**
    * Background Image field in *AboutHero → Default → Primary*
@@ -4482,6 +4499,7 @@ declare module "@prismicio/client" {
       AllDocumentTypes,
       AboutHeroSlice,
       AboutHeroSliceDefaultPrimaryButtonItem,
+      AboutHeroSliceDefaultPrimaryClientListItem,
       AboutHeroSliceDefaultPrimary,
       AboutHeroSliceVariation,
       AboutHeroSliceDefault,
