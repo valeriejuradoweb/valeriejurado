@@ -118,7 +118,7 @@ const Ruysch = ({ slice }: RuyschProps): JSX.Element => {
             <div></div>
             <div className="space-y-6">
               <PrismicNextImage
-                className="border-8 border-[#2B2B2B]"
+                className="border-[5px] border-[#2B2B2B]"
                 field={slice.primary.image_2}
               />
               <div className="grid grid-cols-1 place-items-center">
