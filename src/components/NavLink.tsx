@@ -8,7 +8,7 @@ export default function TitleLink({
 }: PrismicNextLinkProps) {
   return (
     <PrismicNextLink
-      className="text-xl tracking-wide underline underline-offset-8 decoration-1 font-display font-thin hover:opacity-75 transition-opacity duration-200 ease-in-out md:text-3xl"
+      className="text-xl tracking-wide decoration-1 font-display font-thin hover:opacity-75 transition-opacity duration-200 ease-in-out md:text-3xl" // Previous underline style:underline underline-offset-8
       {...restProps}
     />
   );
