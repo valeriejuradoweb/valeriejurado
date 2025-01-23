@@ -93,7 +93,6 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                   {slice.primary.links.map(({ link, label }) => (
                     <li key={label}>
                       <div className="flex">
-                        <p className="text-lg pr-1 md:text-2xl">＋</p>
                         <Button field={link}>{label}</Button>
                       </div>
                     </li>
