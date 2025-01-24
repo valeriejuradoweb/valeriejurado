@@ -109,15 +109,6 @@
                   "label": "Client",
                   "placeholder": ""
                 }
-              },
-              "client_link": {
-                "type": "Link",
-                "config": {
-                  "label": "Client Link",
-                  "placeholder": "",
-                  "allowTargetBlank": false,
-                  "select": null
-                }
               }
             }
           }

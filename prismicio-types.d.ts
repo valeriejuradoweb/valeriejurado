@@ -323,16 +323,6 @@ export interface AboutHeroSliceDefaultPrimaryClientListItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   client: prismic.KeyTextField;
-
-  /**
-   * Client Link field in *AboutHero → Default → Primary → Client List*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about_hero.default.primary.client_list[].client_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  client_link: prismic.LinkField;
 }
 
 /**

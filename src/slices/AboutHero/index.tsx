@@ -102,7 +102,7 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
               />{" "}
               <div className="">
                 <ul className="grid grid-cols-2 gap-x-4 py-2">
-                  {slice.primary.client_list.map(({ client, client_link }) => {
+                  {slice.primary.client_list.map(({ client }) => {
                     // Ensure label is not null
                     if (client == null) return null; // If label is null or undefined, skip rendering this button
 
@@ -111,9 +111,7 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
                         key={client}
                         className="block pb-1 hover:opacity-65 transition-opacity duration-200 ease-in-out"
                       >
-                        <PrismicNextLink field={client_link}>
-                          {client}
-                        </PrismicNextLink>
+                        {client}
                       </li>
                     );
                   })}
