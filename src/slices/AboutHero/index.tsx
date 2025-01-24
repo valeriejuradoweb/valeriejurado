@@ -107,10 +107,7 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
                     if (client == null) return null; // If label is null or undefined, skip rendering this button
 
                     return (
-                      <li
-                        key={client}
-                        className="block pb-1 hover:opacity-65 transition-opacity duration-200 ease-in-out"
-                      >
+                      <li key={client} className="block pb-1">
                         {client}
                       </li>
                     );
