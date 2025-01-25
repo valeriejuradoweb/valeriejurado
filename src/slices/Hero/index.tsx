@@ -190,7 +190,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3">
-            <div className="place-items-end">
+            <div className="justify-self-end">
               <PrismicNextImage
                 className="rotate-180 w-72 md:h-full md:w-auto md:rotate-0"
                 field={slice.primary.image_left}
