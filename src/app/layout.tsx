@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import { createClient, repositoryName } from "@/prismicio";
 import { PrismicPreview } from "@prismicio/next";
 import Footer from "@/components/Footer";
+import HeaderToggle from "@/components/HeaderToggle";
 
 const redhatdisplay = Red_Hat_Display({
   subsets: ["latin"],
@@ -41,9 +42,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
@@ -65,7 +66,8 @@ export default function RootLayout({
       />
       <link rel="dns-prefetch" href="https://prismic-io.s3.amazonaws.com" />
       <body>
-        {/*<Header />*/}
+        {/* Conditionally render the HeaderToggle component to handle the Header */}
+        <HeaderToggle />
         {children}
         <Footer />
         <PrismicPreview repositoryName={repositoryName} />
