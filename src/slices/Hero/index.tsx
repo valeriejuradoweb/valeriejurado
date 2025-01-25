@@ -10,6 +10,7 @@ import Bounded from "@/components/Bounded";
 import Button from "@/components/Button";
 import Heading from "@/components/Heading";
 import ArrowLight from "@/components/ArrowLight";
+import LogoGoldLg from "@/components/LogoGoldLg";
 
 const components: JSXMapSerializer = {
   heading1: ({ children }) => (
@@ -151,6 +152,33 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           </Bounded>
         </section>
       )}{" "}
+      {slice.variation === "largeLogo" && (
+        <section className="relative bg-black">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+            <LogoGoldLg />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3">
+            <div>
+              <PrismicNextImage field={slice.primary.image_left} />
+            </div>
+            <div>
+              <ul className="space-y-4">
+                {slice.primary.links.map(({ link, label }) => (
+                  <li key={label}>
+                    <div className="flex">
+                      <Button field={link}>{label}</Button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <PrismicNextImage field={slice.primary.image_right} />
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 };

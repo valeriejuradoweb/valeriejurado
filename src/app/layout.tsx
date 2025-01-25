@@ -65,7 +65,7 @@ export default function RootLayout({
       />
       <link rel="dns-prefetch" href="https://prismic-io.s3.amazonaws.com" />
       <body>
-        <Header />
+        {/*<Header />*/}
         {children}
         <Footer />
         <PrismicPreview repositoryName={repositoryName} />
