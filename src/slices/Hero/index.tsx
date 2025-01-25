@@ -154,8 +154,8 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       )}{" "}
       {slice.variation === "largeLogo" && (
         <section className="relative bg-black">
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-            <LogoGoldLg />
+          <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block">
+            <LogoGoldLg width="600 lg:700" height="500" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3">
