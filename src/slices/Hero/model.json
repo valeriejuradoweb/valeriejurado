@@ -125,6 +125,14 @@
             "thumbnails": []
           }
         },
+        "image_mobile_lower": {
+          "type": "Image",
+          "config": {
+            "label": "Image Mobile Lower",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "links": {
           "type": "Group",
           "config": {

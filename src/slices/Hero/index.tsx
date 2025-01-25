@@ -11,6 +11,8 @@ import Button from "@/components/Button";
 import Heading from "@/components/Heading";
 import ArrowLight from "@/components/ArrowLight";
 import LogoGoldLg from "@/components/LogoGoldLg";
+import ArrowDown from "@/components/ArrowDown";
+import LogoGoldSm from "@/components/LogoGoldSm";
 
 const components: JSXMapSerializer = {
   heading1: ({ children }) => (
@@ -154,27 +156,56 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       )}{" "}
       {slice.variation === "largeLogo" && (
         <section className="relative bg-black">
-          <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block">
-            <LogoGoldLg width="600 lg:700" height="500" />
+          {/*BELOW IS DESKTOP LOGO, NAV, ARROW ITEMS */}
+          <div className="absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block">
+            <LogoGoldLg width="55vw" height="flex" />
+            <ul className="w-full space-x-10 justify-center flex text-[#DEDEDE] font-display tracking-widest font-thin md:mt-5 md:text-xl lg:mt-10 lg:text-2xl 2xl:space-x-16 2xl:text-3xl ">
+              {slice.primary.links.map(({ link, label }) => (
+                <li key={label}>
+                  <div className="hover:opacity-65 transition-opacity duration-200 ease-in-out">
+                    <PrismicNextLink field={link}>{label}</PrismicNextLink>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="absolute top-[80%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block">
+            <ArrowDown width="2vw" height="flex" />
+          </div>
+          {/*BELOW IS MOBILE LOGO, NAV, ARROW ITEMS */}
+          <div className="absolute justify-center text-center top-[48%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 block md:hidden">
+            <LogoGoldLg width="80vw" height="flex" />
+            <ul className="mt-5 space-y-3 text-[#DEDEDE] font-display tracking-widest font-thin text-lg">
+              {slice.primary.links.map(({ link, label }) => (
+                <li key={label}>
+                  <div className="hover:opacity-65 transition-opacity duration-200 ease-in-out">
+                    <PrismicNextLink field={link}>{label}</PrismicNextLink>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="absolute top-[64%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 block md:hidden">
+            <ArrowDown width="5vw" height="flex" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3">
-            <div>
-              <PrismicNextImage field={slice.primary.image_left} />
+            <div className="place-items-end">
+              <PrismicNextImage
+                className="rotate-180 w-72 md:h-full md:w-auto md:rotate-0"
+                field={slice.primary.image_left}
+              />
             </div>
+            <div className="hidden md:block"></div>
             <div>
-              <ul className="space-y-4">
-                {slice.primary.links.map(({ link, label }) => (
-                  <li key={label}>
-                    <div className="flex">
-                      <Button field={link}>{label}</Button>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <PrismicNextImage field={slice.primary.image_right} />
+              <PrismicNextImage
+                className="hidden md:block md:h-full md:w-auto"
+                field={slice.primary.image_right}
+              />
+              <PrismicNextImage
+                className="block w-[90%] md:hidden"
+                field={slice.primary.image_mobile_lower}
+              />
             </div>
           </div>
         </section>

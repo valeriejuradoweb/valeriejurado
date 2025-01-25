@@ -1717,6 +1717,16 @@ export interface HeroSliceLargeLogoPrimary {
   image_right: prismic.ImageField<never>;
 
   /**
+   * Image Mobile Lower field in *Hero → Large Logo → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.largeLogo.primary.image_mobile_lower
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_mobile_lower: prismic.ImageField<never>;
+
+  /**
    * Links field in *Hero → Large Logo → Primary*
    *
    * - **Field Type**: Group
