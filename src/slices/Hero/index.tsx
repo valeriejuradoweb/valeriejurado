@@ -186,7 +186,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             </ul>
           </div>
           <div className="absolute top-[64%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 block md:hidden">
-            <ArrowDown width="5vw" height="flex" />
+            <ArrowDown width="4vw" height="flex" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3">
