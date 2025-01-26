@@ -1,5 +1,6 @@
 import Bounded from "@/components/Bounded";
 import Button from "@/components/Button";
+import CopyEmailButton from "@/components/CopyEmailButton";
 import Heading from "@/components/Heading";
 import IconInsta from "@/components/IconInsta";
 import IconMail from "@/components/IconMail";
@@ -41,6 +42,7 @@ export type AboutHeroProps = SliceComponentProps<Content.AboutHeroSlice>;
  */
 const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
   const background_image = slice.primary.background_image;
+  const email = "askme@valeriejurado.com"; // Change this if you need to change email that's copied when button is clicked
 
   return (
     <section
@@ -80,13 +82,8 @@ const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
                   components={components}
                 />
               </div>
-              <div className="py-6 flex gap-10">
-                <PrismicNextLink
-                  field={slice.primary.mail_link}
-                  className="hover:opacity-65 transition-opacity duration-200 ease-in-out"
-                >
-                  <IconMail />
-                </PrismicNextLink>
+              <div className="py-10 flex gap-10">
+                <CopyEmailButton email={email} />
                 <PrismicNextLink
                   field={slice.primary.instagram_link}
                   className="hover:opacity-65 transition-opacity duration-200 ease-in-out"
