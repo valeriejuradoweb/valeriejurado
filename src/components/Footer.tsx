@@ -24,30 +24,23 @@ export default async function Footer() {
         )}
 
         <div className="text-white grid grid-cols-1 place-items-center text-center font-body p-10">
-          <div className="pb-2">
+          {/* <div className="pb-2">
             <>{settings.data.footer_form_label}</>
-          </div>
+          </div> */}
           {/*SECOND MAILCHIMP FORM BELOW, CONVERTED JSX FROM MAILCHIMP GENERATED HTML EMBED FORM*/}
+          {/* 
           <div id="mc_embed_shell" className="">
             <div id="mc_embed_signup">
               <form
-                /*action="https://valeriejurado.us2.list-manage.com/subscribe/post?u=4a1e985219bc367027066386a&id=a1fd1262ff&f_id=00b36de0f0"*/
                 action={process.env.REACT_APP_MAILCHIMP_KEY}
                 method="post"
                 id="mc-embedded-subscribe-form"
                 name="mc-embedded-subscribe-form"
                 className="validate"
                 target="_self"
-                /*noValidate=""*/
               >
                 <div id="mc_embed_signup_scroll">
-                  {/*<div className="indicates-required">
-                    <span className="asterisk">*</span> indicates required
-                  </div>*/}
                   <div className="mc-field-group">
-                    {/*<label htmlFor="mce-EMAIL">
-                      Email Address <span className="asterisk">*</span>
-                    </label>*/}
                     <input
                       type="email"
                       name="EMAIL"
@@ -55,7 +48,6 @@ export default async function Footer() {
                       placeholder="Enter your email address"
                       className="required email h-[50px] w-[280px] border border-white p-4 bg-black text-white"
                       id="mce-EMAIL"
-                      /*required=""*/
                       defaultValue=""
                     />
                   </div>
@@ -66,18 +58,15 @@ export default async function Footer() {
                     <div
                       className="response hidden"
                       id="mce-error-response"
-                      /*style={{ display: "none" }}*/
                     />
                     <div
                       className="response hidden"
                       id="mce-success-response"
-                      /*style={{ display: "none" }}*/
                     />
                   </div>
                   <div
                     aria-hidden="true"
                     className="absolute left-[-5000px]"
-                    /*style={{ position: "absolute", left: "-5000px" }}*/
                   >
                     <input
                       type="text"
@@ -99,6 +88,7 @@ export default async function Footer() {
               </form>
             </div>
           </div>
+          */}
 
           <div className="pt-8 space-y-6">
             <div className="py-4 grid">
@@ -107,13 +97,15 @@ export default async function Footer() {
               </Link>
             </div>
 
-            {/*<ul className="underline underline-offset-4 md:text-xl">
+            {/* 
+            <ul className="underline underline-offset-4 md:text-xl">
               {settings.data.navigation.map(({ link, label }) => (
                 <li key={label}>
                   <PrismicNextLink field={link}>{label}</PrismicNextLink>
                 </li>
               ))}
-            </ul>*/}
+            </ul>
+            */}
 
             <p>
               © {new Date().getFullYear()} {settings.data.site_title}
