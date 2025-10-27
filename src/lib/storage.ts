@@ -16,8 +16,13 @@ export interface FormSubmission {
   mailchimpAdded: boolean;
 }
 
-const DATA_DIR = path.join(process.cwd(), 'data');
-const SUBMISSIONS_FILE = path.join(DATA_DIR, 'submissions.json');
+// Use /tmp directory for Vercel (serverless-friendly)
+const DATA_DIR = process.env.VERCEL 
+  ? '/tmp/data' 
+  : path.join(process.cwd(), 'data');
+const SUBMISSIONS_FILE = process.env.VERCEL
+  ? '/tmp/submissions.json'
+  : path.join(DATA_DIR, 'submissions.json');
 
 // Ensure data directory exists
 if (!fs.existsSync(DATA_DIR)) {
