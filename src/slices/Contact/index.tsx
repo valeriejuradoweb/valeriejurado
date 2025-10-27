@@ -1,6 +1,9 @@
+"use client";
+
 import Bounded from "@/components/Bounded";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { useState } from "react";
 
 /**
  * Props for `Contact`.
@@ -11,6 +14,63 @@ export type ContactProps = SliceComponentProps<Content.ContactSlice>;
  * Component for "Contact" Slices.
  */
 const Contact = ({ slice }: ContactProps): JSX.Element => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    const formData = new FormData(e.currentTarget);
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: formData.get('MERGE1'),
+          lastName: formData.get('MERGE2'),
+          email: formData.get('MERGE0'),
+          phone: formData.get('MERGE4'),
+          service: formData.get('MERGE7'),
+          eventDate: formData.get('MERGE8'),
+          address1: formData.get('MERGE11'),
+          address2: formData.get('MERGE10'),
+          details: formData.get('MERGE9'),
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({ 
+          type: 'success', 
+          message: result.message || 'Thank you! Your message has been sent successfully.' 
+        });
+        // Reset form
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setSubmitStatus({ 
+          type: 'error', 
+          message: result.error || 'Failed to send message. Please try again.' 
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({ 
+        type: 'error', 
+        message: 'Network error. Please check your connection and try again.' 
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="relative bg-white overflow-hidden">
       <Bounded
@@ -24,26 +84,11 @@ const Contact = ({ slice }: ContactProps): JSX.Element => {
             <PrismicRichText field={slice.primary.contact_page_text} />
 
             <form
-              action="https://valeriejurado.us2.list-manage.com/subscribe/post"
-              method="post"
-              id={process.env.REACT_APP_MAILCHIMP_CONTACT_FORM_ID}
+              onSubmit={handleSubmit}
               name="contact-form"
               className="validate w-full max-w-3xl mt-8"
-              target="_self"
-              /*noValidate=""*/
+              noValidate
             >
-              <input
-                type="hidden"
-                name="u"
-                className="hidden"
-                value={process.env.REACT_APP_MAILCHIMP_CONTACT_FORM_U}
-              />
-              <input
-                type="hidden"
-                name="id"
-                className="hidden"
-                value={process.env.REACT_APP_MAILCHIMP_CONTACT_FORM_ID}
-              />
               <div className="flex flex-wrap">
                 <div className="w-full mb-5 md:pr-4 md:w-1/2">
                   <input
@@ -167,28 +212,31 @@ const Contact = ({ slice }: ContactProps): JSX.Element => {
                   defaultValue=""
                 ></textarea>
               </div>
+              
+              {/* Status Messages */}
+              {submitStatus.type && (
+                <div className={`w-full mb-6 p-4 rounded text-center ${
+                  submitStatus.type === 'success' 
+                    ? 'bg-green-100 text-green-800 border border-green-200' 
+                    : 'bg-red-100 text-red-800 border border-red-200'
+                }`}>
+                  {submitStatus.message}
+                </div>
+              )}
+              
               <div>
                 <div className="submit_container clear flex justify-center">
                   <div className="flex">
                     <p className="text-lg pr-1 md:text-2xl">＋</p>
-                    <input
+                    <button
                       type="submit"
-                      className="formEmailButton cursor-pointer block w-fit hover:opacity-75 transition-opacity duration-200 ease-in-outtracking-wider text-base tracking-wide underline underline-offset-4 font-display font-medium md:text-xl"
-                      name="submit"
-                      defaultValue="Submit"
-                    />
+                      disabled={isSubmitting}
+                      className="formEmailButton cursor-pointer block w-fit hover:opacity-75 transition-opacity duration-200 ease-in-outtracking-wider text-base tracking-wide underline underline-offset-4 font-display font-medium md:text-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? 'Sending...' : 'Submit'}
+                    </button>
                   </div>
                 </div>
-                <input
-                  type="hidden"
-                  name="ht"
-                  defaultValue="9eadbb992f74677afe1916ef5542b886d6d91b7a:MTcyNjY2OTUzNC4yOTM3"
-                />
-                <input
-                  type="hidden"
-                  name="mc_signupsource"
-                  defaultValue="hosted"
-                />
               </div>
             </form>
           </div>

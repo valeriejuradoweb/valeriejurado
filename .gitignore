@@ -29,6 +29,9 @@ yarn-error.log*
 .env*.local
 .env
 
+# data storage (submissions are stored on server)
+/data/*.json
+
 # vercel
 .vercel
 
