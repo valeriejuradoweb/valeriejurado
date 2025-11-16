@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Style reCAPTCHA badge to be smaller and always visible */
+.grecaptcha-badge {
+  transform: scale(0.75);
+  transform-origin: bottom right;
+  z-index: 9999 !important;
+  position: fixed !important;
+}
+
+/* Ensure the badge container doesn't interfere with layout */
+.grecaptcha-badge-wrapper {
+  transform: scale(0.75);
+  transform-origin: bottom right;
+  z-index: 9999 !important;
+  position: fixed !important;
+}
