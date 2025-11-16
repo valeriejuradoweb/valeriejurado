@@ -4,6 +4,7 @@ import Bounded from "@/components/Bounded";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 /**
  * Props for `Contact`.
@@ -19,6 +20,7 @@ const Contact = ({ slice }: ContactProps): JSX.Element => {
     type: 'success' | 'error' | null;
     message: string;
   }>({ type: null, message: '' });
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,6 +30,33 @@ const Contact = ({ slice }: ContactProps): JSX.Element => {
     const formData = new FormData(e.currentTarget);
     
     try {
+      // Get reCAPTCHA token
+      if (!executeRecaptcha) {
+        setSubmitStatus({ 
+          type: 'error', 
+          message: 'reCAPTCHA is not loaded. Please refresh the page and try again.' 
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      let recaptchaToken = '';
+      try {
+        recaptchaToken = await executeRecaptcha('contact_form_submit');
+        console.log('reCAPTCHA token generated:', recaptchaToken ? 'Token received' : 'Token is empty');
+        if (!recaptchaToken) {
+          throw new Error('reCAPTCHA token is empty');
+        }
+      } catch (recaptchaError) {
+        console.error('reCAPTCHA error:', recaptchaError);
+        setSubmitStatus({ 
+          type: 'error', 
+          message: 'reCAPTCHA verification failed. Please refresh the page and try again.' 
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -43,6 +72,7 @@ const Contact = ({ slice }: ContactProps): JSX.Element => {
           address1: formData.get('MERGE11'),
           address2: formData.get('MERGE10'),
           details: formData.get('MERGE9'),
+          recaptchaToken,
         }),
       });
 
@@ -56,6 +86,11 @@ const Contact = ({ slice }: ContactProps): JSX.Element => {
         // Reset form
         (e.target as HTMLFormElement).reset();
       } else {
+        console.error('Form submission error:', {
+          status: response.status,
+          error: result.error,
+          details: result.details,
+        });
         setSubmitStatus({ 
           type: 'error', 
           message: result.error || 'Failed to send message. Please try again.' 

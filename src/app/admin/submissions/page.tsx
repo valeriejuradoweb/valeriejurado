@@ -28,7 +28,7 @@ export default async function SubmissionsPage() {
                             ? 'bg-green-100 text-green-800' 
                             : 'bg-yellow-100 text-yellow-800'
                         }`}>
-                          {submission.mailchimpAdded ? 'Added to Mailchimp' : 'Not in Mailchimp'}
+                          {submission.mailchimpAdded ? 'Added to Mailchimp' : 'Not added to Mailchimp'}
                         </span>
                         <span className="text-xs text-gray-500">
                           {new Date(submission.timestamp).toLocaleString()}

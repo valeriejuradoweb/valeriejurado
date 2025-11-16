@@ -2,6 +2,67 @@ import { NextRequest, NextResponse } from 'next/server';
 import { saveSubmission, hasEmailBeenSubmitted, updateSubmission } from '@/lib/storage';
 import { sendSubmissionNotification, EmailConfig } from '@/lib/email';
 
+async function verifyRecaptcha(token: string): Promise<{ success: boolean; score?: number; error?: string }> {
+  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+  
+  if (!secretKey) {
+    console.error('reCAPTCHA Secret Key not configured');
+    return { success: false, error: 'Server configuration error' };
+  }
+
+  if (!token || token.trim() === '') {
+    console.error('reCAPTCHA token is missing or empty');
+    return { success: false, error: 'Token missing' };
+  }
+
+  try {
+    const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `secret=${secretKey}&response=${token}`,
+    });
+
+    const data = await response.json();
+    
+    // reCAPTCHA v3 returns a score (0.0 to 1.0)
+    // 1.0 is very likely a human, 0.0 is very likely a bot
+    // Threshold of 0.5 is balanced (recommended for production)
+    const scoreThreshold = 0.5;
+    
+    console.log('reCAPTCHA verification response:', {
+      success: data.success,
+      score: data.score,
+      errors: data['error-codes'],
+      action: data.action,
+    });
+    
+    if (!data.success) {
+      return { 
+        success: false, 
+        score: data.score,
+        error: data['error-codes']?.join(', ') || 'Verification failed'
+      };
+    }
+    
+    if (data.score === undefined || data.score === null) {
+      console.error('reCAPTCHA score is missing');
+      return { success: false, error: 'Score missing' };
+    }
+    
+    if (data.score < scoreThreshold) {
+      console.log(`reCAPTCHA score ${data.score} is below threshold ${scoreThreshold}`);
+      return { success: false, score: data.score, error: 'Score too low' };
+    }
+    
+    return { success: true, score: data.score };
+  } catch (error) {
+    console.error('Error verifying reCAPTCHA:', error);
+    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -14,8 +75,33 @@ export async function POST(request: NextRequest) {
       eventDate, 
       address1, 
       address2, 
-      details 
+      details,
+      recaptchaToken
     } = body;
+
+    // Verify reCAPTCHA token (skip in development if browser-error occurs)
+    const recaptchaResult = await verifyRecaptcha(recaptchaToken);
+    if (!recaptchaResult.success) {
+      // In development, allow browser-error to pass through (domain mismatch on localhost)
+      if (process.env.NODE_ENV === 'development' && recaptchaResult.error?.includes('browser-error')) {
+        console.warn('reCAPTCHA browser-error in development - allowing submission. Add localhost to reCAPTCHA domains for proper testing.');
+      } else {
+        console.error('reCAPTCHA verification failed:', {
+          error: recaptchaResult.error,
+          score: recaptchaResult.score,
+          hasToken: !!recaptchaToken,
+        });
+        return NextResponse.json(
+          { 
+            error: 'reCAPTCHA verification failed. Please try again.',
+            details: process.env.NODE_ENV === 'development' ? recaptchaResult.error : undefined
+          },
+          { status: 403 }
+        );
+      }
+    } else {
+      console.log('reCAPTCHA verification successful, score:', recaptchaResult.score);
+    }
 
     // Validate required fields
     if (!firstName || !lastName || !email) {
@@ -44,7 +130,24 @@ export async function POST(request: NextRequest) {
 
     console.log('Form submission saved locally:', submission.id);
 
-    // Send email notification to multiple recipients
+    // Only add to Mailchimp if this is a new email address
+    // Do this BEFORE sending email so the email shows correct status
+    if (isNewEmail) {
+      try {
+        await addToMailchimp(submission);
+        updateSubmission(submission.id, { mailchimpAdded: true });
+        console.log('Added new email to Mailchimp audience');
+        // Reload submission to get updated mailchimpAdded status
+        submission.mailchimpAdded = true;
+      } catch (mailchimpError) {
+        console.error('Error adding to Mailchimp:', mailchimpError);
+        // Don't fail the request if Mailchimp fails
+      }
+    } else {
+      console.log('Email already exists in submissions, skipping Mailchimp');
+    }
+
+    // Send email notification to multiple recipients (after Mailchimp update)
     const emailConfig: EmailConfig = {
       host: process.env.EMAIL_HOST!,
       port: parseInt(process.env.EMAIL_PORT!),
@@ -77,20 +180,6 @@ export async function POST(request: NextRequest) {
         console.error('Error sending email notification:', emailError);
         // Don't fail the request if email fails
       }
-    }
-
-    // Only add to Mailchimp if this is a new email address
-    if (isNewEmail) {
-      try {
-        await addToMailchimp(submission);
-        updateSubmission(submission.id, { mailchimpAdded: true });
-        console.log('Added new email to Mailchimp audience');
-      } catch (mailchimpError) {
-        console.error('Error adding to Mailchimp:', mailchimpError);
-        // Don't fail the request if Mailchimp fails
-      }
-    } else {
-      console.log('Email already exists in submissions, skipping Mailchimp');
     }
 
     return NextResponse.json({ 

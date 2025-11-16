@@ -9,6 +9,7 @@ import { createClient, repositoryName } from "@/prismicio";
 import { PrismicPreview } from "@prismicio/next";
 import Footer from "@/components/Footer";
 import HeaderToggle from "@/components/HeaderToggle";
+import ReCaptchaProvider from "@/components/ReCaptchaProvider";
 
 const redhatdisplay = Red_Hat_Display({
   subsets: ["latin"],
@@ -66,11 +67,13 @@ export default function RootLayout({
       />
       <link rel="dns-prefetch" href="https://prismic-io.s3.amazonaws.com" />
       <body>
-        {/* Conditionally render the HeaderToggle component to handle the Header */}
-        <HeaderToggle />
-        {children}
-        <Footer />
-        <PrismicPreview repositoryName={repositoryName} />
+        <ReCaptchaProvider>
+          {/* Conditionally render the HeaderToggle component to handle the Header */}
+          <HeaderToggle />
+          {children}
+          <Footer />
+          <PrismicPreview repositoryName={repositoryName} />
+        </ReCaptchaProvider>
       </body>
     </html>
   );
