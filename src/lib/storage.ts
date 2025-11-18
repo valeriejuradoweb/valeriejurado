@@ -14,6 +14,11 @@ export interface FormSubmission {
   address2?: string;
   details?: string;
   mailchimpAdded: boolean;
+  ipAddress?: string;
+  userAgent?: string;
+  recaptchaScore?: number;
+  spamDetected?: boolean;
+  spamReasons?: string[];
 }
 
 // In-memory storage for serverless environments (Vercel)
@@ -38,7 +43,7 @@ if (!process.env.VERCEL) {
   }
 }
 
-export function saveSubmission(submission: Omit<FormSubmission, 'id' | 'timestamp' | 'mailchimpAdded'>): FormSubmission {
+export function saveSubmission(submission: Omit<FormSubmission, 'id' | 'timestamp' | 'mailchimpAdded' | 'spamDetected' | 'spamReasons'>): FormSubmission {
   try {
     const newSubmission: FormSubmission = {
       id: generateId(),

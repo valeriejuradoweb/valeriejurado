@@ -2,6 +2,123 @@ import { NextRequest, NextResponse } from 'next/server';
 import { saveSubmission, hasEmailBeenSubmitted, updateSubmission } from '@/lib/storage';
 import { sendSubmissionNotification, EmailConfig } from '@/lib/email';
 
+/**
+ * Detects if a string contains mostly random characters (high entropy, no dictionary words)
+ * This helps identify bot-generated spam like "qMyhibqJxAFehtyuRIXqi"
+ */
+function isRandomCharacterString(text: string): boolean {
+  if (!text || text.trim().length === 0) return false;
+  
+  const cleaned = text.trim();
+  const length = cleaned.length;
+  
+  // If too short, not suspicious
+  if (length < 8) return false;
+  
+  // Count uppercase, lowercase, and numbers
+  const upperCaseCount = (cleaned.match(/[A-Z]/g) || []).length;
+  const lowerCaseCount = (cleaned.match(/[a-z]/g) || []).length;
+  const numberCount = (cleaned.match(/[0-9]/g) || []).length;
+  const specialCharCount = (cleaned.match(/[^A-Za-z0-9\s]/g) || []).length;
+  
+  // High ratio of mixed case suggests random generation
+  const hasMixedCase = upperCaseCount > 0 && lowerCaseCount > 0;
+  const mixedCaseRatio = hasMixedCase ? (upperCaseCount + lowerCaseCount) / length : 0;
+  
+  // Check for common dictionary words (simple check)
+  const commonWords = ['the', 'and', 'for', 'are', 'but', 'not', 'you', 'all', 'can', 'her', 'was', 'one', 'our', 'out', 'day', 'get', 'has', 'him', 'his', 'how', 'its', 'may', 'new', 'now', 'old', 'see', 'two', 'way', 'who', 'boy', 'did', 'has', 'let', 'put', 'say', 'she', 'too', 'use'];
+  const lowerText = cleaned.toLowerCase();
+  const hasDictionaryWord = commonWords.some(word => lowerText.includes(word));
+  
+  // Calculate character diversity (entropy indicator)
+  const uniqueChars = new Set(cleaned.toLowerCase().replace(/[^a-z]/g, '')).size;
+  const diversityRatio = uniqueChars / Math.min(length, 26);
+  
+  // Suspicious patterns:
+  // 1. High mixed case ratio (>0.5) with no dictionary words
+  // 2. High character diversity (>0.7) with mixed case
+  // 3. Mostly alphanumeric with no spaces and no dictionary words
+  const hasSpaces = cleaned.includes(' ');
+  const suspiciousPattern = 
+    (!hasDictionaryWord && mixedCaseRatio > 0.5 && length > 10) ||
+    (hasMixedCase && diversityRatio > 0.7 && !hasSpaces && length > 12) ||
+    (!hasSpaces && !hasDictionaryWord && length > 15 && (upperCaseCount + lowerCaseCount) / length > 0.8);
+  
+  return suspiciousPattern;
+}
+
+/**
+ * Validates content for spam patterns
+ */
+function detectSpamPatterns(firstName: string, lastName: string, email: string, address1?: string, address2?: string, details?: string): { isSpam: boolean; reasons: string[] } {
+  const reasons: string[] = [];
+  
+  // Check names for random character patterns
+  if (isRandomCharacterString(firstName)) {
+    reasons.push('First name contains random character pattern');
+  }
+  if (isRandomCharacterString(lastName)) {
+    reasons.push('Last name contains random character pattern');
+  }
+  
+  // Check full name together
+  const fullName = `${firstName} ${lastName}`.trim();
+  if (isRandomCharacterString(fullName)) {
+    reasons.push('Full name appears to be randomly generated');
+  }
+  
+  // Check addresses for random patterns
+  if (address1 && isRandomCharacterString(address1)) {
+    reasons.push('Address 1 contains random character pattern');
+  }
+  if (address2 && isRandomCharacterString(address2)) {
+    reasons.push('Address 2 contains random character pattern');
+  }
+  
+  // Check email for suspicious patterns
+  const emailLocal = email.split('@')[0];
+  if (emailLocal && isRandomCharacterString(emailLocal)) {
+    reasons.push('Email local part appears randomly generated');
+  }
+  
+  // Check for excessive random character sequences in details
+  if (details) {
+    const words = details.split(/\s+/);
+    const randomWordCount = words.filter(word => isRandomCharacterString(word)).length;
+    if (randomWordCount > 2 && words.length > 0) {
+      const randomRatio = randomWordCount / words.length;
+      if (randomRatio > 0.3) {
+        reasons.push('Details field contains excessive random character sequences');
+      }
+    }
+  }
+  
+  return {
+    isSpam: reasons.length > 0,
+    reasons
+  };
+}
+
+/**
+ * Extracts IP address from request headers
+ */
+function getIpAddress(request: NextRequest): string | undefined {
+  // Check various headers that might contain the real IP
+  const forwardedFor = request.headers.get('x-forwarded-for');
+  if (forwardedFor) {
+    // x-forwarded-for can contain multiple IPs, take the first one
+    return forwardedFor.split(',')[0].trim();
+  }
+  
+  const realIp = request.headers.get('x-real-ip');
+  if (realIp) {
+    return realIp.trim();
+  }
+  
+  // Fallback to connection remote address (if available)
+  return undefined;
+}
+
 async function verifyRecaptcha(token: string): Promise<{ success: boolean; score?: number; error?: string }> {
   const secretKey = process.env.RECAPTCHA_SECRET_KEY;
   
@@ -28,8 +145,8 @@ async function verifyRecaptcha(token: string): Promise<{ success: boolean; score
     
     // reCAPTCHA v3 returns a score (0.0 to 1.0)
     // 1.0 is very likely a human, 0.0 is very likely a bot
-    // Threshold of 0.5 is balanced (recommended for production)
-    const scoreThreshold = 0.5;
+    // Increased threshold to 0.7 for stricter validation
+    const scoreThreshold = 0.7;
     
     console.log('reCAPTCHA verification response:', {
       success: data.success,
@@ -76,11 +193,66 @@ export async function POST(request: NextRequest) {
       address1, 
       address2, 
       details,
-      recaptchaToken
+      recaptchaToken,
+      website // Honeypot field - should be empty
     } = body;
 
-    // Verify reCAPTCHA token (skip in development if browser-error occurs)
+    // Honeypot check - if this field is filled, it's a bot
+    if (website && website.trim() !== '') {
+      console.warn('Honeypot field filled - bot detected:', { website, email });
+      return NextResponse.json(
+        { error: 'Invalid submission detected.' },
+        { status: 403 }
+      );
+    }
+
+    // Extract IP address and user agent
+    const ipAddress = getIpAddress(request);
+    const userAgent = request.headers.get('user-agent') || undefined;
+
+    // Validate required fields
+    if (!firstName || !lastName || !email) {
+      return NextResponse.json(
+        { error: 'First name, last name, and email are required' },
+        { status: 400 }
+      );
+    }
+
+    // Validate email format more strictly
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Invalid email format' },
+        { status: 400 }
+      );
+    }
+
+    // Detect spam patterns BEFORE reCAPTCHA verification
+    const spamCheck = detectSpamPatterns(firstName, lastName, email, address1, address2, details);
+    
+    // Verify reCAPTCHA token
     const recaptchaResult = await verifyRecaptcha(recaptchaToken);
+    
+    // For suspicious patterns, require higher reCAPTCHA score
+    if (spamCheck.isSpam && recaptchaResult.score !== undefined) {
+      const strictThreshold = 0.8;
+      if (recaptchaResult.score < strictThreshold) {
+        console.warn('Suspicious submission with low reCAPTCHA score:', {
+          score: recaptchaResult.score,
+          reasons: spamCheck.reasons,
+          email,
+          ipAddress
+        });
+        return NextResponse.json(
+          { 
+            error: 'Submission verification failed. Please try again.',
+            details: process.env.NODE_ENV === 'development' ? `Score: ${recaptchaResult.score}, Threshold: ${strictThreshold}` : undefined
+          },
+          { status: 403 }
+        );
+      }
+    }
+    
     if (!recaptchaResult.success) {
       // In development, allow browser-error to pass through (domain mismatch on localhost)
       if (process.env.NODE_ENV === 'development' && recaptchaResult.error?.includes('browser-error')) {
@@ -90,6 +262,8 @@ export async function POST(request: NextRequest) {
           error: recaptchaResult.error,
           score: recaptchaResult.score,
           hasToken: !!recaptchaToken,
+          ipAddress,
+          spamDetected: spamCheck.isSpam
         });
         return NextResponse.json(
           { 
@@ -100,14 +274,47 @@ export async function POST(request: NextRequest) {
         );
       }
     } else {
-      console.log('reCAPTCHA verification successful, score:', recaptchaResult.score);
+      console.log('reCAPTCHA verification successful, score:', recaptchaResult.score, {
+        spamDetected: spamCheck.isSpam,
+        ipAddress
+      });
     }
 
-    // Validate required fields
-    if (!firstName || !lastName || !email) {
+    // Block spam submissions
+    if (spamCheck.isSpam) {
+      console.warn('Spam submission blocked:', {
+        email,
+        firstName,
+        lastName,
+        reasons: spamCheck.reasons,
+        recaptchaScore: recaptchaResult.score,
+        ipAddress,
+        userAgent
+      });
+      
+      // Still save it for analysis, but mark as spam and don't send emails
+      const spamSubmission = saveSubmission({
+        firstName,
+        lastName,
+        email,
+        phone,
+        service,
+        eventDate,
+        address1,
+        address2,
+        details,
+        ipAddress,
+        userAgent,
+        recaptchaScore: recaptchaResult.score ?? undefined,
+        spamDetected: true,
+        spamReasons: spamCheck.reasons
+      });
+      
+      console.log('Spam submission saved for analysis:', spamSubmission.id);
+      
       return NextResponse.json(
-        { error: 'First name, last name, and email are required' },
-        { status: 400 }
+        { error: 'Your submission could not be processed. Please check your information and try again.' },
+        { status: 403 }
       );
     }
 
@@ -115,7 +322,7 @@ export async function POST(request: NextRequest) {
     const isNewEmail = !hasEmailBeenSubmitted(email);
     console.log(`Email ${email} is ${isNewEmail ? 'NEW' : 'EXISTING'} - Mailchimp will ${isNewEmail ? 'be called' : 'be skipped'}`);
 
-    // Save submission to local JSON storage
+    // Save submission to local JSON storage with metadata
     const submission = saveSubmission({
       firstName,
       lastName,
@@ -125,10 +332,16 @@ export async function POST(request: NextRequest) {
       eventDate,
       address1,
       address2,
-      details
+      details,
+      ipAddress,
+      userAgent,
+      recaptchaScore: recaptchaResult.score ?? undefined
     });
 
-    console.log('Form submission saved locally:', submission.id);
+    console.log('Form submission saved locally:', submission.id, {
+      ipAddress,
+      recaptchaScore: recaptchaResult.score
+    });
 
     // Only add to Mailchimp if this is a new email address
     // Do this BEFORE sending email so the email shows correct status

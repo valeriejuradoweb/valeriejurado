@@ -5,6 +5,7 @@ import { PrismicRichText } from "@prismicio/react";
 import Link from "next/link";
 import LogoFullWhiteLg from "@/components/LogoFullWhiteLg";
 import LogoGoldSm from "./LogoGoldSm";
+import FooterButtons from "@/components/FooterButtons";
 
 export default async function Footer() {
   const client = createClient();
@@ -91,6 +92,9 @@ export default async function Footer() {
           */}
 
           <div className="pt-8 space-y-6">
+            {/* Email and Instagram buttons */}
+            <FooterButtons email="askme@valeriejurado.com" />
+
             <div className="py-4 grid">
               <Link className="justify-self-center" href="/">
                 <LogoGoldSm />

@@ -72,6 +72,7 @@ const Contact = ({ slice }: ContactProps): JSX.Element => {
           address1: formData.get('MERGE11'),
           address2: formData.get('MERGE10'),
           details: formData.get('MERGE9'),
+          website: formData.get('website'), // Honeypot field
           recaptchaToken,
         }),
       });
@@ -248,6 +249,25 @@ const Contact = ({ slice }: ContactProps): JSX.Element => {
                 ></textarea>
               </div>
               
+              {/* Honeypot field - hidden from humans, bots will fill it */}
+              <input
+                type="text"
+                name="website"
+                id="website"
+                tabIndex={-1}
+                autoComplete="off"
+                style={{
+                  position: 'absolute',
+                  left: '-9999px',
+                  width: '1px',
+                  height: '1px',
+                  opacity: 0,
+                  pointerEvents: 'none'
+                }}
+                aria-hidden="true"
+                defaultValue=""
+              />
+              
               {/* Status Messages */}
               {submitStatus.type && (
                 <div className={`w-full mb-6 p-4 rounded text-center ${
@@ -255,7 +275,12 @@ const Contact = ({ slice }: ContactProps): JSX.Element => {
                     ? 'bg-green-100 text-green-800 border border-green-200' 
                     : 'bg-red-100 text-red-800 border border-red-200'
                 }`}>
-                  {submitStatus.message}
+                  <div>{submitStatus.message}</div>
+                  {submitStatus.type === 'error' && (
+                    <div className="mt-3 text-sm">
+                      Having trouble with the form? Use the Copy Email button below to contact us directly.
+                    </div>
+                  )}
                 </div>
               )}
               
