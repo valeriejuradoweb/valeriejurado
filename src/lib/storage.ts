@@ -43,12 +43,13 @@ if (!process.env.VERCEL) {
   }
 }
 
-export function saveSubmission(submission: Omit<FormSubmission, 'id' | 'timestamp' | 'mailchimpAdded' | 'spamDetected' | 'spamReasons'>): FormSubmission {
+export function saveSubmission(submission: Omit<FormSubmission, 'id' | 'timestamp' | 'mailchimpAdded'>): FormSubmission {
   try {
     const newSubmission: FormSubmission = {
       id: generateId(),
       timestamp: new Date().toISOString(),
       mailchimpAdded: false,
+      spamDetected: false,
       ...submission
     };
     
