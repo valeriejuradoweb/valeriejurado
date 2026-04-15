@@ -20,7 +20,7 @@ export default function FooterButtons({ email }: FooterButtonsProps) {
           showInlineMessage={false}
         />
         <a
-          href="https://www.instagram.com/valeriejurado/"
+          href="https://www.instagram.com/valjurado/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:opacity-65 transition-opacity duration-200 ease-in-out"
