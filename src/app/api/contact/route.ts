@@ -40,7 +40,7 @@ function isRandomCharacterString(text: string): boolean {
   // 3. Mostly alphanumeric with no spaces and no dictionary words
   const hasSpaces = cleaned.includes(' ');
   const suspiciousPattern = 
-    (!hasDictionaryWord && mixedCaseRatio > 0.5 && length > 10) ||
+    (!hasDictionaryWord && !hasSpaces && mixedCaseRatio > 0.5 && length > 10) ||
     (hasMixedCase && diversityRatio > 0.7 && !hasSpaces && length > 12) ||
     (!hasSpaces && !hasDictionaryWord && length > 15 && (upperCaseCount + lowerCaseCount) / length > 0.8);
   
@@ -121,13 +121,22 @@ function getIpAddress(request: NextRequest): string | undefined {
 
 async function verifyRecaptcha(token: string): Promise<{ success: boolean; score?: number; error?: string }> {
   const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+  const isDevelopment = process.env.NODE_ENV === 'development';
   
   if (!secretKey) {
+    if (isDevelopment) {
+      console.warn('reCAPTCHA Secret Key not configured in development - allowing submission');
+      return { success: true, score: 1 };
+    }
     console.error('reCAPTCHA Secret Key not configured');
     return { success: false, error: 'Server configuration error' };
   }
 
   if (!token || token.trim() === '') {
+    if (isDevelopment) {
+      console.warn('reCAPTCHA token missing in development - allowing submission');
+      return { success: true, score: 1 };
+    }
     console.error('reCAPTCHA token is missing or empty');
     return { success: false, error: 'Token missing' };
   }
@@ -182,7 +191,29 @@ async function verifyRecaptcha(token: string): Promise<{ success: boolean; score
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    const contentType = request.headers.get('content-type') || '';
+    let body: Record<string, FormDataEntryValue | null>;
+
+    if (contentType.includes('application/json')) {
+      body = await request.json();
+    } else {
+      // Support native form submissions as a resilient fallback when JS is unavailable.
+      const formData = await request.formData();
+      body = {
+        MERGE1: formData.get('MERGE1'),
+        MERGE2: formData.get('MERGE2'),
+        MERGE0: formData.get('MERGE0'),
+        MERGE4: formData.get('MERGE4'),
+        MERGE7: formData.get('MERGE7'),
+        MERGE8: formData.get('MERGE8'),
+        MERGE11: formData.get('MERGE11'),
+        MERGE10: formData.get('MERGE10'),
+        MERGE9: formData.get('MERGE9'),
+        website: formData.get('website'),
+        recaptchaToken: formData.get('recaptchaToken'),
+      };
+    }
+
     const { 
       firstName, 
       lastName, 
@@ -195,7 +226,19 @@ export async function POST(request: NextRequest) {
       details,
       recaptchaToken,
       website // Honeypot field - should be empty
-    } = body;
+    } = {
+      firstName: String(body.firstName ?? body.MERGE1 ?? ''),
+      lastName: String(body.lastName ?? body.MERGE2 ?? ''),
+      email: String(body.email ?? body.MERGE0 ?? ''),
+      phone: String(body.phone ?? body.MERGE4 ?? ''),
+      service: String(body.service ?? body.MERGE7 ?? ''),
+      eventDate: String(body.eventDate ?? body.MERGE8 ?? ''),
+      address1: String(body.address1 ?? body.MERGE11 ?? ''),
+      address2: String(body.address2 ?? body.MERGE10 ?? ''),
+      details: String(body.details ?? body.MERGE9 ?? ''),
+      recaptchaToken: String(body.recaptchaToken ?? ''),
+      website: String(body.website ?? ''),
+    };
 
     // Honeypot check - if this field is filled, it's a bot
     if (website && website.trim() !== '') {
