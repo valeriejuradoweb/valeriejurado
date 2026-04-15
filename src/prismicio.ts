@@ -41,11 +41,12 @@ export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
     ...config,
   });
 
-  prismicNext.enableAutoPreviews({
-    client,
-    previewData: config.previewData,
-    req: config.req,
-  });
+  // Next.js 15 introduced async draft-mode APIs. With the current Prismic
+  // integration, auto-previews can throw noisy dev-time draftMode errors that
+  // interfere with local hydration and form interactivity.
+  if (process.env.NODE_ENV !== "development") {
+    prismicNext.enableAutoPreviews({ client });
+  }
 
   return client;
 };

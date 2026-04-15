@@ -69,10 +69,14 @@ export default function RootLayout({
       <body>
         <ReCaptchaProvider>
           {/* Conditionally render the HeaderToggle component to handle the Header */}
-          <HeaderToggle />
+          <HeaderToggle>
+            <Header />
+          </HeaderToggle>
           {children}
           <Footer />
-          <PrismicPreview repositoryName={repositoryName} />
+          {process.env.NODE_ENV !== "development" && (
+            <PrismicPreview repositoryName={repositoryName} />
+          )}
         </ReCaptchaProvider>
       </body>
     </html>

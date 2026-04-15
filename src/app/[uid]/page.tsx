@@ -7,10 +7,11 @@ import { components } from "@/slices";
 
 type Params = { uid: string };
 
-export default async function Page({ params }: { params: Params }) {
+export default async function Page({ params }: { params: Promise<Params> }) {
+  const resolvedParams = await params;
   const client = createClient();
   const page = await client
-    .getByUID("page", params.uid)
+    .getByUID("page", resolvedParams.uid)
     .catch(() => notFound());
 
   return <SliceZone slices={page.data.slices} components={components} />;
@@ -19,11 +20,12 @@ export default async function Page({ params }: { params: Params }) {
 export async function generateMetadata({
   params,
 }: {
-  params: Params;
+  params: Promise<Params>;
 }): Promise<Metadata> {
+  const resolvedParams = await params;
   const client = createClient();
   const page = await client
-    .getByUID("page", params.uid)
+    .getByUID("page", resolvedParams.uid)
     .catch(() => notFound());
 
   return {
